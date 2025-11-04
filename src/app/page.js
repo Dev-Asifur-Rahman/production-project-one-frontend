@@ -1,5 +1,9 @@
-
-
 export default function Home() {
-  return <>Hello</>;
+  return (
+    <>
+      <section className="w-full ">
+        
+      </section>
+    </>
+  );
 }

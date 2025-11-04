@@ -7,6 +7,16 @@
   --font-sans: var(--font-montserrat);
 }
 
+@theme {
+  /* sm uses ending point  */
+  --breakpoint-sm: 425px;
+
+  /* rest of  all means starting point  */
+  --breakpoint-smd: 426px;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -24,4 +34,40 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+#navbar-search-icon {
+  z-index: 1;
+}
+
+#navbar-icon-div div {
+  width: 45px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#navbar-icon-div div p{
+  color: white;
+  font-size: 12px;
+  white-space: nowrap;
+  position: absolute;
+  top: 105%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#navbar-icon-div div:hover{
+  cursor: pointer;
+}
+
+#navbar-icon-div div svg {
+  width: 25px;
+  height: 25px;
+  color: white;
 }

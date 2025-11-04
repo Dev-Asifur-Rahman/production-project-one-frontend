@@ -1,5 +1,7 @@
 import { Montserrat } from "next/font/google";
 import "@/styles/globals.css";
+import NavBar from "@/components/layout/NavBar";
+import Marquee from "react-fast-marquee";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,7 +17,16 @@ const montserrat = Montserrat({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={montserrat.variable}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <Marquee pauseOnHover className="border w-full h-8 bg-black">
+          <p className="text-white mr-20  lg:mr-0">
+            Slickdeals is community-supported. We may get paid by brands for
+            deals, including promoted items.
+          </p>
+        </Marquee>
+        <NavBar></NavBar>
+        {children}
+      </body>
     </html>
   );
 }

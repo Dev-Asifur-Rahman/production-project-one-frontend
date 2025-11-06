@@ -3,7 +3,8 @@ import "@/styles/globals.css";
 import Marquee from "react-fast-marquee";
 import NavBar from "@/components/page-layout/root-page/NavBar";
 import Trending from "@/components/page-layout/root-page/Trending";
-
+import Footer from "@/components/page-layout/root-page/Footer";
+import ReduxStoreProvider from "@/providers/ReduxStoreProvider";
 
 export const metadata = {
   title: "SlickDeals",
@@ -20,15 +21,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={montserrat.variable}>
       <body className="font-sans">
-        <Marquee pauseOnHover className="border w-full h-8 bg-black">
-          <p className="text-white mr-20  lg:mr-0">
-            Slickdeals is community-supported. We may get paid by brands for
-            deals, including promoted items.
-          </p>
-        </Marquee>
-        <NavBar></NavBar>
-        <Trending></Trending>
-        {children}
+        {/* redux store provider */}
+        <ReduxStoreProvider>
+          <Marquee pauseOnHover className="border w-full h-8 bg-black">
+            <p className="text-white mr-20  lg:mr-0">
+              Slickdeals is community-supported. We may get paid by brands for
+              deals, including promoted items.
+            </p>
+          </Marquee>
+          <NavBar></NavBar>
+          <Trending></Trending>
+          {children}
+          <Footer></Footer>
+        </ReduxStoreProvider>
       </body>
     </html>
   );

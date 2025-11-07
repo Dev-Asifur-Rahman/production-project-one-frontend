@@ -27,7 +27,6 @@
   @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
 }
 
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -57,7 +56,7 @@ body {
   position: relative;
 }
 
-#navbar-icon-div div p{
+#navbar-icon-div div p {
   color: white;
   font-size: 12px;
   white-space: nowrap;
@@ -67,7 +66,7 @@ body {
   transform: translateX(-50%);
 }
 
-#navbar-icon-div div:hover{
+#navbar-icon-div div:hover {
   cursor: pointer;
 }
 
@@ -77,10 +76,30 @@ body {
   color: white;
 }
 
-#trending-component div{
-   color: #1483F8;
-   font-size: 13px;
-   white-space: nowrap;
-   font-weight: 600;
-   cursor: pointer;
+#trending-component div {
+  color: #1483f8;
+  font-size: 13px;
+  white-space: nowrap;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#footer-get-app-div section {
+  background-color: #555555;
+  width: 80%;
+  max-width: 220px;
+  height: 45px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+#footer-get-app-div section p{
+  font-size: 14px;
+}
+
+#footer-get-app-div section span{
+  font-size: 12px;
 }

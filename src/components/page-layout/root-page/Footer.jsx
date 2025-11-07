@@ -46,8 +46,49 @@ const Footer = () => {
         </div>
 
         {/* get us section  */}
-        <div className="lg:w-1/4 md:w-1/4 w-full border border-blue-500">
-          hello
+        <div
+          id="footer-get-app-div"
+          className="lg:w-1/4 md:w-1/4 w-full flex flex-col justify-center
+         items-center gap-5"
+        >
+          <section className="">
+            <img
+              height={30}
+              width={30}
+              src="https://img.icons8.com/fluency/48/chrome-web-store.png"
+              alt=""
+            />
+
+            <p>
+              <span>Available in the</span>
+              <br />
+              Chrome Web Store
+            </p>
+          </section>
+          <section className="">
+            <img
+              height={30}
+              width={30}
+              src="https://img.icons8.com/fluency/48/google-play.png"
+              alt=""
+            />
+            <p>
+              <span>GET IT ON</span>
+              <br /> Google Play
+            </p>
+          </section>
+          <section>
+            <img
+              height={30}
+              width={30}
+              src="https://img.icons8.com/deco-color/48/mac-os.png"
+              alt=""
+            />
+            <p>
+              <span>Download On The</span>
+              <br /> App Store
+            </p>
+          </section>
         </div>
       </section>
 

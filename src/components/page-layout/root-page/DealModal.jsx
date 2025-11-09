@@ -168,7 +168,7 @@ const DealModal = () => {
                 disabled={!selectedCategory}
               >
                 <option disabled value="">
-                  {translation[lan].common.choose_category}
+                  {translation[lan].common.choose_subcategory}
                 </option>
                 {subcategories.map((sub) => (
                   <option key={sub} value={sub?.name}>

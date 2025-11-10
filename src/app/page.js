@@ -4,7 +4,7 @@ import JustForYou from "@/components/page-layout/home-page/JustForYou";
 import PopularDeals from "@/components/page-layout/home-page/PopularDeals";
 import TopCategories from "@/components/page-layout/home-page/TopCategories";
 import TrendingDeals from "@/components/page-layout/home-page/TrendingDeals";
-import TrendinStores from "@/components/page-layout/home-page/TrendinStores";
+import TrendingStores from "@/components/page-layout/home-page/TrendingStores";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
         {/* two section will be flex in large screen md and small devices flex row reverse  */}
         <section className="lg:w-[70%] md:w-[65%] border">
           <JustForYou></JustForYou>
-          <TrendinStores></TrendinStores>
+          <TrendingStores></TrendingStores>
           <TopCategories></TopCategories>
         </section>
         <section className="lg:w-[30%] md:w-[35%] w-full border">

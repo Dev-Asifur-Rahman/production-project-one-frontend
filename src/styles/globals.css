@@ -13,6 +13,7 @@
 
   /* rest of  all means starting point  */
   --breakpoint-smd: 426px;
+  --breakpoint-mmd : 610px;
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
 }
@@ -76,6 +77,12 @@ body {
   color: white;
 }
 
+.swiper-slide {
+  display: flex;
+ 
+  place-items: center;
+}
+
 #trending-component div {
   color: #1483f8;
   font-size: 13px;
@@ -96,10 +103,10 @@ body {
   gap: 5px;
 }
 
-#footer-get-app-div section p{
+#footer-get-app-div section p {
   font-size: 14px;
 }
 
-#footer-get-app-div section span{
+#footer-get-app-div section span {
   font-size: 12px;
 }

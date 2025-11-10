@@ -6,37 +6,43 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import required modules
-import { Pagination } from "swiper/modules";
+import { FreeMode } from "swiper/modules";
+import ProductCard from "@/components/global-layout-components/ProductCard";
 
 const JustForYou = () => {
   return (
     <section className="w-full ">
       <Swiper
         slidesPerView={5}
-        allowTouchMove={false}
         spaceBetween={10}
+        freeMode={true}
         pagination={{
           clickable: true,
         }}
         breakpoints={{
-          640: {
+          0: {
+            slidesPerView: 1,
+          },
+          320: {
+            slidesPerView: 1,
+          },
+          425: {
             slidesPerView: 2,
-            spaceBetween: 20,
           },
-          768: {
-            slidesPerView: 4,
-            spaceBetween: 40,
+          610 : {
+            slidesPerView : 3,
           },
-          1024: {
-            slidesPerView: 5,
-            spaceBetween: 50,
-          },
+          1024 : {
+            slidesPerView : 4
+          }
         }}
-        modules={[Pagination]}
-        className="mySwiper"
+        modules={[FreeMode]}
+        className="mySwiper h-[200px]"
       >
         {[...Array(15)].map((_, i) => (
-          <SwiperSlide key={i}>Slide {i + 1}</SwiperSlide>
+          <SwiperSlide className="border smd:max-w-[300px]" key={i}>
+            <ProductCard>{i + 1}</ProductCard>
+          </SwiperSlide>
         ))}
       </Swiper>
     </section>

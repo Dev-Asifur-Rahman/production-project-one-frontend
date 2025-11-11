@@ -1,5 +1,4 @@
 import CouponsAndDiscounts from "@/components/page-layout/home-page/CouponsAndDiscounts";
-import FeaturedCouponsAndDiscounts from "@/components/page-layout/home-page/CouponsAndDiscounts";
 import JustForYou from "@/components/page-layout/home-page/JustForYou";
 import PopularDeals from "@/components/page-layout/home-page/PopularDeals";
 import TopCategories from "@/components/page-layout/home-page/TopCategories";
@@ -16,7 +15,7 @@ export default function Home() {
           <TrendingStores></TrendingStores>
           <TopCategories></TopCategories>
         </section>
-        <section className="lg:w-[30%] md:w-[35%] w-full border">
+        <section className="lg:w-[30%] md:w-[35%] w-full">
           <PopularDeals></PopularDeals>
           <TrendingDeals></TrendingDeals>
           <CouponsAndDiscounts></CouponsAndDiscounts>

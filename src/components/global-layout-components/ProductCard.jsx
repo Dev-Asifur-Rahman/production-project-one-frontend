@@ -13,7 +13,7 @@ const ProductCard = () => {
   return (
     <div className=" w-full max-w-[200px] p-2  bg-[#FFFFFF] rounded-lg shadow-2xl my-2">
       {/* avatar and found people  */}
-      <div className=" w-full flex items-center gap-1">
+      {/* <div className=" w-full flex items-center gap-1">
         <div className="avatar">
           <div className="w-7 rounded-full ">
             <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
@@ -22,7 +22,7 @@ const ProductCard = () => {
         <p className="line-clamp-1 text-[12px] font-semibold">
           Found By Josh Tailor
         </p>
-      </div>
+      </div> */}
 
       {/* product image  */}
       <div className="w-full relative bg-[#F0F0F0] mt-1 rounded-md overflow-hidden flex justify-center items-center">

@@ -1,16 +1,22 @@
 "use client";
-import { IoTrendingUp } from "react-icons/io5";
+
 import { GiPriceTag } from "react-icons/gi";
 import { FcLike } from "react-icons/fc";
 import { FcLikePlaceholder } from "react-icons/fc";
 import { MdOutlineInsertComment } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import { useState } from "react";
-
-const TrendingDeals = () => {
+const HomeRightComponents = ({
+  componentName,
+  Heading = "Enter Headiing",
+  HeadingIcon,
+}) => {
   const [isLiked, setLiked] = useState(false);
   return (
-    <div className="w-full mx-auto smd:w-full mmd:w-full md:w-full lg:w-full  mt-10 ">
+    <div
+      className={`w-full ${componentName === "trending-deals" && "mt-10"}
+       mx-auto smd:w-full mmd:w-full md:w-full lg:w-full`}
+    >
       <div
         style={{
           border: "1px solid #F0F0F0",
@@ -19,12 +25,12 @@ const TrendingDeals = () => {
         }}
         className="bg-[#FAFAFA] flex justify-around smd:justify-start md:justify-around lg:justify-start items-center smd:gap-3 py-2 text-xl font-semibold"
       >
-        <p>Trending Deals</p>
-        <IoTrendingUp />
+        <p className="px-2">{Heading}</p>
+        {HeadingIcon}
       </div>
 
       {/* product section  */}
-      <section className="w-full border border-[#F0F0F0]">
+      <section className="w-full border border-t-0 border-[#F0F0F0]">
         {/* fetch products here  */}
 
         {/* cards */}
@@ -176,4 +182,4 @@ const TrendingDeals = () => {
   );
 };
 
-export default TrendingDeals;
+export default HomeRightComponents;

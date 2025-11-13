@@ -4,34 +4,14 @@ import { PiBellSimpleRingingThin } from "react-icons/pi";
 import { GoPlus } from "react-icons/go";
 import { BsPhone } from "react-icons/bs";
 import { HiUserCircle } from "react-icons/hi2";
+import BrandName from "@/components/global-layout-components/BrandName";
 
 const NavBar = () => {
   return (
     <>
       <section className="bg-[#333333] w-full px-3 py-4 lg:py-7 flex justify-between items-center">
         {/* logo section  */}
-        <div className="flex items-center gap-1 lg:w-3/5">
-          <img
-            src="https://static.slickdealscdn.com/image-pool/sd-branding/sd-logomark-blueberry-update.svg"
-            alt=""
-            className="w-8 aspect-square"
-          />
-          <p className="hidden md:inline-flex lg:inline-flex text-3xl text-white font-bold italic">
-            SlickDeals
-          </p>
-          {/* search bar for large screen  */}
-          <div className="w-full hidden lg:inline-flex relative">
-            <input
-              type="text"
-              placeholder="Search deals, Coupons, Stores and more ..."
-              className="input ml-3 w-full rounded-4xl focus:outline-none focus:ring-0"
-            />
-            <BsSearch
-              id="navbar-search-icon"
-              className="absolute cursor-pointer bg-white w-6 h-6 top-1/2 smd:right-[2%] -translate-y-1/2"
-            />
-          </div>
-        </div>
+        <BrandName></BrandName>
         <div id="navbar-icon-div" className="hidden lg:flex lg:justify-evenly items-center lg:w-2/5">
           <div className="tooltip bg-[#DD1A8F] hover:bg-[#9B1264]" data-tip="Deal Alerts">
             <PiBellSimpleRingingThin />

@@ -6,12 +6,20 @@ import { FcLike } from "react-icons/fc";
 import { FcLikePlaceholder } from "react-icons/fc";
 import { MdOutlineInsertComment } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
+import { useRouter } from "next/navigation";
+
 
 const ProductCard = () => {
   const [isLiked, setLiked] = useState(false);
+  const router = useRouter();
+
+  const id = "id";
   // https://slickdeals.net/f/18786394-the-north-face-men-s-vault-backpack-clay-gray-new-taupe-green-39-macy-s?src=frontpage&attrsrc=Frontpage%3AType%3AMissed
   return (
-    <div className=" w-full max-w-[200px] p-2  bg-[#FFFFFF] rounded-lg shadow-2xl my-2">
+    <div
+      onClick={() => router.push(`/product/${id}`)}
+      className=" w-full max-w-[200px] p-2  bg-[#FFFFFF] rounded-lg shadow-2xl my-2 cursor-pointer transition-transform duration-300 hover:scale-105"
+    >
       {/* avatar and found people  */}
       {/* <div className=" w-full flex items-center gap-1">
         <div className="avatar">
@@ -57,7 +65,7 @@ const ProductCard = () => {
       </div>
 
       <hr className="w-full mt-2 text-[#999999]" />
-      
+
       {/* like comment share  */}
       <div className="mt-2 w-full flex justify-between items-center">
         {/* like  */}

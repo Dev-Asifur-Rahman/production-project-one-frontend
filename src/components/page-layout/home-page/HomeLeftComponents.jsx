@@ -5,6 +5,7 @@ import "swiper/css/navigation";
 import { FreeMode, Navigation } from "swiper/modules";
 import ProductCard from "@/components/global-layout-components/ProductCard";
 import { useRef } from "react";
+import AllProductLink from "@/components/sub-components/home-left-components/AllProductLink";
 
 const HomeLeftComponents = ({
   componentName = "Enter Name",
@@ -19,9 +20,10 @@ const HomeLeftComponents = ({
         componentName !== "just-for-you" && "mt-2"
       } relative`}
     >
-      <div className="text-lg font-semibold pl-3 smd:text-xl smd:font-bold mmd:text-2xl">
-        {Heading}
-      </div>
+      <AllProductLink
+        Heading={Heading}
+        categoryName={componentName}
+      ></AllProductLink>
 
       <Swiper
         freeMode={true}

@@ -21,6 +21,7 @@ const ProductCard = () => {
       className=" w-full max-w-[200px] p-2  bg-[#FFFFFF] rounded-lg shadow-2xl my-2 cursor-pointer transition-transform duration-300 hover:scale-105"
     >
       {/* avatar and found people  */}
+      
       {/* <div className=" w-full flex items-center gap-1">
         <div className="avatar">
           <div className="w-7 rounded-full ">

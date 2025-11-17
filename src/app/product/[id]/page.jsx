@@ -8,19 +8,19 @@ import { CiBookmark } from "react-icons/ci";
 
 const page = async ({ params }) => {
   const { id } = await params;
-  console.log(id);
+  
   return (
-    <section className="w-full border ">
+    <section className="w-full">
       {/* product details div  */}
       <div className="w-[96%] mx-auto mt-10 flex flex-col smd:flex-row rounded-md shadow-md items-center smd:items-stretch">
-        <div className="w-full smd:w-2/5 max-w-[270px] smd:max-w-[310px] aspect-square border">
+        <div className="w-full smd:w-2/5 max-w-[270px] smd:max-w-[310px] aspect-square bg-[#F0F0F0] rounded-md">
           <img
             src="https://static.slickdealscdn.com/attachment/2/0/3/0/0/9/6/2/200x200/18682408.thumb"
             alt=""
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover mix-blend-multiply"
           />
         </div>
-        <div className="w-full smd:w-3/5 p-2 md:p-4  border">
+        <div className="w-full smd:w-3/5 p-2 md:p-4  ">
           <p className="text-sm md:text-lg lg:text-2xl font-medium">
             The North Face Men's Vault Backpack (Clay Gray/New Taupe Green, Fits
             15" Laptop)
@@ -66,7 +66,7 @@ const page = async ({ params }) => {
       </div>
 
       {/* tab section  */}
-      <section className="bg-[#FFFFFF] mt-0 m-4 mmd:p-4 border">
+      <section className="bg-[#FFFFFF] mt-0 m-4 mmd:p-4 ">
         <div className="tabs tabs-border">
           <input
             type="radio"

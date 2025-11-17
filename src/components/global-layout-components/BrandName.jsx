@@ -15,7 +15,7 @@ const BrandName = () => {
         onClick={() => router.push("/")}
         className="cursor-pointer hidden md:inline-flex lg:inline-flex text-3xl text-white font-bold italic"
       >
-        SlickDeals
+        DealBondhu
       </p>
       {/* search bar for large screen  */}
       <div className="w-full hidden lg:inline-flex relative">

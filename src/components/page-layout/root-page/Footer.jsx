@@ -26,11 +26,11 @@ const Footer = () => {
           <FooterLinks
             heading="More"
             links={[
-              "SlickDeals Coupons",
+              "DealBondhu Coupons",
               "Deal Alerts",
-              "SlickDeals Live",
+              "DealBondhu Live",
               "Black Friday Deals",
-              "SlickDeals Cashback Rewards",
+              "DealBondhu Cashback Rewards",
             ]}
           ></FooterLinks>
           <FooterLinks
@@ -102,7 +102,7 @@ const Footer = () => {
             src="https://static.slickdealscdn.com/image-pool/sd-branding/sd-logomark-blueberry-update.svg"
             alt=""
           />
-          <p className="italic text-xl font-semibold">SlickDeals</p>
+          <p className="italic text-xl font-semibold">DealBondhu</p>
         </div>
         {/* copyright  */}
         <div className="text-sm flex lg:flex-row md:flex-row smd:flex-col flex-col lg:justify-between md:justify-between smd:justify-center justify-center lg:gap-6 md:gap-5 gap-3">

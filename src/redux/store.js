@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import deal_modalReducer from "@/redux/features/modalSlice";
 
- const store = configureStore({
-    reducer : {
-        //  todo 
-    }
+const store = configureStore({
+  reducer: {
+    deal_modal: deal_modalReducer,
+  },
 });
 
-export default store
+export default store;

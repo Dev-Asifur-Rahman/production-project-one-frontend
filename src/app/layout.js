@@ -5,6 +5,8 @@ import NavBar from "@/components/page-layout/root-page/NavBar";
 import Trending from "@/components/page-layout/root-page/Trending";
 import Footer from "@/components/page-layout/root-page/Footer";
 import ReduxStoreProvider from "@/providers/ReduxStoreProvider";
+import PostDeal from "@/components/sub-components/navbar/PostDeal";
+import DealModal from "@/components/page-layout/root-page/DealModal";
 
 export const metadata = {
   title: "DealBondhu",
@@ -33,6 +35,8 @@ export default function RootLayout({ children }) {
           <Trending></Trending>
           {children}
           <Footer></Footer>
+          {/* <PostDeal></PostDeal> */}
+          <DealModal></DealModal>
         </ReduxStoreProvider>
       </body>
     </html>

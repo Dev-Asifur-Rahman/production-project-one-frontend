@@ -21,7 +21,13 @@ const DealModal = () => {
     }
   }, [isOpen]);
 
+  const submitDealForm = (e) => {
+    e.preventDefault();
+    console.log(e.target);
+    dispatch(closeModal());
+  };
 
+  console.log(isOpen);
   return (
     <>
       <p onClick={() => dispatch(openModal())}>Open</p>
@@ -31,18 +37,20 @@ const DealModal = () => {
         className="modal modal-bottom sm:modal-middle"
       >
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
-          <p className="py-4">
-            Press ESC key or click the button below to close
-          </p>
-          <div className="modal-action">
-            <form method="dialog">
-              {/* if there is a button in form, it will close the modal */}
-              <button onClick={() => dispatch(closeModal())} className="btn">
-                Close
-              </button>
-            </form>
-          </div>
+          <form onSubmit={submitDealForm} method="dialog" className="border">
+            <h3 className="font-bold text-lg">Hello!</h3>
+            <p className="py-4">
+              Press ESC key or click the button below to close
+            </p>
+            <button className="btn">Submit</button>
+            <button
+              type="button"
+              onClick={() => dispatch(closeModal())}
+              className="btn"
+            >
+              Close
+            </button>
+          </form>
         </div>
       </dialog>
     </>

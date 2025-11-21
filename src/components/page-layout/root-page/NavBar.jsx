@@ -1,10 +1,10 @@
 import { LuMenu } from "react-icons/lu";
 import { BsSearch } from "react-icons/bs";
 import { PiBellSimpleRingingThin } from "react-icons/pi";
-import { GoPlus } from "react-icons/go";
 import { BsPhone } from "react-icons/bs";
 import { HiUserCircle } from "react-icons/hi2";
 import BrandName from "@/components/global-layout-components/BrandName";
+import PostDeal from "@/components/sub-components/navbar/PostDeal";
 
 const NavBar = () => {
   return (
@@ -17,10 +17,7 @@ const NavBar = () => {
             <PiBellSimpleRingingThin />
             <p>Deal Alerts</p>
           </div>
-          <div className="tooltip bg-[#146FF5] hover:bg-[#0E4EAC]" data-tip="Post a Deal">
-            <GoPlus />
-            <p>Post a Deal</p>
-          </div>
+          <PostDeal></PostDeal>
           <div className="tooltip bg-[#F4B40B] hover:bg-[#614805]" data-tip="Go Mobile">
             <BsPhone />
             <p>Go Mobile</p>

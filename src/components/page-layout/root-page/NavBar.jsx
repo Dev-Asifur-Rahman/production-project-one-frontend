@@ -12,17 +12,20 @@ const NavBar = () => {
       <section className="bg-[#333333] w-full px-3 py-4 lg:py-7 flex justify-between items-center">
         {/* logo section  */}
         <BrandName></BrandName>
-        <div id="navbar-icon-div" className="hidden lg:flex lg:justify-evenly items-center lg:w-2/5">
-          <div className="tooltip bg-[#DD1A8F] hover:bg-[#9B1264]" data-tip="Deal Alerts">
+        <div
+          id="navbar-icon-div"
+          className="hidden lg:flex lg:justify-evenly items-center lg:w-2/5"
+        >
+          <div className=" bg-[#DD1A8F] hover:bg-[#9B1264]">
             <PiBellSimpleRingingThin />
             <p>Deal Alerts</p>
           </div>
           <PostDeal></PostDeal>
-          <div className="tooltip bg-[#F4B40B] hover:bg-[#614805]" data-tip="Go Mobile">
+          <div className=" bg-[#F4B40B] hover:bg-[#614805]">
             <BsPhone />
             <p>Go Mobile</p>
           </div>
-          <div className="tooltip bg-[#EE6F40] hover:bg-[#CC4818]" data-tip="Sign Up">
+          <div className=" bg-[#EE6F40] hover:bg-[#CC4818]">
             <HiUserCircle />
             <p>Sign Up</p>
           </div>

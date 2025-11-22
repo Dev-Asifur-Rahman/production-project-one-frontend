@@ -9,8 +9,8 @@ const PostDeal = () => {
   return (
     <>
       <div
-        className="tooltip bg-[#146FF5] hover:bg-[#0E4EAC]"
-        data-tip="Post a Deal"
+        className=" bg-[#146FF5] hover:bg-[#0E4EAC]"
+        
         onClick={() => dispatch(openModal())}
       >
         <GoPlus />

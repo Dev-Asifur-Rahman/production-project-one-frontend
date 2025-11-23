@@ -27,7 +27,6 @@ const TopCategories = () => {
       <Marquee pauseOnHover className="w-full flex items-center gap-3 ">
         {categories?.map((category, index) => (
           <div
-            onClick={() => router.push(`/products/${category?.category}`)}
             key={index}
             className="flex flex-col justify-center items-center gap-3 mx-8 w-50  cursor-pointer  p-2    mb-10 "
           >
@@ -55,7 +54,7 @@ const TopCategories = () => {
             </p>
             <div className="w-[120px] aspect-square rounded-full shadow-2xl hover:bg-[#d1e2f5]"></div>
             <p className="text-wrap text-center w-full">
-              {category?.subcategory}
+              {translation[lan] === 'bn' ? category?.bn :   category?.subcategory}
             </p>
           </div>
         ))}

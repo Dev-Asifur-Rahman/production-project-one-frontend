@@ -2,18 +2,22 @@
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import translation from "@/utils/translation";
 import dayjs from "dayjs";
+import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
 const PendingProducts = () => {
   const [pendingProducts, setPendingProducts] = useState([]);
-  const [refresh,setRefresh] = useState(false)
-  const {lan} = useContext(LanguageContext)
+  const [refresh, setRefresh] = useState(false);
+  const router = useRouter();
+  const { lan } = useContext(LanguageContext);
 
   useEffect(() => {
     const fetchPendingProducts = async () => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/pending_products`);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/pending_products`
+      );
       const data = await response.json();
       setPendingProducts(data);
     };
@@ -23,6 +27,25 @@ const PendingProducts = () => {
 
   const handleUpdate = (id) => {
     router.push(`/update/${id}`);
+  };
+
+  const handleTimeFormat = (time) => {
+    if (!time) return "No date";
+    const now = dayjs();
+    const end = dayjs(time);
+    const diffInMinutes = end.diff(now, "minute");
+
+    if (diffInMinutes <= 0) return "Expired";
+    const diffInHours = end.diff(now, "hour");
+    const diffInDays = end.diff(now, "day");
+
+    if (diffInDays >= 1) {
+      return `${diffInDays} days`;
+    } else if (diffInHours >= 1) {
+      return `${diffInHours} hours`;
+    } else {
+      return `${diffInMinutes} min`;
+    }
   };
 
   const handleApprove = async (id) => {
@@ -35,7 +58,7 @@ const PendingProducts = () => {
     const result = await response.json();
     if (result.acknowledged === true) {
       toast.success("product added");
-      setRefresh(!refresh)
+      setRefresh(!refresh);
     }
   };
   return (
@@ -72,7 +95,7 @@ const PendingProducts = () => {
                     <td>{product?.status}</td>
                     <td>
                       <div className="flex justify-center">
-                        {dayjs(product?.archive_at).format("D")} days
+                        {handleTimeFormat(product?.archive_at)}
                       </div>
                     </td>
                     <td>{product?.category}</td>

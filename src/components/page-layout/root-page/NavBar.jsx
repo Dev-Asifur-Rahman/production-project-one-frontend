@@ -1,7 +1,7 @@
 import { LuMenu } from "react-icons/lu";
 import { BsSearch } from "react-icons/bs";
 import { PiBellSimpleRingingThin } from "react-icons/pi";
-import { BsPhone } from "react-icons/bs";
+// import { BsPhone } from "react-icons/bs";
 import { HiUserCircle } from "react-icons/hi2";
 import BrandName from "@/components/global-layout-components/BrandName";
 import PostDeal from "@/components/sub-components/navbar/PostDeal";
@@ -21,10 +21,10 @@ const NavBar = () => {
             <p>Deal Alerts</p>
           </div>
           <PostDeal></PostDeal>
-          <div className=" bg-[#F4B40B] hover:bg-[#614805]">
+          {/* <div className=" bg-[#F4B40B] hover:bg-[#614805]">
             <BsPhone />
             <p>Go Mobile</p>
-          </div>
+          </div> */}
           <div className=" bg-[#EE6F40] hover:bg-[#CC4818]">
             <HiUserCircle />
             <p>Sign Up</p>

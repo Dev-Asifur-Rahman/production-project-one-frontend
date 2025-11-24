@@ -36,8 +36,8 @@ const DealModal = () => {
         id="my_modal_5"
         className="modal modal-bottom sm:modal-middle"
       >
-        <div className="modal-box">
-          <form onSubmit={submitDealForm} method="dialog" className="border">
+        <div className="modal-box p-3">
+          <form onSubmit={submitDealForm} method="dialog" className="">
             <h3 className="font-bold text-lg">Hello!</h3>
             <p className="py-4">
               Press ESC key or click the button below to close

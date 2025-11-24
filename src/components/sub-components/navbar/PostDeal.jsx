@@ -14,7 +14,7 @@ const PostDeal = () => {
         onClick={() => dispatch(openModal())}
       >
         <GoPlus />
-        <p>open modal</p>
+        <p>Post Deal</p>
       </div>
     </>
   );

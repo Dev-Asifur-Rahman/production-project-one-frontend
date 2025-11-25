@@ -25,8 +25,8 @@ export default function RootLayout({ children }) {
       <body className="font-sans">
         {/* redux store provider */}
         <ReduxStoreProvider>
-          <Marquee pauseOnHover className="border w-full h-8 bg-black">
-            <p className="text-white mr-20  lg:mr-0">
+          <Marquee pauseOnHover className=" w-full h-8 bg-[#F5F7FA]">
+            <p className=" mr-20  lg:mr-0 font-medium">
               DealBondhu is community-supported. We may get paid by brands for
               deals, including promoted items.
             </p>

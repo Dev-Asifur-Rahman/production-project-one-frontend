@@ -4,7 +4,12 @@ import FooterLinks from "@/components/sub-components/footer/FooterLinks";
 
 const Footer = () => {
   return (
-    <section className="w-full bg-[#333333] p-5 text-white">
+    <section
+      style={{
+        background: `linear-gradient(21deg,rgba(123, 97, 207, 1) 0%, rgba(89, 101, 194, 1) 34%, rgba(86, 127, 196, 1) 59%, rgba(102, 158, 222, 1) 71%, rgba(255, 255, 255, 1) 98%)`,
+      }}
+      className="w-full p-5 text-white"
+    >
       {/* link and get us section  */}
       <section className="w-full lg:mt-14 md:mt-10 smd:mt-8 mt-5 flex lg:flex-row md:flex-row smd:flex-col flex-col lg:gap-0 md:gap-0 gap-5 lg:mb-12 md:mb-10 smd:mb-8 mb-5">
         {/* link section  */}
@@ -105,15 +110,15 @@ const Footer = () => {
           <p className="italic text-xl font-semibold">DealBondhu</p>
         </div>
         {/* copyright  */}
-        <div className="text-sm flex lg:flex-row md:flex-row smd:flex-col flex-col lg:justify-between md:justify-between smd:justify-center justify-center lg:gap-6 md:gap-5 gap-3">
+        <div className="text-sm pr-[100px] flex lg:flex-row md:flex-row smd:flex-col flex-col lg:justify-between md:justify-between smd:justify-center justify-center lg:gap-6 md:gap-5 gap-3">
           <p className="text-center">
-            Copyright 1999 - 2025. Slickdeals, LLC. All Rights Reserved.
+            Copyright - 2026. DealBondhu. All Rights Reserved.
           </p>
-          <div className="flex justify-center items-center gap-2">
+          {/* <div className="flex justify-center items-center gap-2">
             <span>redesign </span>
             <span>mobile</span>
             <span> classic</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

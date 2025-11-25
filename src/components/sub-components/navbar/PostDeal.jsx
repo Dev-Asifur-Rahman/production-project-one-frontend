@@ -9,12 +9,11 @@ const PostDeal = () => {
   return (
     <>
       <div
-        className=" bg-[#146FF5] hover:bg-[#0E4EAC]"
-        
+        className=" bg-[#196296] hover:bg-[#f08b3e] "
         onClick={() => dispatch(openModal())}
       >
         <GoPlus />
-        <p>Post Deal</p>
+        <p className="">Post Deal</p>
       </div>
     </>
   );

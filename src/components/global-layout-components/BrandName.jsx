@@ -5,7 +5,7 @@ import { BsSearch } from "react-icons/bs";
 const BrandName = () => {
   const router = useRouter();
   return (
-    <div className="flex items-center gap-1 lg:w-3/5">
+    <div className="flex items-center gap-1 lg:w-4/5 ">
       <img onClick={()=>router.push('/')}
         src="https://static.slickdealscdn.com/image-pool/sd-branding/sd-logomark-blueberry-update.svg"
         alt=""
@@ -13,12 +13,12 @@ const BrandName = () => {
       />
       <p
         onClick={() => router.push("/")}
-        className="cursor-pointer hidden md:inline-flex lg:inline-flex text-3xl text-white font-bold italic"
+        className="cursor-pointer hidden md:inline-flex lg:inline-flex text-3xl text-black font-bold italic"
       >
         DealBondhu
       </p>
       {/* search bar for large screen  */}
-      <div className="w-full hidden lg:inline-flex relative">
+      <div className="w-full max-w-[550px] hidden lg:inline-flex relative">
         <input
           type="text"
           placeholder="Search deals, Coupons, Stores and more ..."

@@ -3,7 +3,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a;
   --font-sans: var(--font-montserrat);
 }
 
@@ -13,7 +13,7 @@
 
   /* rest of  all means starting point  */
   --breakpoint-smd: 426px;
-  --breakpoint-mmd : 610px;
+  --breakpoint-mmd: 610px;
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
 }
@@ -69,6 +69,11 @@ body {
 
 #navbar-icon-div div:hover {
   cursor: pointer;
+  color: #1a1a1a;
+}
+
+#navbar-icon-div div:hover p {
+  color: #1a1a1a;
 }
 
 #navbar-icon-div div svg {
@@ -83,11 +88,15 @@ body {
 }
 
 #trending-component div {
-  color: #1483f8;
+  color: #1a1a1a;
   font-size: 13px;
   white-space: nowrap;
   font-weight: 600;
   cursor: pointer;
+}
+
+#trending-component div:hover {
+  color: #f0530a;
 }
 
 #footer-get-app-div section {

@@ -9,25 +9,31 @@ import PostDeal from "@/components/sub-components/navbar/PostDeal";
 const NavBar = () => {
   return (
     <>
-      <section className="bg-[#333333] w-full px-3 py-4 lg:py-7 flex justify-between items-center">
-        {/* logo section  */}
+      <section
+        style={{
+          background: `linear-gradient(21deg,rgba(123, 97, 207, 1) 0%, rgba(89, 101, 194, 1) 34%, rgba(86, 127, 196, 1) 59%, rgba(102, 158, 222, 1) 71%, rgba(255, 255, 255, 1) 98%)`,
+        }}
+        className="
+ w-full px-3 py-4 lg:py-7 flex justify-between items-center"
+      >
+        {/* logo section  with searchbar for lg screen*/}
         <BrandName></BrandName>
         <div
           id="navbar-icon-div"
-          className="hidden lg:flex lg:justify-evenly items-center lg:w-2/5"
+          className="hidden lg:flex lg:justify-evenly items-center lg:w-1/5"
         >
-          <div className=" bg-[#DD1A8F] hover:bg-[#9B1264]">
+          {/* <div className=" bg-[] hover:bg-[#9B1264]">
             <PiBellSimpleRingingThin />
             <p>Deal Alerts</p>
-          </div>
+          </div> */}
           <PostDeal></PostDeal>
           {/* <div className=" bg-[#F4B40B] hover:bg-[#614805]">
             <BsPhone />
             <p>Go Mobile</p>
           </div> */}
-          <div className=" bg-[#EE6F40] hover:bg-[#CC4818]">
+          <div className=" bg-[#196296] hover:bg-[#f08b3e]">
             <HiUserCircle />
-            <p>Sign Up</p>
+            <p className="text-[#1A1A1A]">Sign Up</p>
           </div>
         </div>
         {/* search bar section for md and small screen */}

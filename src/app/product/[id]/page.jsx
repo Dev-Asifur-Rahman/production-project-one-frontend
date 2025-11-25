@@ -8,12 +8,12 @@ import { CiBookmark } from "react-icons/ci";
 
 const page = async ({ params }) => {
   const { id } = await params;
-  
+
   return (
     <section className="w-full">
       {/* product details div  */}
       <div className="w-[96%] mx-auto mt-10 flex flex-col smd:flex-row rounded-md shadow-md items-center smd:items-stretch">
-        <div className="w-full smd:w-2/5 max-w-[270px] smd:max-w-[310px] aspect-square bg-[#F0F0F0] rounded-md">
+        <div className="w-full smd:w-2/5 max-w-[270px] smd:max-w-[310px] aspect-square bg-[#d1e2f5] rounded-lg shadow-2xl">
           <img
             src="https://static.slickdealscdn.com/attachment/2/0/3/0/0/9/6/2/200x200/18682408.thumb"
             alt=""
@@ -52,7 +52,12 @@ const page = async ({ params }) => {
 
           {/* deal button share and bookmark  */}
           <div className="mt-3 md:mt-6 flex gap-3 items-center">
-            <button className="btn rounded-xl bg-blue-500 hover:bg-blue-800 text-white">
+            <button
+              style={{
+                background: `linear-gradient(21deg,rgba(123, 97, 207, 1) 0%, rgba(89, 101, 194, 1) 34%, rgba(86, 127, 196, 1) 59%, rgba(102, 158, 222, 1) 71%, rgba(255, 255, 255, 1) 98%)`,
+              }}
+              className="btn rounded-xl hover:bg-blue-800 text-white"
+            >
               Get deal at Macys
             </button>
             <div className="p-3 rounded-full border w-fit hover:bg-gray-400 hover:text-white">
@@ -68,30 +73,31 @@ const page = async ({ params }) => {
       {/* tab section  */}
       <section className="bg-[#FFFFFF] mt-0 m-4 mmd:p-4 ">
         <div className="tabs tabs-border">
-          <input
+          {/* <input
             type="radio"
             name="my_tabs_2"
             className="tab"
             aria-label="Deal Details"
             defaultChecked
           />
-          <div className="tab-content p-2">Tab content 1</div>
+          <div className="tab-content p-2">Tab content 1</div>  */}
 
           <input
             type="radio"
             name="my_tabs_2"
             className="tab"
             aria-label="Product Info"
+            defaultChecked
           />
           <div className="tab-content   p-2">Tab content 2</div>
 
-          <input
+          {/* <input
             type="radio"
             name="my_tabs_2"
             className="tab"
             aria-label="Community Notes"
           />
-          <div className="tab-content  p-2">Tab content 3</div>
+          <div className="tab-content  p-2">Tab content 3</div> */}
         </div>
       </section>
     </section>

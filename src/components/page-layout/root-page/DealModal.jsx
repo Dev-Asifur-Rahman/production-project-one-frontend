@@ -1,6 +1,6 @@
 "use client";
 
-import { closeModal, openModal } from "@/redux/features/modalSlice";
+import { closeModal } from "@/redux/features/modalSlice";
 import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -30,7 +30,6 @@ const DealModal = () => {
   console.log(isOpen);
   return (
     <>
-      <p onClick={() => dispatch(openModal())}>Open</p>
       <dialog
         ref={dialogueRef}
         id="my_modal_5"

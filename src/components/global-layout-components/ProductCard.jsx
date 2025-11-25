@@ -7,6 +7,7 @@ import { FcLikePlaceholder } from "react-icons/fc";
 import { MdOutlineInsertComment } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import { useRouter } from "next/navigation";
+import CornerRibbon from "./CornerRibbon";
 
 
 const ProductCard = () => {
@@ -18,7 +19,7 @@ const ProductCard = () => {
   return (
     <div
       onClick={() => router.push(`/product/${id}`)}
-      className=" w-full max-w-[200px] p-2  bg-[#FFFFFF] rounded-lg shadow-2xl my-2 cursor-pointer transition-transform duration-300 hover:scale-105"
+      className="relative overflow-hidden w-full max-w-[200px] p-2  bg-[#d1e2f5] hover:bg-[#76ace9] rounded-lg shadow-2xl my-2 cursor-pointer transition-transform duration-300 hover:scale-105"
     >
       {/* avatar and found people  */}
       
@@ -32,7 +33,10 @@ const ProductCard = () => {
           Found By Josh Tailor
         </p>
       </div> */}
+      
 
+      {/* ribbon component  */}
+      <CornerRibbon></CornerRibbon>
       {/* product image  */}
       <div className="w-full relative bg-[#F0F0F0] mt-1 rounded-md overflow-hidden flex justify-center items-center">
         <img
@@ -57,7 +61,7 @@ const ProductCard = () => {
         <GiPriceTag />
         <p>$39</p>
         {/* discount  */}
-        <span className="line-through text-[12px] text-red-500">$45</span>
+        <span className="line-through text-[12px] font-semibold text-[#FF8F2C]">$45</span>
       </div>
 
       {/* brand name  */}

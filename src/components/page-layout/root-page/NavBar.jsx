@@ -10,11 +10,11 @@ const NavBar = () => {
   return (
     <>
       <section
-        style={{
-          background: `linear-gradient(21deg,rgba(123, 97, 207, 1) 0%, rgba(89, 101, 194, 1) 34%, rgba(86, 127, 196, 1) 59%, rgba(102, 158, 222, 1) 71%, rgba(255, 255, 255, 1) 98%)`,
-        }}
+        // style={{
+        //   background: `linear-gradient(21deg,rgba(123, 97, 207, 1) 0%, rgba(89, 101, 194, 1) 34%, rgba(86, 127, 196, 1) 59%, rgba(102, 158, 222, 1) 71%, rgba(255, 255, 255, 1) 98%)`,
+        // }}
         className="
- w-full px-3 py-4 lg:py-7 flex justify-between items-center"
+ w-full px-3 py-4 lg:py-7 flex justify-between bg-[#1f242d] items-center"
       >
         {/* logo section  with searchbar for lg screen*/}
         <BrandName></BrandName>
@@ -31,7 +31,7 @@ const NavBar = () => {
             <BsPhone />
             <p>Go Mobile</p>
           </div> */}
-          <div className=" bg-[#196296] hover:bg-[#f08b3e]">
+          <div className=" bg-[#196296] hover:bg-[#0ef]">
             <HiUserCircle />
             <p className="text-[#1A1A1A]">Sign Up</p>
           </div>

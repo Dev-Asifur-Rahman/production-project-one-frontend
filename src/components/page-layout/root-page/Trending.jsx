@@ -6,15 +6,15 @@ const Trending = () => {
   const router = useRouter();
   const categories = [
     "Trending",
-    "Top Retail Deals",
-    "Tool Deals",
-    "Tech Deals",
-    "Apparel",
-    "Credit Card Offers",
-    "Laptop and Computers",
-    "Home Deals",
-    "Sneaker Deals",
-    "Grocery Deals",
+    "Electronics & Gadgets",
+    "Fashion & Apparel",
+    "Health, Beauty & Personal Care",
+    "Home & Kitchen",
+    "Sports, Fitness & Outdoors",
+    "Toys, Kids & Baby Products",
+    "Automotive & Tools",
+    "Groceries & Gourmet Food",
+    "Office, Books & Entertainment",
   ];
 
   return (

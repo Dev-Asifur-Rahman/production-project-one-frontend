@@ -5,6 +5,7 @@
   --background: #ffffff;
   --foreground: #1a1a1a;
   --font-sans: var(--font-montserrat);
+  --main-color: #0ef;
 }
 
 @theme {
@@ -70,11 +71,12 @@ body {
 #navbar-icon-div div:hover {
   cursor: pointer;
   color: #1a1a1a;
+  box-shadow: 0 0 1rem var(--main-color);
 }
 
-#navbar-icon-div div:hover p {
+/* #navbar-icon-div div:hover p {
   color: #1a1a1a;
-}
+} */
 
 #navbar-icon-div div svg {
   width: 25px;
@@ -96,7 +98,8 @@ body {
 }
 
 #trending-component div:hover {
-  color: #f0530a;
+  color: #196296;
+  text-shadow: -2px 2px 3px #2ea1cb;
 }
 
 #footer-get-app-div section {

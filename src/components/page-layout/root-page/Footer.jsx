@@ -3,10 +3,11 @@
 import FooterLinks from "@/components/sub-components/footer/FooterLinks";
 
 const Footer = () => {
+  // `linear-gradient(21deg,rgba(123, 97, 207, 1) 0%, rgba(89, 101, 194, 1) 34%, rgba(86, 127, 196, 1) 59%, rgba(102, 158, 222, 1) 71%, rgba(255, 255, 255, 1) 98%)`
   return (
     <section
       style={{
-        background: `linear-gradient(21deg,rgba(123, 97, 207, 1) 0%, rgba(89, 101, 194, 1) 34%, rgba(86, 127, 196, 1) 59%, rgba(102, 158, 222, 1) 71%, rgba(255, 255, 255, 1) 98%)`,
+        background: `linear-gradient(21deg,rgba(31, 36, 45, 1) 0%, rgba(5, 5, 13, 1) 34%, rgba(51, 51, 61, 1) 59%, rgba(90, 90, 99, 1) 71%, rgba(196, 196, 196, 1) 98%)`,
       }}
       className="w-full p-5 text-white"
     >
@@ -35,7 +36,7 @@ const Footer = () => {
               "Deal Alerts",
               "DealBondhu Live",
               "Black Friday Deals",
-              "DealBondhu Cashback Rewards",
+              // "DealBondhu Cashback Rewards",
             ]}
           ></FooterLinks>
           <FooterLinks
@@ -70,7 +71,7 @@ const Footer = () => {
               Chrome Web Store
             </p>
           </section>
-          <section className="">
+          {/* <section className="">
             <img
               height={30}
               width={30}
@@ -93,7 +94,7 @@ const Footer = () => {
               <span>Download On The</span>
               <br /> App Store
             </p>
-          </section>
+          </section> */}
         </div>
       </section>
 
@@ -110,7 +111,7 @@ const Footer = () => {
           <p className="italic text-xl font-semibold">DealBondhu</p>
         </div>
         {/* copyright  */}
-        <div className="text-sm pr-[100px] flex lg:flex-row md:flex-row smd:flex-col flex-col lg:justify-between md:justify-between smd:justify-center justify-center lg:gap-6 md:gap-5 gap-3">
+        <div className="text-sm lg:mr-40 flex lg:flex-row md:flex-row smd:flex-col flex-col lg:justify-between md:justify-between smd:justify-center justify-center lg:gap-6 md:gap-5 gap-3">
           <p className="text-center">
             Copyright - 2026. DealBondhu. All Rights Reserved.
           </p>

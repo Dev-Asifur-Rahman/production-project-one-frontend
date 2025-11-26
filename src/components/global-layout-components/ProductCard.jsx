@@ -61,7 +61,7 @@ const ProductCard = () => {
         <GiPriceTag />
         <p>$39</p>
         {/* discount  */}
-        <span className="line-through text-[12px] font-semibold text-[#FF8F2C]">$45</span>
+        <span className="line-through text-[12px] font-semibold text-red-600">$45</span>
       </div>
 
       {/* brand name  */}

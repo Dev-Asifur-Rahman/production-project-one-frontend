@@ -103,12 +103,12 @@ const Footer = () => {
         {/* brand name and icon  */}
         <div className="flex gap-1 lg:justify-start md:justify-start smd:justify-center justify-center items-center">
           <img
-            height={40}
-            width={40}
-            src="https://static.slickdealscdn.com/image-pool/sd-branding/sd-logomark-blueberry-update.svg"
+            
+            src="/logo/deal-bondhu-logo.svg"
             alt=""
+            className="w-40"
           />
-          <p className="italic text-xl font-semibold">DealBondhu</p>
+          
         </div>
         {/* copyright  */}
         <div className="text-sm lg:mr-40 flex lg:flex-row md:flex-row smd:flex-col flex-col lg:justify-between md:justify-between smd:justify-center justify-center lg:gap-6 md:gap-5 gap-3">

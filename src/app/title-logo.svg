@@ -1,0 +1,35 @@
+<!-- sample rectangle -->
+<svg
+              width="150"
+              height="130"
+              viewBox="0 0 128 128"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <text
+                x="-2"
+                y="100"
+                font-family="'Great Vibes', cursive"
+                font-size="105"
+                font-weight="700"
+                fill="#196296"
+                stroke="#196296"
+                stroke-width="1"
+                letter-spacing="-5"
+              >
+                d
+              </text>
+
+              <text
+                x="65"
+                y="100"
+                font-family="'Great Vibes', cursive"
+                font-size="105"
+                font-weight="700"
+                fill="#EB9053"
+                stroke="#EB9053"
+                stroke-width="1"
+                letter-spacing="-5"
+              >
+                b
+              </text>
+            </svg>

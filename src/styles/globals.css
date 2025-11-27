@@ -93,13 +93,13 @@ body {
   color: #1a1a1a;
   font-size: 13px;
   white-space: nowrap;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
 }
 
 #trending-component div:hover {
   color: #196296;
-  text-shadow: -2px 2px 3px #2ea1cb;
+  /* text-shadow: -2px 2px 3px #2ea1cb; */
 }
 
 #footer-get-app-div section {

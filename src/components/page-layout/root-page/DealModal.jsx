@@ -26,8 +26,6 @@ const DealModal = () => {
     console.log(e.target);
     dispatch(closeModal());
   };
-
-  console.log(isOpen);
   return (
     <>
       <dialog

@@ -8,6 +8,7 @@ import ReduxStoreProvider from "@/providers/ReduxStoreProvider";
 import PostDeal from "@/components/sub-components/navbar/PostDeal";
 import DealModal from "@/components/page-layout/root-page/DealModal";
 import OfferAndDiscountSlider from "@/components/page-layout/home-page/OfferAndDiscountSlider";
+import Test from "@/components/page-layout/root-page/Test";
 
 export const metadata = {
   title: "DealBondhu",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
       <body className="font-sans">
         {/* redux store provider */}
         <ReduxStoreProvider>
+          {/* <Test></Test> */}
           <Marquee pauseOnHover className=" w-full h-8 bg-[#F5F7FA]">
             <p className=" mr-20  lg:mr-0 font-medium">
               DealBondhu is community-supported. We may get paid by brands for

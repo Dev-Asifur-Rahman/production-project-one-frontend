@@ -12,7 +12,7 @@ import { EffectCreative, Navigation, Autoplay } from "swiper/modules";
 
 const OfferAndDiscountSlider = () => {
   return (
-    <section className="w-full lg:mt-8 md:mt-6 smd:mt-4 mt-3 aspect-[1/0.3]">
+    <section className="w-full lg:mt-5 md:mt-4 smd:mt-3 mt-2 aspect-[1/0.3]">
       <Swiper
         grabCursor={true}
         effect={"creative"}

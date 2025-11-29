@@ -21,18 +21,6 @@ const ProductCard = () => {
       onClick={() => router.push(`/product/${id}`)}
       className="relative overflow-hidden w-full max-w-[200px] p-2  bg-[#d1e2f5] hover:bg-[#76ace9] rounded-lg shadow-2xl my-2 cursor-pointer transition-transform duration-300 hover:scale-105"
     >
-      {/* avatar and found people  */}
-      
-      {/* <div className=" w-full flex items-center gap-1">
-        <div className="avatar">
-          <div className="w-7 rounded-full ">
-            <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-          </div>
-        </div>
-        <p className="line-clamp-1 text-[12px] font-semibold">
-          Found By Josh Tailor
-        </p>
-      </div> */}
       
 
       {/* ribbon component  */}

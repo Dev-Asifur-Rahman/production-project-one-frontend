@@ -5,6 +5,7 @@ import { MdOutlineComment } from "react-icons/md";
 import { GiClick } from "react-icons/gi";
 import { IoIosSend } from "react-icons/io";
 import { CiBookmark } from "react-icons/ci";
+import RedirectButton from "@/components/page-layout/product-page/RedirectButton";
 
 const page = async ({ params }) => {
   const { id } = await params;
@@ -52,14 +53,7 @@ const page = async ({ params }) => {
 
           {/* deal button share and bookmark  */}
           <div className="mt-3 md:mt-6 flex gap-3 items-center">
-            <button
-              style={{
-                background: `linear-gradient(21deg,rgba(123, 97, 207, 1) 0%, rgba(89, 101, 194, 1) 34%, rgba(86, 127, 196, 1) 59%, rgba(102, 158, 222, 1) 71%, rgba(255, 255, 255, 1) 98%)`,
-              }}
-              className="btn rounded-xl hover:bg-blue-800 text-white"
-            >
-              Get deal at Macys
-            </button>
+            <RedirectButton></RedirectButton>
             <div className="p-3 rounded-full border w-fit hover:bg-gray-400 hover:text-white">
               <IoIosSend />
             </div>

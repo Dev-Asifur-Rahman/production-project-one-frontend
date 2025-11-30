@@ -1,30 +1,25 @@
 "use client";
 
-const RedirectButton = () => {
+const RedirectButton = ({ product_link, title, company }) => {
   const handleDirect = async (e) => {
-    const res = await fetch("https://dealbondhu.vercel.app/post_track_info", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/post_track_info`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        product_name: "Bag",
-        product_link:
-          "https://slickdeals.net/f/18786394-the-north-face-men-s-vault-backpack-clay-gray-new-taupe-green-39-macy-s?src=frontpage&attrsrc=Frontpage%3AType%3AMissed",
-        company: "slickdeals",
+        product_name: title,
+        product_link: product_link,
+
+        company,
       }),
     });
 
     const result = await res.json();
     if (result.acknowledged === true) {
-      window.open(
-        "https://slickdeals.net/f/18786394-the-north-face-men-s-vault-backpack-clay-gray-new-taupe-green-39-macy-s?src=frontpage&attrsrc=Frontpage%3AType%3AMissed",
-        "blank"
-      );
-    }
-
-    else {
-        return alert('internal error ! Try Again')
+      window.open(product_link, "blank");
+    } else {
+      return alert("internal error ! Try Again");
     }
   };
   return (
@@ -35,7 +30,7 @@ const RedirectButton = () => {
       }}
       className="btn rounded-xl hover:bg-blue-800 text-white"
     >
-      Get deal at SlickDeals
+      Get deal at {company}
     </button>
   );
 };

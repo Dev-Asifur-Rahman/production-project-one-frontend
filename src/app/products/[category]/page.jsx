@@ -1,3 +1,5 @@
+import ProductCard from "@/components/global-layout-components/ProductCard";
+
 const page = async ({ params }) => {
   const { category } = await params;
 
@@ -6,18 +8,29 @@ const page = async ({ params }) => {
   return (
     <div className="w-full lg:w-4/5 mx-auto">
       <p className="font-bold text-3xl text-center my-5">All Products</p>
+      <div className="w-full">
+        {data?.length === 0 ? (
+          <p className="text-center">No Product Found</p>
+        ) : (
+          <div className=" grid lg:grid-cols-4 md:grid-cols-3 smd:grid-cols-2 grid-cols-1 place-items-center">
+            {data?.map((product, index) => {
+              return <ProductCard product={product} key={index}></ProductCard>;
+            })}
+          </div>
+        )}
+      </div>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}
-          <thead>
+          {/* <thead>
             <tr>
               <th className="text-center">Serial No</th>
               <th>Name</th>
               <th>Company</th>
               <th>Product Link</th>
             </tr>
-          </thead>
-          <tbody>
+          </thead> */}
+          {/* <tbody>
             {data?.map((product, index) => {
               return (
                 <tr key={index}>
@@ -33,7 +46,7 @@ const page = async ({ params }) => {
                 </tr>
               );
             })}
-          </tbody>
+          </tbody> */}
         </table>
       </div>
     </div>

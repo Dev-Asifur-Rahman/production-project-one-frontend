@@ -32,29 +32,31 @@ const DealModal = () => {
       offer_percent: target.offer_percent.value,
       product_info: target.product_info.value,
       product_link: target.product_link.value,
-      //product_image : target.product_image.value,
+      product_image: target.product_image.value,
       category: target.category.value.toLowerCase(),
       created_at: new Date(),
       updated_at: undefined,
     };
 
-    const res = await fetch(`${process.env.NEXTAUTH_URL}/upload_product`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(product_object),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/upload_product`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(product_object),
+      }
+    );
     const result = await res.json();
-    if(result?.acknowledged === true) {
+
+    if (result?.acknowledged === true) {
       dispatch(closeModal());
-      return alert('Insert Successfull')
-    }
-    else{
+      return alert("Insert Successfull");
+    } else {
       dispatch(closeModal());
-      return alert('Insert Error')
+      return alert("Insert Error");
     }
-    
   };
   return (
     <>
@@ -139,15 +141,16 @@ const DealModal = () => {
                 placeholder="Type here"
               />
             </fieldset>
-            {/* <fieldset className="fieldset">
+            <fieldset className="fieldset">
               <legend className="fieldset-legend">Product Image</legend>
-              <input required
+              <input
+                required
                 type="text"
                 name="product_image"
                 className="input"
                 placeholder="Type here"
               />
-            </fieldset> */}
+            </fieldset>
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Category</legend>
               <input

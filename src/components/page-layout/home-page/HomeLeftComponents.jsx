@@ -74,6 +74,7 @@ const HomeLeftComponents = ({
             className="w-6 aspect-square"
           />
         </button>
+        hello 
       </Swiper>
     </section>
   );

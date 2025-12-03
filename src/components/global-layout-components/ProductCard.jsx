@@ -14,12 +14,23 @@ const ProductCard = ({ product }) => {
   const router = useRouter();
 
   const id = "id";
-  // https://slickdeals.net/f/18786394-the-north-face-men-s-vault-backpack-clay-gray-new-taupe-green-39-macy-s?src=frontpage&attrsrc=Frontpage%3AType%3AMissed
+  const handleRoute = async (product) => {
+    // make product object like {product : category}
+    fetch("/api/cookies/visitor", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+
+    // router.push(`/product/${product?._id ? product?._id : id}`);
+  };
   return (
     <div
-      onClick={() =>
-        router.push(`/product/${product?._id ? product?._id : id}`)
-      }
+      onClick={() => handleRoute(product)}
       className="relative overflow-hidden w-full max-w-[200px] p-2  bg-[#d1e2f5] hover:bg-[#76ace9] rounded-lg shadow-2xl my-2 cursor-pointer transition-transform duration-300 hover:scale-105"
     >
       {/* ribbon component  */}
@@ -43,24 +54,27 @@ const ProductCard = ({ product }) => {
 
       {/* product name  */}
       <p className="mt-2 line-clamp-2 text-[12px] font-medium">
-        {
-          product?.title ? product.title : 'Unknown'
-        }
+        {product?.title ? product.title : "Unknown"}
       </p>
 
       {/* price  */}
       <div className="flex items-center gap-3 mt-2 font-medium">
         <GiPriceTag />
-        <p>{product?.regular_price ? product?.regular_price + '$' : 'Unknown'}</p>
+        <p>
+          {product?.regular_price ? product?.regular_price + "$" : "Unknown"}
+        </p>
         {/* discount  */}
         <span className="line-through text-[12px] font-semibold text-red-600">
-          {product?.offer_price ? product?.offer_price + "$": 'Unknown'}
+          {product?.offer_price ? product?.offer_price + "$" : "Unknown"}
         </span>
       </div>
 
       {/* brand name  */}
       <div className="flex items-center gap-3">
-        <MdLabelImportant /> <span className="font-medium text-sm">{product?.company ? product?.company : 'Unknown'}</span>
+        <MdLabelImportant />{" "}
+        <span className="font-medium text-sm">
+          {product?.company ? product?.company : "Unknown"}
+        </span>
       </div>
 
       <hr className="w-full mt-2 text-[#999999]" />

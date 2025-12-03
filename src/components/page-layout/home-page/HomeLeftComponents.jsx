@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { FreeMode, Navigation } from "swiper/modules";
 import ProductCard from "@/components/global-layout-components/ProductCard";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import AllProductLink from "@/components/sub-components/home-left-components/AllProductLink";
 
 const HomeLeftComponents = ({
@@ -13,6 +13,14 @@ const HomeLeftComponents = ({
 }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+
+  useEffect(() => {
+    if (componentName === "just-for-you") {
+      fetch("/api/cookies/visitor")
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    }
+  }, [componentName]);
 
   return (
     <section
@@ -49,7 +57,7 @@ const HomeLeftComponents = ({
       >
         {[...Array(15)].map((_, i) => (
           <SwiperSlide className="smd:max-w-[300px] mb-10" key={i}>
-            <ProductCard>{i + 1}</ProductCard>
+            <ProductCard product={{category : 'mobile'}}>{i + 1}</ProductCard>
           </SwiperSlide>
         ))}
 
@@ -74,7 +82,6 @@ const HomeLeftComponents = ({
             className="w-6 aspect-square"
           />
         </button>
-        hello 
       </Swiper>
     </section>
   );

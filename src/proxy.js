@@ -14,13 +14,12 @@ export const proxy = async (req) => {
   if (!visitor_cookie) {
     const create_visitor_cookie = {
       user_id: crypto.randomUUID(),
-      categories: [],
       createdAt: new Date().toISOString(),
     };
     res.cookies.set("visitor", JSON.stringify(create_visitor_cookie), {
       httpOnly: true,
       maxAge: 60 * 60 * 24 * 365,
-      // secure: process.env.NODE_ENV === "production",
+      secure: process.env.NODE_ENV === "production",
       path: "/",
     });
   }

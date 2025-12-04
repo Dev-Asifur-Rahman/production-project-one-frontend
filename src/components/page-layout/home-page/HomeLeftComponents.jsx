@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { FreeMode, Navigation } from "swiper/modules";
 import ProductCard from "@/components/global-layout-components/ProductCard";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import AllProductLink from "@/components/sub-components/home-left-components/AllProductLink";
 
 const HomeLeftComponents = ({
@@ -13,12 +13,13 @@ const HomeLeftComponents = ({
 }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const [products,setProducts] = useState([])
 
   useEffect(() => {
     if (componentName === "just-for-you") {
       fetch("/api/cookies/visitor")
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((data) => setProducts(data));
     }
   }, [componentName]);
 
@@ -55,9 +56,9 @@ const HomeLeftComponents = ({
         modules={[FreeMode, Navigation]}
         className="mySwiper relative"
       >
-        {[...Array(15)].map((_, i) => (
-          <SwiperSlide className="smd:max-w-[300px] mb-10" key={i}>
-            <ProductCard product={{category : 'mobile'}}>{i + 1}</ProductCard>
+        {products?.map((product, index) => (
+          <SwiperSlide className="smd:max-w-[300px] mb-10" key={index}>
+            <ProductCard product={product}></ProductCard>
           </SwiperSlide>
         ))}
 

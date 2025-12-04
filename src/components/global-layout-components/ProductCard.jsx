@@ -13,7 +13,6 @@ const ProductCard = ({ product }) => {
   const [isLiked, setLiked] = useState(false);
   const router = useRouter();
 
-  const id = "id";
   const handleRoute = async (product) => {
     // make product object like {product : category}
     fetch("/api/cookies/visitor", {
@@ -24,9 +23,9 @@ const ProductCard = ({ product }) => {
       body: JSON.stringify(product),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
-
-    // router.push(`/product/${product?._id ? product?._id : id}`);
+      .then((data) => {
+        router.push(`/product/${product?._id}`);
+      });
   };
   return (
     <div
@@ -34,7 +33,7 @@ const ProductCard = ({ product }) => {
       className="relative overflow-hidden w-full max-w-[200px] p-2  bg-[#d1e2f5] hover:bg-[#76ace9] rounded-lg shadow-2xl my-2 cursor-pointer transition-transform duration-300 hover:scale-105"
     >
       {/* ribbon component  */}
-      <CornerRibbon></CornerRibbon>
+      <CornerRibbon discount={product?.offer_percent}></CornerRibbon>
       {/* product image  */}
       <div className="w-full relative bg-[#F0F0F0] mt-1 rounded-md overflow-hidden flex justify-center items-center">
         <img
@@ -53,19 +52,20 @@ const ProductCard = ({ product }) => {
       </div>
 
       {/* product name  */}
-      <p className="mt-2 line-clamp-2 text-[12px] font-medium">
+      <p className="mt-2 line-clamp-2 min-h-9 text-[12px] font-medium">
         {product?.title ? product.title : "Unknown"}
       </p>
 
       {/* price  */}
       <div className="flex items-center gap-3 mt-2 font-medium">
-        <GiPriceTag />
+        {/* <GiPriceTag /> */}
+        <img className="w-4 aspect-square" src="/logo/bdt-logo.png" alt="" />
         <p>
-          {product?.regular_price ? product?.regular_price + "$" : "Unknown"}
+          {product?.regular_price ? product?.regular_price + " TK" : "Unknown"}
         </p>
         {/* discount  */}
         <span className="line-through text-[12px] font-semibold text-red-600">
-          {product?.offer_price ? product?.offer_price + "$" : "Unknown"}
+          {product?.offer_price ? product?.offer_price + " TK" : "Unknown"}
         </span>
       </div>
 

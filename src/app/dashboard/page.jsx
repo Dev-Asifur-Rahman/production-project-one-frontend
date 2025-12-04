@@ -15,7 +15,7 @@ const page = async ({ searchParams }) => {
   const data = await response.json();
 
   return (
-    <div className="w-full lg:w-4/5 mx-auto">
+    <div className="w-full lg:w-4/5 mx-auto mb-20">
       <p className="font-bold text-3xl text-center my-5">Clicked Data</p>
       {/* search bar  */}
       <DashboardSearchBar></DashboardSearchBar>
@@ -54,7 +54,10 @@ const page = async ({ searchParams }) => {
                     <td>{product_info.device}</td>
                     <td className="text-center">{product_info.geo.ip}</td>
                     <td className="text-center whitespace-nowrap">
-                      {new Date(product_info?.date).toLocaleTimeString()}
+                      {new Date(product_info?.date).toLocaleTimeString(
+                        "en-BD",
+                        { timeZone: "Asia/Dhaka" }
+                      )}
                     </td>
                     <td className="text-center">
                       {new Date(product_info?.date).toLocaleDateString()}

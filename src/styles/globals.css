@@ -102,6 +102,10 @@ body {
   /* text-shadow: -2px 2px 3px #2ea1cb; */
 }
 
+#deal_form fieldset{
+  width: 280px;
+}
+
 #footer-get-app-div section {
   background-color: #555555;
   width: 80%;

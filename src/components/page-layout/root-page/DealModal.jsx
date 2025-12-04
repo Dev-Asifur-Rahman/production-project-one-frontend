@@ -34,8 +34,6 @@ const DealModal = () => {
       product_link: target.product_link.value,
       product_image: target.product_image.value,
       category: target.category.value.toLowerCase(),
-      created_at: new Date(),
-      updated_at: undefined,
     };
 
     const res = await fetch(
@@ -52,7 +50,7 @@ const DealModal = () => {
 
     if (result?.acknowledged === true) {
       dispatch(closeModal());
-      return alert("Insert Successfull");
+      return alert("Insert Successful");
     } else {
       dispatch(closeModal());
       return alert("Insert Error");
@@ -67,6 +65,7 @@ const DealModal = () => {
       >
         <div className="modal-box p-3">
           <form
+            id="deal_form"
             onSubmit={submitDealForm}
             method="dialog"
             className="flex flex-col items-center gap-3"
@@ -81,6 +80,30 @@ const DealModal = () => {
                 placeholder="Type here"
               />
             </fieldset>
+
+            <fieldset className="fieldset">
+              <legend className="fieldset-legend">Category</legend>
+              <select
+                required
+                name="category"
+                defaultValue=""
+                className="select w-full"
+              >
+                <option disabled={true} value={""}>
+                  Choose Category
+                </option>
+                <option value="Electronics">Electronics</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Beauty & Care">Beauty & Care</option>
+                <option value="Home & Kitchen">Home & Kitchen</option>
+                <option value="Sports & Outdoors">Sports & Outdoors</option>
+                <option value="Baby & Kids">Baby & Kids</option>
+                <option value="Automotive">Automotive</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Office & Books">Office & Books</option>
+              </select>
+            </fieldset>
+
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Company</legend>
               <input
@@ -91,6 +114,7 @@ const DealModal = () => {
                 placeholder="Type here"
               />
             </fieldset>
+
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Regular Price</legend>
               <input
@@ -101,6 +125,7 @@ const DealModal = () => {
                 placeholder="Type here"
               />
             </fieldset>
+
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Offer Price</legend>
               <input
@@ -111,6 +136,7 @@ const DealModal = () => {
                 placeholder="Type here"
               />
             </fieldset>
+
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Offer Percent</legend>
               <input
@@ -121,6 +147,7 @@ const DealModal = () => {
                 placeholder="Type here"
               />
             </fieldset>
+
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Product Info</legend>
               <input
@@ -131,6 +158,7 @@ const DealModal = () => {
                 placeholder="Type here"
               />
             </fieldset>
+
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Product Link</legend>
               <input
@@ -141,22 +169,13 @@ const DealModal = () => {
                 placeholder="Type here"
               />
             </fieldset>
+
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Product Image</legend>
               <input
                 required
                 type="text"
                 name="product_image"
-                className="input"
-                placeholder="Type here"
-              />
-            </fieldset>
-            <fieldset className="fieldset">
-              <legend className="fieldset-legend">Category</legend>
-              <input
-                type="text"
-                required
-                name="category"
                 className="input"
                 placeholder="Type here"
               />

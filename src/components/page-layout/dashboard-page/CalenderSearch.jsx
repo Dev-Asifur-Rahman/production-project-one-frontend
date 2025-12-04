@@ -37,6 +37,7 @@ const CalenderSearch = () => {
 
   return (
     <div className="w-full flex justify-center p-4 relative">
+      <p>{selectedDate}</p>
       <button
         id="cally1"
         className="input input-bordered relative z-10"

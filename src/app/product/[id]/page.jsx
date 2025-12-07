@@ -1,19 +1,29 @@
-import { FcLikePlaceholder } from "react-icons/fc";
-import { FcLike } from "react-icons/fc";
 import { FcDislike } from "react-icons/fc";
 import { MdOutlineComment } from "react-icons/md";
 import { GiClick } from "react-icons/gi";
 import { IoIosSend } from "react-icons/io";
 import { CiBookmark } from "react-icons/ci";
 import RedirectButton from "@/components/page-layout/product-page/RedirectButton";
+import Liked from "@/components/page-layout/product-details-page/Liked";
+import { cookies } from "next/headers";
 
 const page = async ({ params }) => {
   const { id } = await params;
+  const cookieStore = await cookies();
 
-  const res = await fetch(`${process.env.NEXTAUTH_URL}/get_product/${id}`);
+  const visitor = cookieStore.get("visitor");
+  const user_id = JSON.parse(visitor.value)?.user_id;
+  const res = await fetch(
+    `${process.env.NEXTAUTH_URL}
+/get_product/${id}`,
+    {
+      headers: {
+        "x-visitor-id": user_id,
+      },
+    }
+  );
 
   const product = await res.json();
-
   return (
     <section className="w-full">
       {/* product details div  */}
@@ -42,10 +52,7 @@ const page = async ({ params }) => {
           {/* like dislike comment views */}
           <div className="text-sm md:text-lg lg:text-xl flex items-center gap-3 lg:gap-10">
             {/* if like use like here  */}
-            <p className="flex gap-1 items-center">
-              17 <FcLikePlaceholder />
-              {/* <FcLike /> */}
-            </p>
+            <Liked liked={product?.liked} id={product?._id}></Liked>
             <p className="flex gap-1 items-center">
               3 <FcDislike />
             </p>

@@ -13,11 +13,16 @@ const HomeLeftComponents = ({
 }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-  const [products,setProducts] = useState([])
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     if (componentName === "just-for-you") {
       fetch("/api/cookies/visitor")
+        .then((res) => res.json())
+        .then((data) => setProducts(data));
+    } else if (componentName === "trending-stores") {
+      fetch(`${process.env.NEXTAUTH_URL}
+/trending_stores`)
         .then((res) => res.json())
         .then((data) => setProducts(data));
     }

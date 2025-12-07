@@ -5,6 +5,7 @@ import TopCategories from "@/components/page-layout/home-page/TopCategories";
 import { PiFireFill } from "react-icons/pi";
 import { IoTrendingUp } from "react-icons/io5";
 import OfferAndDiscountSlider from "@/components/page-layout/home-page/OfferAndDiscountSlider";
+import CategoryRanking from "@/components/page-layout/home-page/CategoryRanking";
 
 export default function Home() {
   return (
@@ -35,18 +36,19 @@ export default function Home() {
           ></HomeRightComponents>
 
           <HomeRightComponents
+            componentName={"trending-categories"}
+            Heading="Trending Categories"
+            HeadingIcon={<IoTrendingUp />}
+          ></HomeRightComponents>
+          {/* <HomeRightComponents
             componentName={"trending-deals"}
             Heading="Trending Deals"
             HeadingIcon={<IoTrendingUp />}
-          ></HomeRightComponents>
-          <HomeRightComponents
-            componentName={"trending-deals"}
-            Heading="Trending Deals"
-            HeadingIcon={<IoTrendingUp />}
-          ></HomeRightComponents>
+          ></HomeRightComponents> */}
         </section>
       </div>
       <TopCategories></TopCategories>
+      <CategoryRanking></CategoryRanking>
     </>
   );
 }

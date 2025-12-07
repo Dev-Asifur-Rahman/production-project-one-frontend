@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 const CategoryRanking = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch(`${process.env.NEXTAUTH_URL}
+    fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}
 /trending_categories`)
       .then((res) => res.json())
       .then((data) => setCategories(data));

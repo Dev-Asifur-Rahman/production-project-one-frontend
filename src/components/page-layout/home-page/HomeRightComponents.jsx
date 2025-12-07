@@ -9,7 +9,7 @@ const HomeRightComponents = ({
   const [products, setProduct] = useState([]);
   useEffect(() => {
     if (componentName === "popular-deals") {
-      fetch(`${process.env.NEXTAUTH_URL}
+      fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}
 /popular_deals`)
         .then((res) => res.json())
         .then((data) => setProduct(data));

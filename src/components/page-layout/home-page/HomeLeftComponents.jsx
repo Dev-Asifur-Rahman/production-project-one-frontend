@@ -21,7 +21,7 @@ const HomeLeftComponents = ({
         .then((res) => res.json())
         .then((data) => setProducts(data));
     } else if (componentName === "trending-stores") {
-      fetch(`${process.env.NEXTAUTH_URL}
+      fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}
 /trending_stores`)
         .then((res) => res.json())
         .then((data) => setProducts(data));

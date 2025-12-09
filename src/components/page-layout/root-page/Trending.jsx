@@ -120,7 +120,9 @@ const Trending = () => {
           {categories.map((category, index) => (
             <div
               key={index}
-              onClick={() => router.push(`/products/${category.name}`)}
+              onClick={() =>
+                router.push(`/products/${encodeURIComponent(category.name)}`)
+              }
               onMouseEnter={() => {
                 setHoveredIndex(index);
                 setIsNameHovered(true);
@@ -141,7 +143,17 @@ const Trending = () => {
           >
             <div className="w-[80%] mx-auto grid grid-cols-2 gap-y-3">
               {categories[hoveredIndex].subcategories.map((sub, i) => (
-                <p key={i} className="text-sm font-semibold">
+                <p
+                  onClick={() =>
+                    router.push(
+                      `/products/${encodeURIComponent(
+                        categories[hoveredIndex].name
+                      )}?subcategory=${encodeURIComponent(sub)}`
+                    )
+                  }
+                  key={i}
+                  className="text-sm font-semibold cursor-pointer"
+                >
                   {sub}
                 </p>
               ))}

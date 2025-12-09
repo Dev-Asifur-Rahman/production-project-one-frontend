@@ -23,10 +23,6 @@ export default function Home() {
             componentName="trending-stores"
             Heading="Trending Stores"
           ></HomeLeftComponents>
-
-          <HomeLeftComponents></HomeLeftComponents>
-
-          <HomeLeftComponents></HomeLeftComponents>
         </section>
         <section className="lg:w-[30%] md:w-[35%] w-full">
           <HomeRightComponents
@@ -35,11 +31,11 @@ export default function Home() {
             HeadingIcon={<PiFireFill />}
           ></HomeRightComponents>
 
-          <HomeRightComponents
+          {/* <HomeRightComponents
             componentName={"trending-categories"}
             Heading="Trending Categories"
             HeadingIcon={<IoTrendingUp />}
-          ></HomeRightComponents>
+          ></HomeRightComponents> */}
           {/* <HomeRightComponents
             componentName={"trending-deals"}
             Heading="Trending Deals"
@@ -48,6 +44,14 @@ export default function Home() {
         </section>
       </div>
       <TopCategories></TopCategories>
+      <HomeLeftComponents
+        Heading="Fashion"
+        componentName="fashion"
+      ></HomeLeftComponents>
+      <HomeLeftComponents
+        Heading="Electronics"
+        componentName="electronics"
+      ></HomeLeftComponents>
       <CategoryRanking></CategoryRanking>
     </>
   );

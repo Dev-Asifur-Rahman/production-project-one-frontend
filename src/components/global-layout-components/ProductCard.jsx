@@ -60,12 +60,10 @@ const ProductCard = ({ product }) => {
       <div className="flex items-center gap-3 mt-2 font-medium">
         {/* <GiPriceTag /> */}
         <img className="w-4 aspect-square" src="/logo/bdt-logo.png" alt="" />
-        <p>
-          {product?.regular_price ? product?.regular_price + " TK" : "Unknown"}
-        </p>
+        <p>{product?.offer_price ? product?.offer_price + " TK" : "Unknown"}</p>
         {/* discount  */}
         <span className="line-through text-[12px] font-semibold text-red-600">
-          {product?.offer_price ? product?.offer_price + " TK" : "Unknown"}
+          {product?.regular_price ? product?.regular_price + " TK" : "Unknown"}
         </span>
       </div>
 

@@ -5,17 +5,14 @@ export async function GET(req) {
   const cookieStore = await cookies();
   const visitor = cookieStore.get("visitor");
   const user_id = JSON.parse(visitor.value)?.user_id;
-  const response = await fetch(
-    `${process.env.NEXTAUTH_URL}
-/recent_clicks`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ user_id }),
-    }
-  );
+
+  const response = await fetch(`${process.env.NEXTAUTH_URL}/recent_clicks`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ user_id }),
+  });
 
   const result = await response.json();
 
@@ -32,6 +29,7 @@ export async function POST(req) {
     user_id,
     product_id: product_object?._id,
     category: product_object?.category,
+    subcategory: product_object?.subcategory,
   };
 
   const response = await fetch(

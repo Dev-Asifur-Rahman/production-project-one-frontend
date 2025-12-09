@@ -19,10 +19,24 @@ const HomeLeftComponents = ({
     if (componentName === "just-for-you") {
       fetch("/api/cookies/visitor")
         .then((res) => res.json())
-        .then((data) => setProducts(data));
+        .then((data) => {
+          setProducts(data);
+        });
     } else if (componentName === "trending-stores") {
       fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}
 /trending_stores`)
+        .then((res) => res.json())
+        .then((data) => setProducts(data));
+    } else if (componentName === "fashion") {
+      fetch(
+        `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/get_products/fashion?subcategory=undefined`
+      )
+        .then((res) => res.json())
+        .then((data) => setProducts(data));
+    } else if (componentName === "electronics") {
+      fetch(
+        `h${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/get_products/electronics?subcategory=undefined`
+      )
         .then((res) => res.json())
         .then((data) => setProducts(data));
     }

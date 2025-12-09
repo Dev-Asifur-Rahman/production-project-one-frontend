@@ -1,14 +1,21 @@
 import ProductCard from "@/components/global-layout-components/ProductCard";
 
-const page = async ({ params }) => {
+const page = async ({ params, searchParams }) => {
   const { category } = await params;
-
-  const res = await fetch(`${process.env.NEXTAUTH_URL}/get_products`);
+  const { subcategory } = await searchParams;
+  const deCodedCategory = decodeURIComponent(category);
+  // const deCodedSubCategory = decodeURIComponent(subcategory);
+  
+  const res = await fetch(
+    `${process.env.NEXTAUTH_URL}/get_products/${encodeURIComponent(
+      category
+    )}?subcategory=${encodeURIComponent(subcategory)}`
+  );
   const data = await res.json();
   return (
     <div className="w-full lg:w-4/5 mx-auto">
-      <p className="font-bold text-3xl text-center my-5">{category}</p>
-      {/* <div className="w-full">
+      <p className="font-bold text-3xl text-center my-5">{deCodedCategory}</p>
+      <div className="w-full">
         {data?.length === 0 ? (
           <p className="text-center">No Product Found</p>
         ) : (
@@ -18,7 +25,7 @@ const page = async ({ params }) => {
             })}
           </div>
         )}
-      </div> */}
+      </div>
     </div>
   );
 };

@@ -65,7 +65,7 @@ const ProductUpdateForm = ({ product }) => {
       product_image: target.product_image.value,
       category: selectedCategory.toLowerCase(),
       subcategory: selectedSubcategory.toLowerCase(),
-      archive_at: archiveDate ? archiveDate.getTime() : null,
+      archive_at: archiveDate || null,
       status: "pending",
     };
 

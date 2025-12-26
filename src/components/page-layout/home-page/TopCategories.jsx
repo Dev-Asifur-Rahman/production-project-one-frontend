@@ -5,11 +5,10 @@ import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 
-
 const TopCategories = () => {
   const [categories, setCategories] = useState([]);
   const router = useRouter();
-  const {lan} = useContext(LanguageContext)
+  const { lan } = useContext(LanguageContext);
 
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}
@@ -35,10 +34,10 @@ const TopCategories = () => {
                 index + 1 === 1
                   ? "text-yellow-500"
                   : index + 1 === 2
-                  ? "text-gray-400"
-                  : index + 1 === 3
-                  ? "text-amber-700"
-                  : ""
+                    ? "text-gray-400"
+                    : index + 1 === 3
+                      ? "text-amber-700"
+                      : ""
               }`}
             >
               {index + 1}
@@ -46,15 +45,15 @@ const TopCategories = () => {
                 {index + 1 === 1
                   ? "st"
                   : index + 1 === 2
-                  ? "nd"
-                  : index + 1 === 3
-                  ? "rd"
-                  : "th"}
+                    ? "nd"
+                    : index + 1 === 3
+                      ? "rd"
+                      : "th"}
               </span>
             </p>
-            <div className="w-[120px] aspect-square rounded-full shadow-2xl hover:bg-[#d1e2f5]"></div>
+            <img className="w-[120px] shadow-2xl aspect-square rounded-full" src={category?.icon} alt="" />
             <p className="text-wrap text-center w-full">
-              {translation[lan] === 'bn' ? category?.bn :   category?.subcategory}
+              {lan === "bn" ? category?.bn : category?.subcategory}
             </p>
           </div>
         ))}

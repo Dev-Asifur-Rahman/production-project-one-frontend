@@ -8,6 +8,7 @@ import CommentProduct from "@/components/page-layout/product-details-page/Commen
 import SaveProduct from "@/components/page-layout/product-details-page/SaveProduct";
 import { IoIosSend } from "react-icons/io";
 import translation from "@/utils/translation";
+import IntentScoreCalculator from "@/components/page-layout/product-details-page/IntentScoreCalculator";
 
 const page = async ({ params }) => {
   const { id } = await params;
@@ -121,6 +122,7 @@ const page = async ({ params }) => {
       <section className="mx-auto w-[96%]">
         <CommentProduct id={product?._id}></CommentProduct>
       </section>
+      <IntentScoreCalculator></IntentScoreCalculator>
     </section>
   );
 };

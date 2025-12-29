@@ -1,10 +1,14 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const IntentScoreCalculator = () => {
   const [scrollTrigger, setScrollTrigger] = useState(false);
   useEffect(() => {
-    console.log("User entered product page");
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/calculate_intent_score`,{
+        method : 'POST'
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
 
     const handleScroll = () => {
       const scrollRatio =

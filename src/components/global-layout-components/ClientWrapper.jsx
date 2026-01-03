@@ -2,12 +2,17 @@
 
 import { useEffect, useState } from "react";
 
-const ClientWrapper = ({children}) => {
-  const [mounted,setMounted] = useState(false)
+const ClientWrapper = ({ children }) => {
+  const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    setMounted(true)
+    const setCookies = async () => {
+      const res = await fetch("/api/cookies/set_cookies");
+      const result = await res.json();
+    };
+    setCookies();
+    setMounted(true);
   }, []);
-  if(!mounted) return null
+  if (!mounted) return null;
   return children;
 };
 

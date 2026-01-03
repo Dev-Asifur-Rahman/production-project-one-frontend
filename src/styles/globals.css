@@ -2,10 +2,18 @@
 @plugin "daisyui";
 
 :root {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
-  --font-sans: var(--font-montserrat);
+  --font-primary: var(--font-montserrat);
   --main-color: #0ef;
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+[data-lang="bn"] {
+  --font-primary: var(--font-shiliguri);
+}
+
+[data-theme="dark"] {
+  
 }
 
 @theme {
@@ -20,26 +28,17 @@
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-montserrat);
+  --font-primary: var(--font-montserrat);
 }
 
 @utility scrollbar-hidden {
   @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), sans-serif;
+  font-family: var(--font-primary), sans-serif;
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -90,16 +89,24 @@ body {
 }
 
 #trending-component div {
-  color: #1a1a1a;
   font-size: 13px;
   white-space: nowrap;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
 }
 
 #trending-component div:hover {
   color: #196296;
-  /* text-shadow: -2px 2px 3px #2ea1cb; */
+}
+
+#trending-component div:hover li a {
+  color: black;
+  font-weight: 500;
+}
+
+#trending-component div:hover li a:hover {
+  color: #196296;
+  font-weight: 500;
 }
 
 #deal_form fieldset{

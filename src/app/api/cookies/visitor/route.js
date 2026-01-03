@@ -5,8 +5,7 @@ export async function GET(req) {
   const cookieStore = await cookies();
   const visitor = cookieStore.get("visitor");
   const user_id = JSON.parse(visitor.value)?.user_id;
-
-  const response = await fetch(`${process.env.NEXTAUTH_URL}/recent_clicks`, {
+  const response = await fetch(`${process.env.NEXT_BACKEND_URL}/recent_clicks`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -30,19 +29,15 @@ export async function POST(req) {
     product_id: product_object?._id,
     category: product_object?.category,
     subcategory: product_object?.subcategory,
+    dealer_id : product_object?.dealer_id
   };
-
-  const response = await fetch(
-    `${process.env.NEXTAUTH_URL}
-/upload_click_products`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(clicked_product),
-    }
-  );
+  const response = await fetch(`${process.env.NEXT_BACKEND_URL}/upload_click_products`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(clicked_product),
+  });
 
   const result = await response.json();
 

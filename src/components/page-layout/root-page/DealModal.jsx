@@ -1,102 +1,26 @@
 "use client";
 
+import getCategory from "@/actions/category/getCategory";
 import { closeModal } from "@/redux/features/modalSlice";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
-
-const categories = [
-  {
-    name: "Electronics",
-    subcategories: [
-      "Mobile Phones & Accessories",
-      "Computers & Laptops",
-      "Cameras & Photography",
-      "TVs & Home Entertainment",
-      "Smart Home Devices",
-      "Gaming Consoles & Accessories",
-    ],
-  },
-  {
-    name: "Fashion",
-    subcategories: [
-      "Men’s Clothing",
-      "Women’s Clothing",
-      "Kids’ Clothing",
-      "Shoes & Footwear",
-      "Watches & Jewelry",
-      "Bags & Accessories",
-    ],
-  },
-  {
-    name: "Beauty & Care",
-    subcategories: [
-      "Skincare & Makeup",
-      "Hair Care",
-      "Health Supplements",
-      "Grooming & Personal Hygiene",
-    ],
-  },
-  {
-    name: "Home & Kitchen",
-    subcategories: [
-      "Furniture & Home Decor",
-      "Bedding & Bath",
-      "Kitchen Appliances",
-      "Cookware & Utensils",
-    ],
-  },
-  {
-    name: "Sports & Outdoors",
-    subcategories: [
-      "Exercise & Fitness Equipment",
-      "Outdoor Gear & Camping",
-      "Cycling & Running",
-      "Sports Apparel & Accessories",
-    ],
-  },
-  {
-    name: "Baby & Kids",
-    subcategories: [
-      "Toys & Games",
-      "Baby Care Products",
-      "Kids’ Clothing & Accessories",
-      "Educational Toys",
-    ],
-  },
-  {
-    name: "Automotive",
-    subcategories: [
-      "Car Accessories & Parts",
-      "Tools & DIY Equipment",
-      "Motorcycle Accessories",
-    ],
-  },
-  {
-    name: "Groceries",
-    subcategories: [
-      "Packaged Food & Snacks",
-      "Beverages",
-      "Organic & Health Foods",
-    ],
-  },
-  {
-    name: "Office & Books",
-    subcategories: [
-      "Books, Music & Movies",
-      "Office & School Supplies",
-      "Stationery & Art Supplies",
-    ],
-  },
-];
+import "react-datepicker/dist/react-datepicker.css";
 
 const DealModal = () => {
   const isOpen = useSelector((state) => state.deal_modal.isOpen);
   const dispatch = useDispatch();
   const dialogueRef = useRef(null);
+  const productInfoRef = useRef(null);
+  const router = useRouter();
 
+  const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [subcategories, setSubcategories] = useState([]);
+  const [productInfo, setProductInfo] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
     const dialog = dialogueRef.current;
@@ -109,11 +33,19 @@ const DealModal = () => {
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const data = await getCategory();
+      setCategories(data);
+    };
+    fetchCategories();
+  }, []);
+
   const handleCategoryChange = (e) => {
     const value = e.target.value;
     setSelectedCategory(value);
 
-    const foundCategory = categories.find((cat) => cat.name === value);
+    const foundCategory = categories?.find((cat) => cat.name === value);
     setSubcategories(foundCategory ? foundCategory.subcategories : []);
   };
 
@@ -129,44 +61,53 @@ const DealModal = () => {
       return alert("Please enter numeric values.");
     }
 
-    const product_object = {
-      title: target.title.value,
-      company: target.company.value.toLowerCase(),
-      regular_price: parseInt(regularPrice),
-      offer_price: parseInt(offerPrice),
-      offer_percent: parseInt(offerPercent),
-      product_info: target.product_info.value,
-      product_link: target.product_link.value,
-      product_image: target.product_image.value,
+    const response = await fetch("/api/cookies/get_user_id");
+    const user_object = await response.json();
 
-      category: target.category.value.toLowerCase(),
-      subcategory: target.subcategory.value.toLowerCase(),
-    };
+    const userId = user_object?.user_id;
 
-    const promise = fetch(
-      `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/upload_product`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(product_object),
-      }
-    ).then(async (res) => {
-      if (!res.ok) throw new Error("Upload failed");
-      return res.json();
-    });
-
-    toast.promise(promise, {
-      loading: "Uploading Deal",
-      success: (result) => {
-        if (result?.acknowledged === true) {
-          dispatch(closeModal());
-          e.target.reset();
-          return "Deal Added Successfully";
+    if (userId) {
+      const product_object = {
+        dealer_id : userId,
+        title: target.title.value,
+        company: target.company.value,
+        regular_price: parseInt(regularPrice),
+        offer_price: parseInt(offerPrice),
+        offer_percent: parseInt(offerPercent),
+        expired_at: startDate,
+        product_info: productInfo,
+        product_link: target.product_link.value,
+        product_image: target.product_image.value,
+        category: target.category.value.toLowerCase(),
+        subcategory: target.subcategory.value.toLowerCase(),
+        status: "pending",
+      };
+      const promise = fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/upload_pending_product`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(product_object),
         }
-        throw new Error("Failed !");
-      },
-      error: "Insert failed",
-    });
+      ).then(async (res) => {
+        if (!res.ok) throw new Error("Upload failed");
+        return res.json();
+      });
+
+      toast.promise(promise, {
+        loading: "Uploading Deal",
+        success: (result) => {
+          if (result?.acknowledged === true) {
+            router.refresh();
+            dispatch(closeModal());
+            e.target.reset();
+            return "Deal Submitted Successfully";
+          }
+          throw new Error("Failed !");
+        },
+        error: "Insert failed",
+      });
+    }
   };
 
   return (
@@ -206,7 +147,7 @@ const DealModal = () => {
                   Choose Category
                 </option>
 
-                {categories.map((cat) => (
+                {categories?.map((cat) => (
                   <option key={cat.name} value={cat.name}>
                     {cat.name}
                   </option>
@@ -270,13 +211,75 @@ const DealModal = () => {
             </fieldset>
 
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Product Info</legend>
-              <input
+              <legend className="fieldset-legend">Set Expire Date</legend>
+              <DatePicker
                 required
-                type="text"
-                name="product_info"
-                className="input"
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                showTimeSelect
+                timeIntervals={5}
+                dateFormat="yyyy-MM-dd HH:mm"
+                placeholderText="Select date & time"
+                className="input input-bordered w-full"
               />
+            </fieldset>
+
+            <fieldset className="fieldset w-full">
+              <legend className="fieldset-legend">Product Info</legend>
+
+              <div
+                contentEditable
+                ref={productInfoRef}
+                onInput={(e) => setProductInfo(e.currentTarget.innerHTML)}
+                onPaste={(e) => {
+                  e.preventDefault();
+
+                  // Get clipboard HTML and plain text
+                  const html = e.clipboardData.getData("text/html");
+                  const text = e.clipboardData.getData("text/plain");
+
+                  let cleanHTML = "";
+
+                  if (html) {
+                    // Parse HTML
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+
+                    // Keep only allowed tags
+                    const allowedTags = ["UL", "OL", "LI", "P", "BR", "SPAN"];
+                    const walker = document.createTreeWalker(
+                      doc.body,
+                      NodeFilter.SHOW_ELEMENT,
+                      null,
+                      false
+                    );
+                    const nodesToRemove = [];
+                    while (walker.nextNode()) {
+                      const el = walker.currentNode;
+                      if (!allowedTags.includes(el.tagName)) {
+                        nodesToRemove.push(el);
+                      } else {
+                        el.removeAttribute("style");
+                        el.removeAttribute("class");
+                        el.removeAttribute("data-*");
+                      }
+                    }
+                    nodesToRemove.forEach((el) =>
+                      el.replaceWith(...el.childNodes)
+                    );
+                    cleanHTML = doc.body.innerHTML;
+                  } else {
+                    // Fallback: plain text with line breaks
+                    cleanHTML = text.replace(/\n/g, "<br>");
+                  }
+
+                  document.execCommand("insertHTML", false, cleanHTML);
+                }}
+                className="input w-full min-h-20 p-2"
+                style={{ whiteSpace: "pre-line", overflowY: "auto" }}
+              ></div>
+
+              <input type="hidden" name="product_info" value={productInfo} />
             </fieldset>
 
             <fieldset className="fieldset">

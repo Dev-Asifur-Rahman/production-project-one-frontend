@@ -8,11 +8,25 @@ import { IoMdShare } from "react-icons/io";
 import { useRouter } from "next/navigation";
 
 const RightComponentProductCard = ({ product }) => {
-  const [isLiked, setLiked] = useState(false);
   const router = useRouter();
+  const [isLiked,setIslike] = useState(false)
+
+  const handleRoute = async (product) => {
+    fetch("/api/cookies/visitor", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        router.push(`/product/${product?._id}`);
+      });
+  };
   return (
     <div
-      onClick={() => router.push(`/product/${product?._id}`)}
+      onClick={() => handleRoute(product)}
       className="cursor-pointer  w-full p-2 flex border-b border-b-[#F0F0F0] hover:bg-[#d1e2f5]"
     >
       {/* img section  */}

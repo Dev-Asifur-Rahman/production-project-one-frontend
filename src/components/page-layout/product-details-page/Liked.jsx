@@ -1,31 +1,38 @@
 "use client";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 
-const Liked = ({ liked, id }) => {
+const Liked = ({ liked, id, count,category,subcategory,user_id }) => {
   const router = useRouter();
-  const handleLike = (e) => {
+  const handleLike = () => {
     if (liked) {
-      return alert("already liked");
+      return toast.error("already liked");
     } else {
+      const liked_object = {
+        id,
+        category,
+        subcategory,
+        dealer_id : user_id
+      }
       fetch("/api/cookies/like_product", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(id),
+        body: JSON.stringify(liked_object),
       })
         .then((res) => res.json())
         .then((result) => {
-          if (result?.acknowledged) {
+          if (result?.user_id) {
             router.refresh();
           }
         });
     }
   };
   return (
-    <p onClick={handleLike} className="flex gap-1 items-center">
-      17 {liked ? <FcLike /> : <FcLikePlaceholder />}
+    <p onClick={handleLike} className="flex gap-1 items-center cursor-pointer">
+      {liked ? <FcLike /> : <FcLikePlaceholder />} {count}
     </p>
   );
 };

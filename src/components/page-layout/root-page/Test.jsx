@@ -1,12 +1,7 @@
-"use client";
 
-const Test = () => {
-  const handleUser = async (e) => {};
-  return (
-    <p onClick={handleUser} className="btn">
-      track user
-    </p>
-  );
+const Test = async() => {
+  
+  return;
 };
 
 export default Test;

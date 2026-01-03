@@ -5,7 +5,14 @@ import { usePathname } from "next/navigation";
 
 const Footer = () => {
   const pathname = usePathname();
-  if (pathname.startsWith("/dashboard") || pathname.startsWith("/products")) {
+  if (
+    pathname.startsWith("/dashboard") ||
+    pathname.startsWith("/products") ||
+    pathname.startsWith("/auth") ||
+    pathname.startsWith("/reset_password") ||
+    pathname.startsWith("/verify_reset_code") ||
+    pathname.startsWith("/reset_new_password")
+  ) {
     return;
   } else {
     return (

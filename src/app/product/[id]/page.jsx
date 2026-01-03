@@ -1,11 +1,12 @@
-import { FcDislike } from "react-icons/fc";
 import { MdOutlineComment } from "react-icons/md";
 import { GiClick } from "react-icons/gi";
-import { IoIosSend } from "react-icons/io";
-import { CiBookmark } from "react-icons/ci";
 import RedirectButton from "@/components/page-layout/product-page/RedirectButton";
 import Liked from "@/components/page-layout/product-details-page/Liked";
 import { cookies } from "next/headers";
+import Unlike from "@/components/page-layout/product-details-page/Unlike";
+import CommentProduct from "@/components/page-layout/product-details-page/CommentProduct";
+import SaveProduct from "@/components/page-layout/product-details-page/SaveProduct";
+import { IoIosSend } from "react-icons/io";
 
 const page = async ({ params }) => {
   const { id } = await params;
@@ -14,7 +15,7 @@ const page = async ({ params }) => {
   const visitor = cookieStore.get("visitor");
   const user_id = JSON.parse(visitor.value)?.user_id;
   const res = await fetch(
-    `${process.env.NEXTAUTH_URL}
+    `${process.env.NEXT_BACKEND_URL}
 /get_product/${id}`,
     {
       headers: {
@@ -52,17 +53,26 @@ const page = async ({ params }) => {
           {/* like dislike comment views */}
           <div className="text-sm md:text-lg lg:text-xl flex items-center gap-3 lg:gap-10">
             {/* if like use like here  */}
-            <Liked liked={product?.liked} id={product?._id}></Liked>
-            <p className="flex gap-1 items-center">
-              3 <FcDislike />
-            </p>
-            <p className="flex gap-1 items-center">
+            <Liked
+              liked={product?.liked}
+              id={product?._id}
+              count={product?.like_count}
+              user_id={product?.dealer_id}
+              category={product?.category}
+              subcategory={product?.subcategory}
+            ></Liked>
+            <Unlike
+              unliked={product?.unliked}
+              id={product?._id}
+              count={product?.unlike_count}
+            ></Unlike>
+            <p className="flex gap-1 items-center cursor-pointer">
               <MdOutlineComment />
-              102
+              {product?.comment_count}
             </p>
-            <p className="flex gap-1 items-center">
+            <p className="flex gap-1 items-center cursor-pointer">
               <GiClick />
-              23,549
+              {product?.click_count}
             </p>
           </div>
 
@@ -73,11 +83,14 @@ const page = async ({ params }) => {
               product_link={product?.product_link}
               company={product?.company}
             ></RedirectButton>
+            <SaveProduct
+              id={product?._id}
+              isSaved={product?.isSaved}
+              title={product?.title}
+            ></SaveProduct>
             <div className="p-3 rounded-full border w-fit hover:bg-gray-400 hover:text-white">
               <IoIosSend />
-            </div>
-            <div className="p-3 rounded-full border w-fit hover:bg-gray-400 hover:text-white">
-              <CiBookmark />
+              
             </div>
           </div>
         </div>
@@ -93,8 +106,15 @@ const page = async ({ params }) => {
             aria-label="Product Info"
             defaultChecked
           />
-          <div className="tab-content   p-2">{product?.product_info}</div>
+          <div
+            className="tab-content   p-2"
+            dangerouslySetInnerHTML={{ __html: product?.product_info }}
+          ></div>
         </div>
+      </section>
+
+      <section className="mx-auto w-[96%]">
+        <CommentProduct id={product?._id}></CommentProduct>
       </section>
     </section>
   );

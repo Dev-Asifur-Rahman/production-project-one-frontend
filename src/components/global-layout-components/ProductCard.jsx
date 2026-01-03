@@ -1,16 +1,12 @@
 "use client";
-import { useState } from "react";
-import { GiPriceTag } from "react-icons/gi";
+
 import { MdLabelImportant } from "react-icons/md";
-import { FcLike } from "react-icons/fc";
-import { FcLikePlaceholder } from "react-icons/fc";
-import { MdOutlineInsertComment } from "react-icons/md";
+
 import { IoMdShare } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import CornerRibbon from "./CornerRibbon";
 
 const ProductCard = ({ product }) => {
-  const [isLiked, setLiked] = useState(false);
   const router = useRouter();
 
   const handleRoute = async (product) => {
@@ -60,7 +56,7 @@ const ProductCard = ({ product }) => {
       <div className="flex items-center gap-3 mt-2 font-medium">
         {/* <GiPriceTag /> */}
         <img className="w-4 aspect-square" src="/logo/bdt-logo.png" alt="" />
-        <p>{product?.offer_price ? product?.offer_price + " TK" : "Unknown"}</p>
+        <p className="text-[12px]">{product?.offer_price ? product?.offer_price + " TK" : "Unknown"}</p>
         {/* discount  */}
         <span className="line-through text-[12px] font-semibold text-red-600">
           {product?.regular_price ? product?.regular_price + " TK" : "Unknown"}
@@ -70,30 +66,9 @@ const ProductCard = ({ product }) => {
       {/* brand name  */}
       <div className="flex items-center gap-3">
         <MdLabelImportant />{" "}
-        <span className="font-medium text-sm">
+        <span className="font-medium text-xso">
           {product?.company ? product?.company : "Unknown"}
         </span>
-      </div>
-
-      <hr className="w-full mt-2 text-[#999999]" />
-
-      {/* like comment share  */}
-      <div className="mt-2 w-full flex justify-between items-center">
-        {/* like  */}
-        <div className="flex items-center gap-1">
-          {isLiked ? <FcLike /> : <FcLikePlaceholder />}{" "}
-          <span className="text-sm">23</span>
-        </div>
-        {/* comment  */}
-        <div className="flex items-center gap-1">
-          <MdOutlineInsertComment />
-          <span className="text-sm">6</span>
-        </div>
-        {/* share  */}
-        <div className="flex items-center gap-1">
-          <IoMdShare />
-          <span className="text-sm">2</span>
-        </div>
       </div>
     </div>
   );

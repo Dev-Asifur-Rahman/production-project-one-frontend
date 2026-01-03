@@ -2,24 +2,31 @@
 import React, { useEffect, useState, useRef } from "react";
 import "cally";
 
-const CalenderSearch = () => {
+const CalenderSearch = ({ setDate }) => {
   const [selectedDate, setSelectedDate] = useState("");
   const [open, setOpen] = useState(false);
   const popoverRef = useRef(null);
+  const calendarRef = useRef(null);
 
   useEffect(() => {
-    const calendar = document.querySelector("calendar-date");
+    const calendar = calendarRef.current;
     if (calendar) {
       const handleChange = (e) => {
-        setSelectedDate(e.target.value);
+        const dateStr = e.target.value;
+        if (!dateStr) return;
+
+        const dateObj = new Date(dateStr);
+        const isoString = dateObj.toISOString();
+
+        setSelectedDate(isoString); // local display
+        setDate(isoString); // parent state update
         setOpen(false);
       };
+
       calendar.addEventListener("change", handleChange);
-      return () => {
-        calendar.removeEventListener("change", handleChange);
-      };
+      return () => calendar.removeEventListener("change", handleChange);
     }
-  }, []);
+  }, [setDate]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -35,23 +42,25 @@ const CalenderSearch = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const displayDate = selectedDate
+    ? new Date(selectedDate).toLocaleDateString("en-GB")
+    : "Pick a date";
+
   return (
     <div className="w-full flex justify-center p-4 relative">
-      <p>{selectedDate}</p>
       <button
         id="cally1"
         className="input input-bordered relative z-10"
-        style={{ "--cally1": "true" }}
         onClick={() => setOpen((prev) => !prev)}
       >
-        {selectedDate || "Pick a date"}
+        {displayDate}
       </button>
 
       <div
         ref={popoverRef}
         popover
         id="cally-popover1"
-        className={`dropdown bg-base-100 rounded-box shadow-lg mt-2 absolute ${
+        className={`dropdown bg-base-100 rounded-box shadow-lg mt-2 absolute z-[200] ${
           open ? "block" : "hidden"
         }`}
         style={{
@@ -60,7 +69,7 @@ const CalenderSearch = () => {
           "--cally-alignment": "start",
         }}
       >
-        <calendar-date className="cally block p-2 mt-8">
+        <calendar-date ref={calendarRef} className="cally block p-2 mt-8">
           <svg
             aria-label="Previous"
             className="fill-current w-6 h-6 cursor-pointer"

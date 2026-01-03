@@ -1,51 +1,62 @@
 "use client";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 
-import { FcLike } from "react-icons/fc";
-import { FcLikePlaceholder } from "react-icons/fc";
-import { GiClick } from "react-icons/gi";
 
 const TopCategories = () => {
-  const [isLiked, setLiked] = useState(false);
+  const [categories, setCategories] = useState([]);
   const router = useRouter();
+  const {lan} = useContext(LanguageContext)
+
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}
+/trending_categories`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCategories(data);
+      });
+  }, []);
   return (
     <div className="w-full mb-4">
       <p className="text-lg w-fit hover:underline cursor-pointer font-semibold pl-3 my-3 smd:text-xl smd:font-bold mmd:text-2xl">
-        Top Categories
+        {translation[lan].homeLeftComponent.heading.top_categories}
       </p>
       <Marquee pauseOnHover className="w-full flex items-center gap-3 ">
-        {[...Array(10)].map((_, index) => (
+        {categories?.map((category, index) => (
           <div
-            onClick={() => router.push(`/products/${"topcategories"}`)}
+            onClick={() => router.push(`/products/${category?.category}`)}
             key={index}
-            className="flex items-center mx-4 w-[270px] cursor-pointer aspect-[1/0.4] p-2 rounded-md shadow-2xl  mb-10 hover:bg-[#d1e2f5]"
+            className="flex flex-col justify-center items-center gap-3 mx-8 w-50  cursor-pointer  p-2    mb-10 "
           >
-            {/* image section  */}
-            <div className="bg-[#F0F0F0] rounded-md w-2/5 h-full ">
-              <img
-                src="https://static.slickdealscdn.com/attachment/8/2/3/9/6/6/7/200x200/18696175.thumb"
-                alt=""
-                className="rounded-lg mix-blend-multiply"
-              />
-            </div>
-            {/* details section  */}
-            <div className="w-3/5 text-[12px] px-1.5 h-full flex flex-col justify-around">
-              <p className="line-clamp-2">
-                26" AMYET EB26 1500W Peak 48V 15AH Adult Electric Fat Tire Bike
-              </p>
-              <div className="flex items-center justify-between">
-                <p className="flex gap-1 items-center">
-                  <GiClick />
-                  23,549
-                </p>
-                <div className="flex items-center gap-1">
-                  {isLiked ? <FcLike /> : <FcLikePlaceholder />}
-                  <span className="">23</span>
-                </div>
-              </div>
-            </div>
+            <p
+              className={`font-bold text-lg ${
+                index + 1 === 1
+                  ? "text-yellow-500"
+                  : index + 1 === 2
+                  ? "text-gray-400"
+                  : index + 1 === 3
+                  ? "text-amber-700"
+                  : ""
+              }`}
+            >
+              {index + 1}
+              <span className={``}>
+                {index + 1 === 1
+                  ? "st"
+                  : index + 1 === 2
+                  ? "nd"
+                  : index + 1 === 3
+                  ? "rd"
+                  : "th"}
+              </span>
+            </p>
+            <div className="w-[120px] aspect-square rounded-full shadow-2xl hover:bg-[#d1e2f5]"></div>
+            <p className="text-wrap text-center w-full">
+              {category?.category}
+            </p>
           </div>
         ))}
       </Marquee>

@@ -36,11 +36,11 @@ const OfferAndDiscountSlider = () => {
     fetchData();
   }, []);
   return loading ? (
-    <div className="w-full lg:mt-5 md:mt-4 smd:mt-3 mt-2 aspect-[1/0.3] flex justify-center items-center">
+    <div className="w-full aspect-[1/0.35] flex justify-center items-center">
       <span className="loading loading-dots loading-md"></span>
     </div>
   ) : (
-    <section className="w-full lg:mt-5 md:mt-4 smd:mt-3 mt-2 aspect-[1/0.3]">
+    <section className="w-full aspect-[1/0.35]">
       <Swiper
         grabCursor={true}
         effect={"creative"}

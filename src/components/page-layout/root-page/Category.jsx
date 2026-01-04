@@ -26,7 +26,7 @@ const Category = () => {
       <section className="w-full">
         <div
           id="trending-component"
-          className="w-full px-2 lg:flex lg:justify-center lg:items-center gap-6 relative hidden bg-white"
+          className="w-full px-2 lg:flex lg:justify-center lg:items-center gap-6 relative hidden"
         >
           {categories?.map((category, index) => {
             return (
@@ -35,7 +35,7 @@ const Category = () => {
                 key={index}
                 className="dropdown dropdown-hover  dropdown-center"
               >
-                <div tabIndex={0} role="button" className=" m-1 text-black">
+                <div tabIndex={0} role="button" className=" m-1 ">
                   {category?.name}
                 </div>
                 <ul

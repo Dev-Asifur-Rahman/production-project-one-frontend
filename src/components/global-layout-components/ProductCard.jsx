@@ -5,9 +5,13 @@ import { MdLabelImportant } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import CornerRibbon from "./CornerRibbon";
+import { useContext } from "react";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
 
 const ProductCard = ({ product }) => {
   const router = useRouter();
+  const {lan} = useContext(LanguageContext)
 
   const handleRoute = async (product) => {
     // make product object like {product : category}
@@ -26,7 +30,7 @@ const ProductCard = ({ product }) => {
   return (
     <div
       onClick={() => handleRoute(product)}
-      className="relative overflow-hidden w-full max-w-[200px] p-2  bg-[#d1e2f5] hover:bg-[#76ace9] rounded-lg shadow-2xl my-2 cursor-pointer transition-transform duration-300 hover:scale-105"
+      className="relative overflow-hidden w-full max-w-[200px] p-2  border-2 rounded-lg shadow-2xl my-2 cursor-pointer transition-transform duration-300 hover:scale-105"
     >
       {/* ribbon component  */}
       <CornerRibbon discount={product?.offer_percent}></CornerRibbon>
@@ -55,11 +59,11 @@ const ProductCard = ({ product }) => {
       {/* price  */}
       <div className="flex items-center gap-3 mt-2 font-medium">
         {/* <GiPriceTag /> */}
-        <img className="w-4 aspect-square" src="/logo/bdt-logo.png" alt="" />
-        <p className="text-[12px]">{product?.offer_price ? product?.offer_price + " TK" : "Unknown"}</p>
+        {/* <img className="w-4 aspect-square bg-white" src="/logo/taka-logo.png" alt="" /> */}
+        <p className="text-[12px]">৳ {product?.offer_price ? product?.offer_price + ` ${translation[lan].common.taka}` : ""}</p>
         {/* discount  */}
         <span className="line-through text-[12px] font-semibold text-red-600">
-          {product?.regular_price ? product?.regular_price + " TK" : "Unknown"}
+          {product?.regular_price ? product?.regular_price + ` ${translation[lan].common.taka}` : ""}
         </span>
       </div>
 
@@ -67,7 +71,7 @@ const ProductCard = ({ product }) => {
       <div className="flex items-center gap-3">
         <MdLabelImportant />{" "}
         <span className="font-medium text-xso">
-          {product?.company ? product?.company : "Unknown"}
+          {product?.company ? product?.company : ""}
         </span>
       </div>
     </div>

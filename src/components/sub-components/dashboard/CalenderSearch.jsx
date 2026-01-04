@@ -1,12 +1,15 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import "cally";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
 
 const CalenderSearch = ({ setDate }) => {
   const [selectedDate, setSelectedDate] = useState("");
   const [open, setOpen] = useState(false);
   const popoverRef = useRef(null);
   const calendarRef = useRef(null);
+  const {lan} = useContext(LanguageContext)
 
   useEffect(() => {
     const calendar = calendarRef.current;
@@ -18,8 +21,8 @@ const CalenderSearch = ({ setDate }) => {
         const dateObj = new Date(dateStr);
         const isoString = dateObj.toISOString();
 
-        setSelectedDate(isoString); // local display
-        setDate(isoString); // parent state update
+        setSelectedDate(isoString); 
+        setDate(isoString); 
         setOpen(false);
       };
 
@@ -44,7 +47,7 @@ const CalenderSearch = ({ setDate }) => {
 
   const displayDate = selectedDate
     ? new Date(selectedDate).toLocaleDateString("en-GB")
-    : "Pick a date";
+    : `${translation[lan].dashboard.clickedInfo.pick_a_date}`;
 
   return (
     <div className="w-full flex justify-center p-4 relative">

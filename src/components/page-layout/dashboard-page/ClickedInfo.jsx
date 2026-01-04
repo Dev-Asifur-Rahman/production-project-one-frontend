@@ -1,7 +1,9 @@
 "use client";
 import CalenderSearch from "@/components/sub-components/dashboard/CalenderSearch";
 import DashboardSearchBar from "@/components/sub-components/dashboard/DashboardSearchBar";
-import React, { useEffect, useState } from "react";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
+import React, { useContext, useEffect, useState } from "react";
 import * as XLSX from "xlsx";
 
 const ClickedInfo = () => {
@@ -9,6 +11,7 @@ const ClickedInfo = () => {
   const [search, setSearch] = useState("all");
   const [date, setDate] = useState("");
   const [limit, setLimit] = useState(15);
+  const {lan} = useContext(LanguageContext)
 
   useEffect(() => {
     const fetchClickedData = async () => {
@@ -44,7 +47,7 @@ const ClickedInfo = () => {
 
   return (
     <div className="w-full lg:w-4/5 mx-auto mb-20">
-      <p className="font-bold text-3xl text-center my-5">Clicked Data</p>
+      <p className="font-bold text-3xl text-[#006A4E] dark:text-[#F42A41] text-center my-5">{translation[lan].dashboard.clickedInfo.heading}</p>
 
       <div className="flex flex-col lg:flex-row justify-between items-center gap-4 mb-4">
         <DashboardSearchBar setSearch={setSearch} />
@@ -65,23 +68,23 @@ const ClickedInfo = () => {
         <section className="w-full">
           <p
             onClick={exportToExcel}
-            className="text-lg my-4 text-green-600 hover:underline cursor-pointer"
+            className="text-lg my-4 text-[#006A4E] hover:underline cursor-pointer"
           >
-            Export as Sheet
+            {translation[lan].dashboard.clickedInfo.export_this_sheet}
           </p>
           <div className="overflow-x-auto">
             <table className="table table-zebra">
               <thead>
-                <tr>
-                  <th className="text-center">Serial No</th>
-                  <th>Name</th>
-                  <th className="text-center">Company</th>
-                  <th>Device</th>
-                  <th className="text-center">IP</th>
-                  <th className="text-center">Time</th>
-                  <th>Date</th>
-                  <th>Country</th>
-                  <th>Time Zone</th>
+                <tr className="text-[#006A4E] dark:text-[#F42A41]">
+                  <th className="text-center">{translation[lan].common.no}</th>
+                  <th>{translation[lan].common.name}</th>
+                  <th className="text-center">{translation[lan].common.company}</th>
+                  <th>{translation[lan].common.device}</th>
+                  <th className="text-center">{translation[lan].common.ip}</th>
+                  <th className="text-center">{translation[lan].common.time}</th>
+                  <th>{translation[lan].common.date}</th>
+                  <th>{translation[lan].common.country}</th>
+                  <th>{translation[lan].common.time_zone}</th>
                 </tr>
               </thead>
               <tbody>

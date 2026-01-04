@@ -34,7 +34,7 @@ const HomeRightComponents = ({
           borderTopLeftRadius: "8px",
           borderTopRightRadius: "8px",
         }}
-        className="bg-[#FAFAFA] flex justify-around smd:justify-start md:justify-around lg:justify-start items-center smd:gap-3 py-2 text-xl font-semibold"
+        className=" flex justify-around smd:justify-start md:justify-around lg:justify-start items-center smd:gap-3 py-2 text-xl font-semibold"
       >
         <p className="px-2">{Heading}</p>
         {HeadingIcon}

@@ -1,8 +1,12 @@
 "use client";
 
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
+import { useContext } from "react";
 import toast from "react-hot-toast";
 
 const RedirectButton = ({ product_link, title, company }) => {
+  const {lan} = useContext(LanguageContext)
   const handleDirect = async (e) => {
     const click_document = {
       product_name: title,
@@ -30,12 +34,12 @@ const RedirectButton = ({ product_link, title, company }) => {
   return (
     <button
       onClick={handleDirect}
-      style={{
-        background: `linear-gradient(21deg,rgba(123, 97, 207, 1) 0%, rgba(89, 101, 194, 1) 34%, rgba(86, 127, 196, 1) 59%, rgba(102, 158, 222, 1) 71%, rgba(255, 255, 255, 1) 98%)`,
-      }}
-      className="btn rounded-xl hover:bg-blue-800 text-white"
+      // style={{
+      //   background: `linear-gradient(21deg,rgba(123, 97, 207, 1) 0%, rgba(89, 101, 194, 1) 34%, rgba(86, 127, 196, 1) 59%, rgba(102, 158, 222, 1) 71%, rgba(255, 255, 255, 1) 98%)`,
+      // }}
+      className="btn rounded-xl bg-[#006A4E] text-white"
     >
-      Get deal at {company}
+      { lan === 'bn' ? `${company} ${translation[lan].productDetailsPage.common.get_deal_at}`: `${translation[lan].productDetailsPage.common.get_deal_at} ${company}`}
     </button>
   );
 };

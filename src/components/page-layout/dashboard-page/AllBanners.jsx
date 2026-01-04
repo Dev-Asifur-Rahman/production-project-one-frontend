@@ -1,16 +1,19 @@
 "use client";
 
 import imageUpload from "@/lib/imageUpload";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { GoTrash } from "react-icons/go";
 import { FaRegArrowAltCircleUp } from "react-icons/fa";
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
+import translation from "@/utils/translation";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
 
 const AllBanners = () => {
   const [banners, setBanners] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const bannerSpeedRef = useRef(0);
+  const {lan} = useContext(LanguageContext)
 
   useEffect(() => {
     const fetchBanners = async () => {
@@ -121,13 +124,13 @@ const AllBanners = () => {
           <table className="table table-zebra">
             {/* head */}
             <thead>
-              <tr>
-                <th>No</th>
-                <th className="">Up</th>
-                <th className="">Down</th>
-                <th>Company</th>
-                <th className="text-center">Delete</th>
-                <th>Banner Link</th>
+              <tr className="text-[#006A4E] dark:text-[#F42A41]">
+                <th>{translation[lan].common.no}</th>
+                <th className="">{translation[lan].common.up}</th>
+                <th className="">{translation[lan].common.down}</th>
+                <th>{translation[lan].common.company}</th>
+                <th className="text-center">{translation[lan].common.delete}</th>
+                <th>{translation[lan].dashboard.banners.banner_link}</th>
               </tr>
             </thead>
             <tbody>
@@ -170,10 +173,10 @@ const AllBanners = () => {
       )}
 
       <div className="mt-10">
-        <p className=" text-xl">Upload New Banner</p>
+        <p className=" text-xl">{translation[lan].dashboard.banners.uploadNewBanner.heading}</p>
         <form onSubmit={handleForm} className="flex flex-col gap-1 ">
           <label htmlFor="" className="label my-1">
-            Company
+            {translation[lan].common.company}
           </label>
           <input
             type="text"
@@ -182,7 +185,7 @@ const AllBanners = () => {
             required
           />
           <label htmlFor="" className="label my-1">
-            Banner Image
+            {translation[lan].dashboard.banners.uploadNewBanner.banner_image}
           </label>
           <input
             required
@@ -190,23 +193,23 @@ const AllBanners = () => {
             name="banner_image"
             className="file-input file-input-md"
           />
-          <button className="btn btn-sm w-fit">Add New</button>
+          <button className="btn btn-sm w-fit bg-[#006A4E] text-white">{translation[lan].dashboard.banners.uploadNewBanner.add_new}</button>
         </form>
       </div>
 
       <div className="flex flex-col gap-2 my-5">
         <label htmlFor="" className="label my-1">
-          Control Banner Speed
+          {translation[lan].dashboard.banners.bannerSpeed.heading}
         </label>
         <input
           ref={bannerSpeedRef}
           required
           type="number"
-          placeholder="Insert as millisecond"
+          placeholder={translation[lan].dashboard.banners.bannerSpeed.banner_input_placeholder}
           className="input"
         />
-        <button onClick={handleBannerSpeed} className="btn btn-sm w-fit">
-          Add Speed
+        <button onClick={handleBannerSpeed} className="btn btn-sm w-fit bg-[#006A4E] text-white">
+          {translation[lan].dashboard.banners.bannerSpeed.add_speed}
         </button>
       </div>
     </div>

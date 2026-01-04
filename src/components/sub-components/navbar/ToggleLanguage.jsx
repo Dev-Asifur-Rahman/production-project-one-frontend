@@ -32,14 +32,16 @@ const ToggleLanguage = () => {
     router.refresh()
   };
   return (
-    <div>
+    <div className="flex items-center gap-1 text-white">
+      <p>EN</p>
       <input
         id="lang-toggle"
         type="checkbox"
-        className="toggle"
+        className="toggle bg-transparent border-white text-white"
         checked={lan === "bn"}
         onChange={handleToggle}
       />
+      <p>BN</p>
     </div>
   );
 };

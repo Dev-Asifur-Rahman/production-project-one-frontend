@@ -1,15 +1,16 @@
 "use client";
-import React, { useState } from "react";
-import { GiPriceTag } from "react-icons/gi";
+import React, { useContext } from "react";
 import { FcLike } from "react-icons/fc";
 import { FcLikePlaceholder } from "react-icons/fc";
 import { MdOutlineInsertComment } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import { useRouter } from "next/navigation";
+import translation from "@/utils/translation";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
 
 const RightComponentProductCard = ({ product }) => {
   const router = useRouter();
-  const [isLiked,setIslike] = useState(false)
+  const {lan} = useContext(LanguageContext)
 
   const handleRoute = async (product) => {
     fetch("/api/cookies/visitor", {
@@ -27,7 +28,7 @@ const RightComponentProductCard = ({ product }) => {
   return (
     <div
       onClick={() => handleRoute(product)}
-      className="cursor-pointer  w-full p-2 flex border-b border-b-[#F0F0F0] hover:bg-[#d1e2f5]"
+      className="cursor-pointer  w-full p-2 flex border-b border-b-[#F0F0F0]"
     >
       {/* img section  */}
       <div className="w-1/3 max-w-[100px] md:w-2/4 aspect-square bg-[#F0F0F0]  rounded-lg">
@@ -45,11 +46,12 @@ const RightComponentProductCard = ({ product }) => {
 
         {/* price  */}
         <div className="flex items-center gap-3 mt-2 font-medium">
-          <GiPriceTag />
-          <p>{product?.offer_price} TK</p>
+          
+          {/* <img className="w-4 aspect-square" src="/logo/taka-logo.png" alt="" /> */}
+          <p>৳ {product?.offer_price} {translation[lan].common.taka}</p>
           {/* discount  */}
           <span className="line-through text-[12px] text-red-500">
-            {product?.regular_price} TK
+            {product?.regular_price} {translation[lan].common.taka}
           </span>
         </div>
 
@@ -59,7 +61,7 @@ const RightComponentProductCard = ({ product }) => {
         <div className="mt-2 w-full flex justify-between items-center">
           {/* like  */}
           <div className="flex items-center gap-1">
-            {isLiked ? <FcLike /> : <FcLikePlaceholder />}
+            <FcLike />
             <span className="text-sm">23</span>
           </div>
           {/* comment  */}

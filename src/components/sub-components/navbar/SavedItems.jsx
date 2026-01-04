@@ -16,7 +16,7 @@ const SavedItems = () => {
   };
   return (
     session?.data?.user && (
-      <div onClick={handleRoute} className=" bg-[#196296] hover:bg-[#0ef] ">
+      <div onClick={handleRoute} className=" bg-[#F42A41]  ">
         <CiSaveDown2 />
         <p className="">{translation[lan].navbar.logo[0]}</p>
       </div>

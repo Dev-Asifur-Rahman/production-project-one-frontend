@@ -26,7 +26,7 @@ const PostDeal = () => {
   };
   return (
     <>
-      <div className=" bg-[#196296] hover:bg-[#0ef] " onClick={handleNavigate}>
+      <div className=" bg-[#F42A41]" onClick={handleNavigate}>
         <GoPlus />
         <p className="">{translation[lan].navbar.logo[1]}</p>
       </div>

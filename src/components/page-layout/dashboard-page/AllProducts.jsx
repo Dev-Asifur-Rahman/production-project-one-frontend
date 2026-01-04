@@ -1,7 +1,9 @@
 "use client";
 
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { MdArchive } from "react-icons/md";
 
@@ -9,6 +11,7 @@ const AllProducts = () => {
   const [products, setProducts] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const router = useRouter();
+  const {lan} = useContext(LanguageContext)
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -47,13 +50,13 @@ const AllProducts = () => {
           <table className="table table-zebra">
             <thead>
               <tr>
-                <th>No</th>
-                <th>Title</th>
-                <th>Company</th>
-                <th>Category</th>
-                <th>Subcategory</th>
-                <th>Modify</th>
-                <th>Archive</th>
+                <th>{translation[lan].common.no}</th>
+                <th>{translation[lan].common.product_name}</th>
+                <th>{translation[lan].common.company}</th>
+                <th>{translation[lan].common.category}</th>
+                <th>{translation[lan].common.subcategory}</th>
+                <th>{translation[lan].common.modify}</th>
+                <th>{translation[lan].common.archive}</th>
               </tr>
             </thead>
             <tbody>
@@ -71,7 +74,7 @@ const AllProducts = () => {
                       onClick={() => handleNavigate(product?._id)}
                       className="hover:underline hover:cursor-pointer"
                     >
-                      Update
+                      {translation[lan].common.update}
                     </td>
                     <td>
                       <div

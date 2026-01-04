@@ -1,8 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
+import React, { useContext, useEffect, useState } from "react";
 
 const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
+  const {lan} = useContext(LanguageContext)
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
@@ -36,12 +39,12 @@ const Leaderboard = () => {
         <div className="overflow-x-auto">
           <table className="table">
             <thead>
-              <tr>
-                <th className="text-center">Rank</th>
-                <th>Name</th>
-                <th className="text-center">Points Collected</th>
-                <th className="text-center">Level</th>
-                <th className="text-center">ID</th>
+              <tr className="text-[#006A4E] dark:text-[#F42A41]">
+                <th className="text-center">{translation[lan].common.rank}</th>
+                <th>{translation[lan].common.name}</th>
+                <th className="text-center">{translation[lan].common.point}</th>
+                <th className="text-center">{translation[lan].common.level}</th>
+                <th className="text-center">{translation[lan].common.id}</th>
               </tr>
             </thead>
             <tbody>
@@ -61,7 +64,7 @@ const Leaderboard = () => {
                       <div className="text-center">{user?.level}</div>
                     </td>
                     <td>
-                      <div className="text-center">{user?.user_id || 'Not Registered'}</div>
+                      <div className="text-center">{user?.user_id || `${lan === 'en' ? 'Not Registered' : 'আইডি নিবন্ধিত নয়'}`}</div>
                     </td>
                   </tr>
                 );

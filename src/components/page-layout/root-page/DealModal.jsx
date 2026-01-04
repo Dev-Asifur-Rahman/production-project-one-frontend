@@ -3,11 +3,13 @@
 import getCategory from "@/actions/category/getCategory";
 import { closeModal } from "@/redux/features/modalSlice";
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import "react-datepicker/dist/react-datepicker.css";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
 
 const DealModal = () => {
   const isOpen = useSelector((state) => state.deal_modal.isOpen);
@@ -15,6 +17,7 @@ const DealModal = () => {
   const dialogueRef = useRef(null);
   const productInfoRef = useRef(null);
   const router = useRouter();
+  const {lan} = useContext(LanguageContext)
 
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -130,12 +133,12 @@ const DealModal = () => {
             className="flex flex-col items-center gap-3"
           >
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Title</legend>
+              <legend className="fieldset-legend">{translation[lan].common.title}</legend>
               <input required type="text" name="title" className="input" />
             </fieldset>
 
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Category</legend>
+              <legend className="fieldset-legend">{translation[lan].common.category}</legend>
               <select
                 required
                 name="category"
@@ -144,7 +147,7 @@ const DealModal = () => {
                 onChange={handleCategoryChange}
               >
                 <option disabled value="">
-                  Choose Category
+                  {translation[lan].common.choose_category}
                 </option>
 
                 {categories?.map((cat) => (
@@ -156,7 +159,7 @@ const DealModal = () => {
             </fieldset>
 
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Sub Category</legend>
+              <legend className="fieldset-legend">{translation[lan].common.subcategory}</legend>
               <select
                 required
                 name="subcategory"
@@ -165,7 +168,7 @@ const DealModal = () => {
                 disabled={!selectedCategory}
               >
                 <option disabled value="">
-                  Choose Subcategory
+                  {translation[lan].common.choose_category}
                 </option>
                 {subcategories.map((sub) => (
                   <option key={sub} value={sub}>
@@ -176,12 +179,12 @@ const DealModal = () => {
             </fieldset>
 
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Company</legend>
+              <legend className="fieldset-legend">{translation[lan].common.company}</legend>
               <input required type="text" name="company" className="input" />
             </fieldset>
 
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Regular Price</legend>
+              <legend className="fieldset-legend">{translation[lan].common.regular_price}</legend>
               <input
                 required
                 type="number"
@@ -191,7 +194,7 @@ const DealModal = () => {
             </fieldset>
 
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Offer Price</legend>
+              <legend className="fieldset-legend">{translation[lan].common.offer_price}</legend>
               <input
                 required
                 type="number"
@@ -201,7 +204,7 @@ const DealModal = () => {
             </fieldset>
 
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Offer Percent</legend>
+              <legend className="fieldset-legend">{translation[lan].common.offer_percent}</legend>
               <input
                 required
                 type="number"
@@ -211,7 +214,7 @@ const DealModal = () => {
             </fieldset>
 
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Set Expire Date</legend>
+              <legend className="fieldset-legend">{translation[lan].common.set_expire_date}</legend>
               <DatePicker
                 required
                 selected={startDate}
@@ -225,7 +228,7 @@ const DealModal = () => {
             </fieldset>
 
             <fieldset className="fieldset w-full">
-              <legend className="fieldset-legend">Product Info</legend>
+              <legend className="fieldset-legend">{translation[lan].common.product_info}</legend>
 
               <div
                 contentEditable
@@ -283,7 +286,7 @@ const DealModal = () => {
             </fieldset>
 
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Product Link</legend>
+              <legend className="fieldset-legend">{translation[lan].common.product_link}</legend>
               <input
                 required
                 type="text"
@@ -293,7 +296,7 @@ const DealModal = () => {
             </fieldset>
 
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Product Image</legend>
+              <legend className="fieldset-legend">{translation[lan].common.product_image}</legend>
               <input
                 required
                 type="text"
@@ -302,14 +305,14 @@ const DealModal = () => {
               />
             </fieldset>
 
-            <div className="flex items-center justify-center gap-3">
-              <button className="btn">Submit</button>
+            <div className="flex items-center justify-center gap-3 ">
+              <button className="btn bg-[#006A4E] text-white">{translation[lan].common.submit}</button>
               <button
                 type="button"
                 onClick={() => dispatch(closeModal())}
-                className="btn"
+                className="btn bg-[#F42A41] text-white"
               >
-                cancel
+                {translation[lan].common.cancel}
               </button>
             </div>
           </form>

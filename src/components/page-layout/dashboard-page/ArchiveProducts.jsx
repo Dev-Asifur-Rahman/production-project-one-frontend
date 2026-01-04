@@ -1,8 +1,9 @@
 "use client";
 
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { GoTrash } from "react-icons/go";
 
@@ -10,6 +11,7 @@ const ArchiveProducts = () => {
   const [archiveProducts, setArchiveProducts] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const router = useRouter();
+  const {lan} = useContext(LanguageContext)
 
   useEffect(() => {
     const fetchArchiveProducts = async () => {
@@ -59,13 +61,13 @@ const ArchiveProducts = () => {
             {/* head */}
             <thead>
               <tr>
-                <th>No</th>
-                <th>Title</th>
-                <th>Company</th>
-                <th>Category</th>
-                <th>Subcategory</th>
-                <th>Days Left</th>
-                <th className=" text-center">Delete</th>
+                <th>{translation[lan].common.no}</th>
+                <th>{translation[lan].common.title}</th>
+                <th>{translation[lan].common.company}</th>
+                <th>{translation[lan].common.category}</th>
+                <th>{translation[lan].common.subcategory}</th>
+                <th>{translation[lan].common.days_left}</th>
+                <th className=" text-center">{translation[lan].common.delete}</th>
               </tr>
             </thead>
             <tbody>

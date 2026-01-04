@@ -3,7 +3,8 @@
 
 :root {
   --font-primary: var(--font-montserrat);
-  --main-color: #0ef;
+  --main-color: #F42A41;
+  --foreground: rgb(255, 0, 106);
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -12,8 +13,8 @@
   --font-primary: var(--font-shiliguri);
 }
 
-[data-theme="dark"] {
-  
+[data-theme="dark"] { 
+  --foreground : 
 }
 
 @theme {
@@ -36,8 +37,6 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: var(--font-primary), sans-serif;
   max-width: 1440px;
   margin: 0 auto;
@@ -96,7 +95,7 @@ body {
 }
 
 #trending-component div:hover {
-  color: #196296;
+  color: #F42A41;
 }
 
 #trending-component div:hover li a {
@@ -105,7 +104,7 @@ body {
 }
 
 #trending-component div:hover li a:hover {
-  color: #196296;
+  color: #F42A41;
   font-weight: 500;
 }
 

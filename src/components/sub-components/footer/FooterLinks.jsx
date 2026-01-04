@@ -20,7 +20,7 @@ const FooterLinks = ({ heading = "Enter Heading", links }) => {
       </summary>
       <ul className="mt-3 ml-2">
         {
-            links?.map((link,index)=><li className="text-sm font-normal my-2" key={index}>{link}</li>)
+            links?.map((link,index)=><li className="text-sm font-normal my-2 cursor-pointer hover:underline" key={index}>{link}</li>)
         }
       </ul>
     </details>

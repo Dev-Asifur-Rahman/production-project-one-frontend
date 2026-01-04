@@ -1,11 +1,14 @@
 "use client";
-import { useEffect, useState } from "react";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
 const PendingProducts = () => {
   const [pendingProducts, setPendingProducts] = useState([]);
   const [refresh,setRefresh] = useState(false)
+  const {lan} = useContext(LanguageContext)
 
   useEffect(() => {
     const fetchPendingProducts = async () => {
@@ -45,15 +48,15 @@ const PendingProducts = () => {
           <table className="table table-zebra">
             <thead>
               <tr>
-                <th>No</th>
-                <th>Title</th>
-                <th>Company</th>
-                <th>Status</th>
-                <th>Validity</th>
-                <th>Category</th>
-                <th>Subcategory</th>
-                <th>Modify</th>
-                <th>Approve</th>
+                <th>{translation[lan].common.no}</th>
+                <th>{translation[lan].common.title}</th>
+                <th>{translation[lan].common.company}</th>
+                <th>{translation[lan].common.status}</th>
+                <th>{translation[lan].common.validity}</th>
+                <th>{translation[lan].common.category}</th>
+                <th>{translation[lan].common.subcategory}</th>
+                <th>{translation[lan].common.modify}</th>
+                <th>{translation[lan].common.approve}</th>
               </tr>
             </thead>
             <tbody>

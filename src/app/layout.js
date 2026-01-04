@@ -45,7 +45,6 @@ export default function RootLayout({ children }) {
                 <HeadingMarquee></HeadingMarquee>
                 <NavBar></NavBar>
                 <Category></Category>
-                <Test></Test>
                 {children}
                 <Footer></Footer>
                 <DealModal></DealModal>

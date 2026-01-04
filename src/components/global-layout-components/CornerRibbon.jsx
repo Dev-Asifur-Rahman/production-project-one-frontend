@@ -1,4 +1,9 @@
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
+import { useContext } from "react";
+
 const CornerRibbon = ({discount}) => {
+  const {lan} = useContext(LanguageContext)
 
   const ribbonText = {
     backgroundColor: "#a00",
@@ -18,7 +23,7 @@ const CornerRibbon = ({discount}) => {
     textShadow: "0 0 5px #444",
   };
 
-  return <p style={ribbonText} className="text-sm">{discount}% OFF!</p>;
+  return <p style={ribbonText} className="text-sm">{discount}% {translation[lan].common.off}!</p>;
 };
 
 export default CornerRibbon;

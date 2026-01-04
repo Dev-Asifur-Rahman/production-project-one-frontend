@@ -1,8 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
+import React, { useContext, useEffect, useState } from "react";
 
 const RisingStars = () => {
   const [risingStars, setRisingStars] = useState([]);
+  const { lan } = useContext(LanguageContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,18 +39,20 @@ const RisingStars = () => {
         <div className="overflow-x-auto">
           <table className="table">
             <thead>
-              <tr>
-                <th className="text-center">Rank</th>
+              <tr className="text-[#006A4E] dark:text-[#F42A41]">
+                <th className="text-center">{translation[lan].common.rank}</th>
                 <th>Name</th>
-                <th className="text-center">Monthly Points</th>
-                <th className="text-center">Level</th>
-                <th className="text-center">ID</th>
+                <th className="text-center">
+                  {translation[lan].common.monthly_point}
+                </th>
+                <th className="text-center">{translation[lan].common.level}</th>
+                <th className="text-center">{translation[lan].common.id}</th>
               </tr>
             </thead>
             <tbody>
               {risingStars?.map((user, index) => {
                 return (
-                  <tr>
+                  <tr key={index}>
                     <th className={`${setRankColor(index + 1)} text-center`}>
                       {index + 1}
                     </th>
@@ -55,10 +60,17 @@ const RisingStars = () => {
                     <td>
                       <div className="text-center">{user?.monthly_point}</div>
                     </td>
-                    <td><div className="text-center">{user?.level}</div></td>
+                    <td>
+                      <div className="text-center">{user?.level}</div>
+                    </td>
                     <td>
                       <div className="text-center">
-                        {user?.user_id || "Not Registered"}
+                        {user?.user_id ||
+                          `${
+                            lan === "en"
+                              ? "Not Registered"
+                              : "আইডি নিবন্ধিত নয়"
+                          }`}
                       </div>
                     </td>
                   </tr>

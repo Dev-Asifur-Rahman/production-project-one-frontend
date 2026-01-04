@@ -19,7 +19,7 @@ const HeadingMarquee = () => {
     return;
   } else {
     return (
-      <Marquee pauseOnHover className=" w-full h-8 bg-[#F5F7FA] text-black">
+      <Marquee pauseOnHover className=" w-full h-8">
         <p className="mr-20 lg:mr-0 font-medium">
           {translation[lan].headingMarquee}
         </p>

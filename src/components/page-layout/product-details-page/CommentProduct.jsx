@@ -1,12 +1,16 @@
 "use client";
 
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useContext } from "react";
 import toast from "react-hot-toast";
 
-const CommentProduct = ({ id,user_id }) => {
+const CommentProduct = ({ id, user_id }) => {
   const router = useRouter();
   const session = useSession();
+  const { lan } = useContext(LanguageContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +31,7 @@ const CommentProduct = ({ id,user_id }) => {
       const object = {
         id,
         comment,
-        dealer_id : user_id
+        dealer_id: user_id,
       };
       fetch("/api/cookies/comment_product", {
         method: "POST",
@@ -48,9 +52,11 @@ const CommentProduct = ({ id,user_id }) => {
   };
   return (
     <form onSubmit={handleSubmit} className="flex flex-col my-5 gap-3">
-      <label htmlFor="">Comment</label>
+      <label htmlFor="">{translation[lan].common.comment}</label>
       <input type="text" className="input" name="comment" required />
-      <button className="btn btn-md w-fit mx-2">Leave Comment</button>
+      <button className="btn btn-md bg-[#006A4E] text-white w-fit mx-2">
+        {translation[lan].productDetailsPage.common.leave_comment}
+      </button>
     </form>
   );
 };

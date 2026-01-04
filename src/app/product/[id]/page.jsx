@@ -7,13 +7,18 @@ import Unlike from "@/components/page-layout/product-details-page/Unlike";
 import CommentProduct from "@/components/page-layout/product-details-page/CommentProduct";
 import SaveProduct from "@/components/page-layout/product-details-page/SaveProduct";
 import { IoIosSend } from "react-icons/io";
+import translation from "@/utils/translation";
 
 const page = async ({ params }) => {
   const { id } = await params;
   const cookieStore = await cookies();
 
   const visitor = cookieStore.get("visitor");
+  const get_lang = cookieStore.get("lang")
+
   const user_id = JSON.parse(visitor.value)?.user_id;
+  const lang = JSON.parse(get_lang.value)?.lang
+
   const res = await fetch(
     `${process.env.NEXT_BACKEND_URL}
 /get_product/${id}`,
@@ -41,12 +46,12 @@ const page = async ({ params }) => {
             {product?.title}
           </p>
           <div className="w-fit px-3 mt-2 text-white font-medium rounded-lg bg-[linear-gradient(21deg,rgba(255,54,67,1)_20%,rgba(209,65,82,1)_56%,rgba(219,127,136,1)_84%,rgba(232,209,209,1)_100%)]">
-            {product?.offer_percent}% OFF
+            {product?.offer_percent}% {translation[lang].common.off}
           </div>
           <p className="mb-2 md:my-4 font-semibold md:text-xl lg:text-3xl">
-            {product?.offer_price} TK{" "}
+            {product?.offer_price} {translation[lang].common.taka}{" "}
             <span className="text-[#777777] line-through lg:text-xl md:text-sm">
-              {product?.regular_price} TK
+              {product?.regular_price} {translation[lang].common.taka}
             </span>
           </p>
 
@@ -97,13 +102,13 @@ const page = async ({ params }) => {
       </div>
 
       {/* tab section  */}
-      <section className="bg-[#FFFFFF] mt-0 m-4 mmd:p-4 ">
+      <section className="mt-0 m-4 mmd:p-4 ">
         <div className="tabs tabs-border">
           <input
             type="radio"
             name="my_tabs_2"
             className="tab"
-            aria-label="Product Info"
+            aria-label={translation[lang].productDetailsPage.common.product_details}
             defaultChecked
           />
           <div

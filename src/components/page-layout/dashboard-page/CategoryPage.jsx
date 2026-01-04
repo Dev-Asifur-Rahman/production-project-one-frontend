@@ -1,7 +1,9 @@
 "use client";
 
 import getCategory from "@/actions/category/getCategory";
-import { useEffect, useRef, useState } from "react";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
+import { useContext, useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { GoTrash } from "react-icons/go";
 
@@ -9,6 +11,7 @@ const CategoryPage = () => {
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState(null);
   const [refresh, setRefresh] = useState(true);
+  const {lan} = useContext(LanguageContext)
 
   const categoryRef = useRef(null);
   const subCategoryRef = useRef(null);
@@ -124,7 +127,7 @@ const CategoryPage = () => {
           htmlFor="my-drawer-5"
           className="btn drawer-button md:hidden mb-4"
         >
-          Open drawer
+          {translation[lan].dashboard.categories.menu.heading}
         </label>
 
         <h2 className="text-lg font-bold mb-2">
@@ -132,7 +135,7 @@ const CategoryPage = () => {
         </h2>
         <ul className="space-y-2">
           {activeCategoryObj?.subcategories?.map((sub, index) => (
-            <li key={index} className="p-2 bg-gray-100 rounded">
+            <li key={index} className="p-2 bg-gray-100 dark:bg-[#191E24] rounded">
               <div className="flex items-center justify-between">
                 <p>{sub}</p>
                 <div
@@ -141,7 +144,7 @@ const CategoryPage = () => {
                     handleDeleteSubCategory(activeCategoryObj?._id, sub)
                   }
                 >
-                  <GoTrash />
+                  <GoTrash className="text-[#F42A41]"/>
                 </div>
               </div>
             </li>
@@ -151,7 +154,7 @@ const CategoryPage = () => {
               ref={subCategoryRef}
               type="text"
               className="input"
-              placeholder={activeCategoryObj?.name}
+              placeholder={translation[lan].dashboard.categories.add_subcategory}
             />
             <button
               onClick={() => {
@@ -160,9 +163,9 @@ const CategoryPage = () => {
                   subCategoryRef.current.value
                 );
               }}
-              className="btn btn-md px-10"
+              className="btn btn-md px-10 bg-[#006A4E] text-white"
             >
-              Add
+              {translation[lan].common.add}
             </button>
           </div>
         </ul>
@@ -188,7 +191,7 @@ const CategoryPage = () => {
                   {category.name}
                 </button>
                 <div onClick={() => handleDeleteCategory(category?._id)}>
-                  <GoTrash />
+                  <GoTrash className="text-[#F42A41]"/>
                 </div>
               </div>
             </li>
@@ -199,15 +202,15 @@ const CategoryPage = () => {
               ref={categoryRef}
               type="text"
               className="input"
-              placeholder="add category"
+              placeholder={translation[lan].dashboard.categories.add_category}
             />
             <button
               onClick={() => {
                 handleCategory(categoryRef.current.value);
               }}
-              className="btn btn-md px-10"
+              className="btn btn-md px-10 bg-[#006A4E] text-white"
             >
-              Add
+              {translation[lan].common.add}
             </button>
           </div>
         </ul>

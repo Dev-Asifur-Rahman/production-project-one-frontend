@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import PendingProducts from "./PendingProducts";
 import ArchiveProducts from "./ArchiveProducts";
 import CategoryPage from "./CategoryPage";
@@ -8,9 +8,12 @@ import AllProducts from "./AllProducts";
 import ClickedInfo from "./ClickedInfo";
 import Leaderboard from './Leaderboard';
 import RisingStars from "./RisingStars";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
 
 const DashboardSideBar = () => {
   const [tab, setTab] = useState("item1");
+  const {lan} = useContext(LanguageContext)
 
   const handleClick = (newTab) => {
     setTab(newTab);
@@ -28,7 +31,7 @@ const DashboardSideBar = () => {
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         <label htmlFor="my-drawer-3" className="btn drawer-button md:hidden">
-          Open drawer
+          {translation[lan].dashboard.menu.heading}
         </label>
 
         {/* Right-side content */}
@@ -48,28 +51,28 @@ const DashboardSideBar = () => {
         <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
         <ul className="menu bg-base-200 min-h-full w-60 p-4">
           <li>
-            <a onClick={() => handleClick("item1")}>Categories</a>
+            <a onClick={() => handleClick("item1")}>{translation[lan].dashboard.categories.heading}</a>
           </li>
           <li>
-            <a onClick={() => handleClick("item2")}>Products</a>
+            <a onClick={() => handleClick("item2")}>{translation[lan].dashboard.products.heading}</a>
           </li>
           <li>
-            <a onClick={() => handleClick("item3")}>Pending Products</a>
+            <a onClick={() => handleClick("item3")}>{translation[lan].dashboard.pendingProducts.heading}</a>
           </li>
           <li>
-            <a onClick={() => handleClick("item4")}>Archive Products</a>
+            <a onClick={() => handleClick("item4")}>{translation[lan].dashboard.archiveProducts.heading}</a>
           </li>
           <li>
-            <a onClick={() => handleClick("item5")}>Banners</a>
+            <a onClick={() => handleClick("item5")}>{translation[lan].dashboard.banners.heading}</a>
           </li>
           <li>
-            <a onClick={() => handleClick("item6")}>Clicked User</a>
+            <a onClick={() => handleClick("item6")}>{translation[lan].dashboard.clickedInfo.heading}</a>
           </li>
           <li>
-            <a onClick={() => handleClick("item7")}>Rising Stars</a>
+            <a onClick={() => handleClick("item7")}>{translation[lan].dashboard.risingStars.heading}</a>
           </li>
           <li>
-            <a onClick={() => handleClick("item8")}>Leaderboard</a>
+            <a onClick={() => handleClick("item8")}>{translation[lan].dashboard.leaderboard.heading}</a>
           </li>
         </ul>
       </div>

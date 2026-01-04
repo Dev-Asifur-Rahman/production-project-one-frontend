@@ -19,7 +19,7 @@ const Sign = () => {
     }
   };
   return (
-    <div onClick={handleLogin} className=" bg-[#196296] hover:bg-[#0ef]">
+    <div onClick={handleLogin} className=" bg-[#F42A41]">
       <HiUserCircle />
       <p className="text-[#1A1A1A]">
         {session.status == "unauthenticated" ? translation[lan].navbar.logo[2] : translation[lan].navbar.logo[3]}

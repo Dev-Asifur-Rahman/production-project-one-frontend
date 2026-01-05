@@ -48,6 +48,10 @@ const translation = {
       monthly_point: "Monthly Points",
       days_left: "Days Left",
     },
+    messages: {
+      success: {},
+      error: {},
+    },
     root: {},
     headingMarquee:
       "DealBondhu is community-supported. We may get paid by brands for deals, including promoted items.",
@@ -181,6 +185,9 @@ const translation = {
         pick_a_date: "Pick a Date",
       },
     },
+    verifyResetCode: {},
+    resetPage: {},
+    resetPassword: {},
   },
   bn: {
     common: {
@@ -230,6 +237,10 @@ const translation = {
       point: "মোট পয়েন্ট",
       monthly_point: "মাসিক পয়েন্ট",
       days_left: "দিন বাকি",
+    },
+    messages: {
+      success: {},
+      error: {},
     },
     headingMarquee:
       "ডিলবন্ধু কমিউনিটি-সমর্থিত। আমরা কিছু ডিল বা প্রমোটেড আইটেমের জন্য ব্র্যান্ড থেকে অর্থ পেতে পারি।",
@@ -364,6 +375,9 @@ const translation = {
         pick_a_date: "তারিখ নির্বাচন করুন",
       },
     },
+    verifyResetCode: {},
+    resetPage: {},
+    resetPassword: {},
   },
 };
 

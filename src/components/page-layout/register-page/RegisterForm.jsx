@@ -1,14 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Link from "next/link";
 import registerUser from "@/actions/auth/registerUser";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
 
 const RegisterForm = () => {
   const [registerType, setRegisterType] = useState("email");
   const router = useRouter();
+  const { lan } = useContext(LanguageContext);
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -59,14 +62,16 @@ const RegisterForm = () => {
   return (
     <form onSubmit={handleForm}>
       <fieldset className="fieldset">
-        <p className="font-bold text-lg smd:text-2xl mb-3">Create an Account</p>
+        <p className="font-bold text-lg smd:text-2xl mb-3">
+          {translation[lan].authenticationPage.registration.heading}
+        </p>
         <label className="label">
-          {registerType === "email" ? "Email" : "Phone Number"}
+          {registerType === "email" ? `${translation[lan].authenticationPage.registration.email.email_heading}` : "Phone Number"}
         </label>
         <input
           type={registerType}
           className="input "
-          placeholder={registerType === "email" ? "Email" : "01XXXXXXXXX"}
+          placeholder={registerType === "email" ? `${translation[lan].authenticationPage.registration.email.email_placeholder}` : "01XXXXXXXXX"}
           name="register_method_value"
           required
         />
@@ -80,42 +85,42 @@ const RegisterForm = () => {
         >
           use {registerType === "email" ? "number" : "email"} instead
         </p> */}
-        <label className="label">Your Name</label>
+        <label className="label">{translation[lan].authenticationPage.registration.your_name.name_heading}</label>
         <input
           type="text"
           required
           className="input"
-          placeholder="Name"
+          placeholder={translation[lan].authenticationPage.registration.your_name.name_placeholder}
           name="name"
         />
-        <label className="label">Password</label>
+        <label className="label">{translation[lan].authenticationPage.registration.password.password_heading}</label>
         <input
           type="password"
           required
           className="input"
-          placeholder="Password"
+          placeholder={translation[lan].authenticationPage.registration.password.password_placeholder}
           name="password"
         />
-        <label className="label">Confirm Password</label>
+        <label className="label">{translation[lan].authenticationPage.registration.confirm_password.confirm_password_heading}</label>
         <input
           type="password"
           className="input"
-          placeholder="Confirm Password"
+          placeholder={translation[lan].authenticationPage.registration.confirm_password.confirm_password_placeholder}
           required
           name="confirm_password"
         />
         <div className="flex justify-between items-center">
           <Link href={"/reset_password"}>
             <p className="link link-hover hover:text-red-600">
-              Forgot password?
+              {translation[lan].authenticationPage.forgotPassword}
             </p>
           </Link>
 
           <Link href={"/auth/login"}>
-            <p className="link link-hover hover:text-blue-600">Sign In</p>
+            <p className="link link-hover hover:text-blue-600">{translation[lan].authenticationPage.signIn}</p>
           </Link>
         </div>
-        <button className="btn btn-neutral mt-4">Register</button>
+        <button className="btn btn-neutral mt-4">{translation[lan].authenticationPage.register}</button>
       </fieldset>
     </form>
   );

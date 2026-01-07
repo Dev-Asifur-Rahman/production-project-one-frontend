@@ -55,7 +55,7 @@ const TopCategories = () => {
             </p>
             <div className="w-[120px] aspect-square rounded-full shadow-2xl hover:bg-[#d1e2f5]"></div>
             <p className="text-wrap text-center w-full">
-              {category?.category}
+              {category?.subcategory}
             </p>
           </div>
         ))}

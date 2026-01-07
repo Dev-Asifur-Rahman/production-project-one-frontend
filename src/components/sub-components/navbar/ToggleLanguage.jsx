@@ -41,7 +41,7 @@ const ToggleLanguage = () => {
         checked={lan === "bn"}
         onChange={handleToggle}
       />
-      <p>BN</p>
+      <p>বাং</p>
     </div>
   );
 };

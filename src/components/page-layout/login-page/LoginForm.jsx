@@ -1,12 +1,15 @@
 "use client";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 
 const LoginForm = () => {
   const router = useRouter();
+  const {lan} = useContext(LanguageContext)
 
   const [loginType, setLoginType] = useState("email");
 
@@ -39,15 +42,15 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleForm}>
       <fieldset className="fieldset">
-        <p className="font-bold text-lg smd:text-2xl mb-3">Account Login</p>
+        <p className="font-bold text-lg smd:text-2xl mb-3">{translation[lan].authenticationPage.login.heading}</p>
         <label className="label">
-          {loginType === "email" ? "Email" : "Phone Number"}
+          {loginType === "email" ? `${translation[lan].authenticationPage.login.email.email_heading}` : "Phone Number"}
         </label>
         <input
           required
           type={loginType}
           className="input"
-          placeholder={loginType === "email" ? "Email" : "01XXXXXXXX"}
+          placeholder={loginType === "email" ? `${translation[lan].authenticationPage.login.email.email_placeholder}` : "01XXXXXXXX"}
           name="login_method_value"
         />
         {/* <p
@@ -58,25 +61,25 @@ const LoginForm = () => {
         >
           use {loginType === "email" ? "number" : "email"} instead
         </p> */}
-        <label className="label">Password</label>
+        <label className="label">{translation[lan].authenticationPage.login.password.password_heading}</label>
         <input
           type="password"
           className="input"
-          placeholder="Password"
+          placeholder={translation[lan].authenticationPage.login.password.password_placeholder}
           required
           name="password"
         />
         <div className="flex justify-between items-center">
           <Link href={"/reset_password"}>
             <p className="link link-hover hover:text-red-600">
-              Forgot password?
+              {translation[lan].authenticationPage.forgotPassword}
             </p>
           </Link>
           <Link href={"/auth/register"}>
-            <p className="link link-hover hover:text-blue-600">Sign Up</p>
+            <p className="link link-hover hover:text-blue-600">{translation[lan].authenticationPage.signUp}</p>
           </Link>
         </div>
-        <button className="btn btn-neutral mt-4">Login</button>
+        <button className="btn btn-neutral mt-4">{translation[lan].authenticationPage.logIn}</button>
       </fieldset>
     </form>
   );

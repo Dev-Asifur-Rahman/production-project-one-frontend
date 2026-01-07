@@ -188,6 +188,45 @@ const translation = {
     verifyResetCode: {},
     resetPage: {},
     resetPassword: {},
+
+    authenticationPage: {
+      login: {
+        heading: "Account LogIn",
+        email: {
+          email_heading: "Email",
+          email_placeholder: "Email",
+        },
+        password: {
+          password_heading: "Password",
+          password_placeholder: "Password",
+        },
+      },
+      registration: {
+        heading: "Create an Account",
+        email: {
+          email_heading: "Email",
+          email_placeholder: "Email",
+        },
+        your_name: {
+          name_heading: "Your Name",
+          name_placeholder: "Your Name",
+        },
+        password: {
+          password_heading: "Password",
+          password_placeholder: "Password",
+        },
+        confirm_password: {
+          confirm_password_heading: "Confirm Password",
+          confirm_password_placeholder: "Confirm Password",
+        },
+      },
+      forgotPassword: "Forgot Password?",
+      signUp: "Sign Up",
+      signIn: "Sign In",
+      logIn: "LogIn",
+      register: "Register",
+      signInWithGoogle: "SignIn with Google",
+    },
   },
   bn: {
     common: {
@@ -378,6 +417,44 @@ const translation = {
     verifyResetCode: {},
     resetPage: {},
     resetPassword: {},
+    authenticationPage: {
+      login: {
+        heading: "লগইন করুন",
+        email: {
+          email_heading: "ইমেইল",
+          email_placeholder: "ইমেইল লিখুন",
+        },
+        password: {
+          password_heading: "পাসওয়ার্ড",
+          password_placeholder: "পাসওয়ার্ড লিখুন",
+        },
+      },
+      registration: {
+        heading: "অ্যাকাউন্ট তৈরি করুন",
+        email: {
+          email_heading: "ইমেইল",
+          email_placeholder: "ইমেইল লিখুন",
+        },
+        your_name: {
+          name_heading: "আপনার নাম",
+          name_placeholder: "নাম লিখুন",
+        },
+        password: {
+          password_heading: "পাসওয়ার্ড",
+          password_placeholder: "পাসওয়ার্ড লিখুন",
+        },
+        confirm_password: {
+          confirm_password_heading: "পাসওয়ার্ড নিশ্চিত করুন",
+          confirm_password_placeholder: "পাসওয়ার্ড আবার লিখুন",
+        },
+      },
+      forgotPassword: "পাসওয়ার্ড ভুলে গেছেন?",
+      signUp: "সাইন আপ",
+      signIn: "সাইন ইন",
+      logIn: "লগইন",
+      register: "রেজিস্টার",
+      signInWithGoogle: "গুগল সাইন ইন করুন",
+    },
   },
 };
 

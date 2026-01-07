@@ -1,12 +1,16 @@
 "use client";
 
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 
 const GoogleLogin = () => {
   const session = useSession();
   const router = useRouter()
+  const {lan} = useContext(LanguageContext)
+
   useEffect(() => {
     if (session?.data) {
       router.push("/");
@@ -47,7 +51,7 @@ const GoogleLogin = () => {
           ></path>
         </g>
       </svg>
-      Login with Google
+      {translation[lan].authenticationPage.signInWithGoogle}
     </button>
   );
 };

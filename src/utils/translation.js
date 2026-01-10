@@ -201,7 +201,7 @@ const translation = {
           password_placeholder: "Password",
         },
       },
-      registration: {
+      registration : {
         heading: "Create an Account",
         email: {
           email_heading: "Email",

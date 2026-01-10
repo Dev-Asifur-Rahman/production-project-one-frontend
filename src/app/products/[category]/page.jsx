@@ -1,4 +1,5 @@
 import ProductsSection from "@/components/page-layout/product-page/ProductsSection";
+import { decode } from "next-auth/jwt";
 
 const page = async ({ params, searchParams }) => {
   const { category } = await params;
@@ -12,6 +13,7 @@ const page = async ({ params, searchParams }) => {
     )}?subcategory=${encodeURIComponent(subcategory)}`
   );
   const data = await res.json();
+  console.log(data)
   return (
     <div className="w-full lg:w-4/5 mx-auto">
       <div className="my-5">

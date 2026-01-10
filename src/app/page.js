@@ -6,6 +6,8 @@ import { PiFireFill } from "react-icons/pi";
 import OfferAndDiscountSlider from "@/components/page-layout/home-page/OfferAndDiscountSlider";
 import { cookies } from "next/headers";
 import translation from "@/utils/translation";
+import HomeRisingStars from "@/components/page-layout/home-page/HomeRisingStars";
+import HomeLeaderBoard from "@/components/page-layout/home-page/HomeLeaderBoard";
 
 export default async function Home() {
   const cookieStore = await cookies();
@@ -55,6 +57,8 @@ export default async function Home() {
         Heading={translation[lang].homeLeftComponent.heading.electronics}
         componentName='electronics'
       ></HomeLeftComponents>
+      <HomeLeaderBoard></HomeLeaderBoard>
+      <HomeRisingStars></HomeRisingStars>
     </>
   );
 }

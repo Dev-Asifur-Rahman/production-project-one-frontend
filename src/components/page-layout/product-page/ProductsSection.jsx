@@ -9,8 +9,7 @@ const ProductsSection = ({ get_products }) => {
   const { lan } = useContext(LanguageContext);
   useEffect(() => {
     setProducts(get_products);
-  }, []);
-
+  }, [get_products]);
   const handleSortByName = (e) => {
     const value = e.target.value;
 

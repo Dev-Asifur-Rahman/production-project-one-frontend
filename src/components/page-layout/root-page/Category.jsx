@@ -20,6 +20,7 @@ const Category = () => {
   const handleCategoryNavigate = (category) => {
     router.push(`/products/${encodeURIComponent(category)}`);
   };
+  const handleSubCategoryWithCategory = (e) => {};
 
   return (
     (pathname === "/" || pathname.startsWith("/products")) && (
@@ -50,7 +51,8 @@ const Category = () => {
                           router.push(
                             `/products/${encodeURIComponent(
                               category?.name
-                            )}?subcategory=${encodeURIComponent(subcategory)}`
+                            )}?subcategory=${encodeURIComponent(subcategory)}`,
+                            { forceOptimisticNavigation: true }
                           );
                         }}
                         key={index}

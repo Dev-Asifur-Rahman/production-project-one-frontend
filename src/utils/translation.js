@@ -102,6 +102,8 @@ const translation = {
         top_categories: "Top Categories",
         fashion: "Fashion",
         electronics: "Electronics",
+        leaderboard : 'All Time Leaderboard',
+        rising_stars : 'Rising Stars in This Month'
       },
     },
     homeRightComponent: {
@@ -176,7 +178,9 @@ const translation = {
         },
         heading: "Categories",
         add_category: "add category",
+        add_category_bangla : 'write in bangla',
         add_subcategory: "add subcategory",
+        add_subcategory_bangla: "write in bangla",
       },
       clickedInfo: {
         heading: "Clicked Info",
@@ -191,7 +195,7 @@ const translation = {
 
     authenticationPage: {
       login: {
-        heading: "Account LogIn",
+        heading: "Account SignIn",
         email: {
           email_heading: "Email",
           email_placeholder: "Email",
@@ -201,7 +205,7 @@ const translation = {
           password_placeholder: "Password",
         },
       },
-      registration : {
+      registration: {
         heading: "Create an Account",
         email: {
           email_heading: "Email",
@@ -225,7 +229,7 @@ const translation = {
       signIn: "Sign In",
       logIn: "LogIn",
       register: "Register",
-      signInWithGoogle: "SignIn with Google",
+      signInWithGoogle: "Sign In with Google",
     },
   },
   bn: {
@@ -331,6 +335,8 @@ const translation = {
         top_categories: "টপ ক্যাটেগরি",
         fashion: "ফ্যাশন",
         electronics: "ইলেকট্রনিক্স",
+        leaderboard : 'লিডারবোর্ড',
+        rising_stars :"মাসিক লিডারবোর্ড"
       },
     },
     homeRightComponent: {
@@ -405,7 +411,9 @@ const translation = {
         },
         heading: "ক্যাটাগরি",
         add_category: "ক্যাটাগরি যোগ করুন",
+        add_category_bangla : 'ক্যাটাগরি বাংলায় লিখুন',
         add_subcategory: "সাবক্যাটাগরি যোগ করুন",
+        add_subcategory_bangla: "সাবক্যাটাগরি বাংলায় লিখুন",
       },
       clickedInfo: {
         heading: "ক্লিক তথ্য",

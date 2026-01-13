@@ -36,7 +36,7 @@ const LoginForm = () => {
     if (response.ok) {
       router.push("/");
     } else {
-      toast.error("login failed");
+      toast.error("Sign In failed");
     }
   };
   return (

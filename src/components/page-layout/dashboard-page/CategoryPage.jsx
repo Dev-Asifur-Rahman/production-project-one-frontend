@@ -11,53 +11,79 @@ const CategoryPage = () => {
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState(null);
   const [refresh, setRefresh] = useState(true);
-  const {lan} = useContext(LanguageContext)
+  const { lan } = useContext(LanguageContext);
 
   const categoryRef = useRef(null);
+  const categoryBanglaRef = useRef(null);
   const subCategoryRef = useRef(null);
+  const subCategoryBanglaRef = useRef(null);
 
-  const handleCategory = async (category) => {
-    if (!category || !category.trim()) {
-      return toast.error("Enter valid Category");
+  const handleCategory = async (category, category_bn) => {
+    if (!category || !category_bn || !category.trim() || !category_bn.trim()) {
+      return toast.error("fill all the fields");
     } else {
-      const value = category.trim();
+      const name = category.trim();
+      const bn = category_bn.trim();
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/upload_category_subcategory?category=${encodeURIComponent(
-          value
-        )}&subcategory=`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/upload_category_subcategory?type=category`,
         {
           method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: name,
+            bn: bn,
+            subcategories: [],
+          }),
         }
       );
       const data = await res.json();
       if (!data.success) {
         toast.error(data.message);
       } else {
-        categoryRef.current.value = ''
+        categoryRef.current.value = "";
+        categoryBanglaRef.current.value = ""
         setRefresh(!refresh);
         toast.success(data.message);
       }
     }
   };
 
-  const handleSubcategory = async (category, subcategory) => {
-    if (!category || !subcategory || !subcategory.trim()) {
-      return toast.error("Enter valid Subcategory");
+  const handleSubcategory = async (category, subcategory, subcategory_bn) => {
+    if (
+      !category ||
+      !subcategory ||
+      !subcategory_bn ||
+      !subcategory.trim() ||
+      !subcategory_bn.trim()
+    ) {
+      return toast.error("Fill all the input fields");
     } else {
-      const value = subcategory.trim();
+      const name = subcategory.trim();
+      const bn = subcategory_bn.trim();
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/upload_category_subcategory?category=${encodeURIComponent(
-          category
-        )}&subcategory=${encodeURIComponent(value)}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/upload_category_subcategory?type=subcategory`,
         {
           method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            categoryName : category,
+            name: name,
+            en: name,
+            bn: bn,
+            icon: "",
+          }),
         }
       );
       const data = await res.json();
       if (!data.success) {
         toast.error(data.message);
       } else {
-        subCategoryRef.current.value = ''
+        subCategoryRef.current.value = "";
+        subCategoryBanglaRef.current.value = ""
         setRefresh(!refresh);
         toast.success(data.message);
       }
@@ -65,9 +91,12 @@ const CategoryPage = () => {
   };
 
   const handleDeleteCategory = async (id) => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/delete_category/${id}`, {
-      method: "DELETE",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/delete_category/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
     const result = await res.json();
     if (result.acknowledged === true) {
       toast.success("Category Deleted");
@@ -78,7 +107,9 @@ const CategoryPage = () => {
 
   const handleDeleteSubCategory = async (categoryId, subcategoryName) => {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/delete_subcategory/${categoryId}?subcategory=${encodeURIComponent(
+      `${
+        process.env.NEXT_PUBLIC_BACKEND_URL
+      }/delete_subcategory/${categoryId}?subcategory=${encodeURIComponent(
         subcategoryName
       )}`,
       {
@@ -87,7 +118,7 @@ const CategoryPage = () => {
     );
     const result = await res.json();
     if (result.acknowledged === true) {
-      setRefresh(prev => !prev)
+      setRefresh((prev) => !prev);
       toast.success(`${subcategoryName} deleted`);
     } else {
       toast.error("Failed Try Again");
@@ -131,20 +162,23 @@ const CategoryPage = () => {
         </label>
 
         <h2 className="text-lg font-bold mb-2">
-          {activeCategoryObj?.name || "Select Category"}
+          {activeCategoryObj?.name || "Laoding"}
         </h2>
         <ul className="space-y-2">
           {activeCategoryObj?.subcategories?.map((sub, index) => (
-            <li key={index} className="p-2 bg-gray-100 dark:bg-[#191E24] rounded">
+            <li
+              key={index}
+              className="p-2 bg-gray-100 dark:bg-[#191E24] rounded"
+            >
               <div className="flex items-center justify-between">
-                <p>{sub}</p>
+                <p>{lan === "bn" ? sub?.bn : sub?.en}</p>
                 <div
                   className="hover:cursor-pointer"
                   onClick={() =>
-                    handleDeleteSubCategory(activeCategoryObj?._id, sub)
+                    handleDeleteSubCategory(activeCategoryObj?._id, sub?.name)
                   }
                 >
-                  <GoTrash className="text-[#F42A41]"/>
+                  <GoTrash className="text-[#F42A41]" />
                 </div>
               </div>
             </li>
@@ -154,13 +188,33 @@ const CategoryPage = () => {
               ref={subCategoryRef}
               type="text"
               className="input"
-              placeholder={translation[lan].dashboard.categories.add_subcategory}
+              placeholder={
+                translation[lan].dashboard.categories.add_subcategory
+              }
+            />
+            <input
+              ref={subCategoryBanglaRef}
+              type="text"
+              className="input"
+              placeholder={
+                translation[lan].dashboard.categories.add_subcategory_bangla
+              }
+            />
+            <label htmlFor="" className="label my-1">
+              Upload Icon for Subcategory
+            </label>
+            <input
+              required
+              type="file"
+              name="banner_image"
+              className="file-input file-input-md"
             />
             <button
               onClick={() => {
                 handleSubcategory(
                   activeCategoryObj?.name,
-                  subCategoryRef.current.value
+                  subCategoryRef.current.value,
+                  subCategoryBanglaRef.current.value
                 );
               }}
               className="btn btn-md px-10 bg-[#006A4E] text-white"
@@ -188,10 +242,10 @@ const CategoryPage = () => {
                   onClick={() => handleCategoryClick(category.name)}
                   className={`w-full text-left px-2 py-1 rounded `}
                 >
-                  {category.name}
+                  {lan === "bn" ? category.bn : category?.name}
                 </button>
                 <div onClick={() => handleDeleteCategory(category?._id)}>
-                  <GoTrash className="text-[#F42A41]"/>
+                  <GoTrash className="text-[#F42A41]" />
                 </div>
               </div>
             </li>
@@ -204,9 +258,20 @@ const CategoryPage = () => {
               className="input"
               placeholder={translation[lan].dashboard.categories.add_category}
             />
+            <input
+              ref={categoryBanglaRef}
+              type="text"
+              className="input"
+              placeholder={
+                translation[lan].dashboard.categories.add_category_bangla
+              }
+            />
             <button
               onClick={() => {
-                handleCategory(categoryRef.current.value);
+                handleCategory(
+                  categoryRef.current.value,
+                  categoryBanglaRef.current.value
+                );
               }}
               className="btn btn-md px-10 bg-[#006A4E] text-white"
             >

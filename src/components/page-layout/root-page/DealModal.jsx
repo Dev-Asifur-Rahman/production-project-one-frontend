@@ -171,8 +171,8 @@ const DealModal = () => {
                   {translation[lan].common.choose_category}
                 </option>
                 {subcategories.map((sub) => (
-                  <option key={sub} value={sub}>
-                    {sub}
+                  <option key={sub} value={sub?.name}>
+                    {sub?.name}
                   </option>
                 ))}
               </select>

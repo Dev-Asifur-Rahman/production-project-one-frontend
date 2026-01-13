@@ -1,9 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
+import { useContext, useEffect, useState } from "react";
 
 const HomeLeaderBoard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
+  const {lan} = useContext(LanguageContext)
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
@@ -33,7 +36,7 @@ const HomeLeaderBoard = () => {
     <div className="my-10 lg:max-w-5/6 mx-auto">
       <ul className="list bg-base-100 rounded-box shadow-md">
         <li className="p-4 pb-2 text-2xl opacity-60 tracking-wide">
-          All Time Leaderboard
+          {translation[lan].homeLeftComponent.heading.leaderboard}
         </li>
 
         {leaderboard?.map((user, index) => {

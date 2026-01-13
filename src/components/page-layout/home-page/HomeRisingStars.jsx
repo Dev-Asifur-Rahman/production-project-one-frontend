@@ -1,9 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
+import { useContext, useEffect, useState } from "react";
 
 const HomeRisingStars = () => {
   const [risingStars, setRisingStars] = useState([]);
+  const {lan} = useContext(LanguageContext)
 
   useEffect(() => {
       const fetchData = async () => {
@@ -33,7 +36,7 @@ const HomeRisingStars = () => {
     <div className="my-10 md:max-w-5/6 mx-auto">
       <ul className="list bg-base-100 rounded-box shadow-md">
         <li className="p-4 pb-2 text-2xl opacity-60 tracking-wide">
-           Rising Stars In This Month
+          {translation[lan].homeLeftComponent.heading.rising_stars}
         </li>
 
         {risingStars?.map((user, index) => {

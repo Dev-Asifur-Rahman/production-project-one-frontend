@@ -1,6 +1,7 @@
 "use client";
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import translation from "@/utils/translation";
+import dayjs from "dayjs";
 import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
@@ -71,7 +72,7 @@ const PendingProducts = () => {
                     <td>{product?.status}</td>
                     <td>
                       <div className="flex justify-center">
-                        {product?.validation}
+                        {dayjs(product?.archive_at).format("D")} days
                       </div>
                     </td>
                     <td>{product?.category}</td>

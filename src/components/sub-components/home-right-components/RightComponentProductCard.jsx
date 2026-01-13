@@ -58,22 +58,22 @@ const RightComponentProductCard = ({ product }) => {
         <hr className="w-full mt-2 text-[#F0F0F0]" />
 
         {/* like comment share  */}
-        <div className="mt-2 w-full flex justify-between items-center">
+        <div className="mt-2 w-full flex items-center gap-3">
           {/* like  */}
           <div className="flex items-center gap-1">
             <FcLike />
-            <span className="text-sm">23</span>
+            <span className="text-sm">{product?.likes || 0}</span>
           </div>
           {/* comment  */}
           <div className="flex items-center gap-1">
             <MdOutlineInsertComment />
-            <span className="text-sm">6</span>
+            <span className="text-sm">{product?.comments || 0}</span>
           </div>
           {/* share  */}
-          <div className="flex items-center gap-1">
+          {/* <div className="flex items-center gap-1">
             <IoMdShare />
             <span className="text-sm">2</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

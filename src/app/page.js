@@ -12,7 +12,7 @@ import HomeLeaderBoard from "@/components/page-layout/home-page/HomeLeaderBoard"
 export default async function Home() {
   const cookieStore = await cookies();
   const get_lang = cookieStore.get("lang");
-  const lang = JSON.parse(get_lang.value)?.lang
+  const lang = get_lang ? (JSON.parse(get_lang.value)?.lang || 'en') : 'en';
   return (
     <>
       <OfferAndDiscountSlider></OfferAndDiscountSlider>

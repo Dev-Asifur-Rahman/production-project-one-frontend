@@ -1,13 +1,16 @@
 "use client";
 
 import getCategory from "@/actions/category/getCategory";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 const Category = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [categories, setCategories] = useState([]);
+  const { lan } = useContext(LanguageContext);
 
   useEffect(() => {
     const fetchCategory = async () => {
@@ -37,7 +40,7 @@ const Category = () => {
                 className="dropdown dropdown-hover  dropdown-center"
               >
                 <div tabIndex={0} role="button" className=" m-1 ">
-                  {category?.name}
+                  {lan === "bn" ? category?.bn : category?.name}
                 </div>
                 <ul
                   tabIndex="-1"
@@ -51,13 +54,19 @@ const Category = () => {
                           router.push(
                             `/products/${encodeURIComponent(
                               category?.name
-                            )}?subcategory=${encodeURIComponent(subcategory)}`,
+                            )}?subcategory=${encodeURIComponent(
+                              subcategory?.name
+                            )}`,
                             { forceOptimisticNavigation: true }
                           );
                         }}
                         key={index}
                       >
-                        <a className="text-nowrap">{subcategory}</a>
+                        <a className="text-nowrap">
+                          {lan === "bn"
+                            ? subcategory?.bn
+                            : subcategory?.en}
+                        </a>
                       </li>
                     );
                   })}

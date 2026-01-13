@@ -65,7 +65,7 @@ const AllProducts = () => {
                   <tr key={index}>
                     <th>{index + 1}</th>
                     <td>
-                      <div className="line-clamp-2">{product?.title}</div>
+                      <div onClick={()=>{router.push(`/product/${product?._id}`)}} className="line-clamp-2 hover:underline hover:cursor-pointer">{product?.title}</div>
                     </td>
                     <td>{product?.company}</td>
                     <td>{product?.category}</td>

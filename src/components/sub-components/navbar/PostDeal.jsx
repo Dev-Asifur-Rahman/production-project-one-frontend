@@ -18,7 +18,7 @@ const PostDeal = () => {
 
   const handleNavigate = () => {
     if (session.status === "unauthenticated" || session.status === "loading") {
-      return toast.error("Login First");
+      return toast.error("Sign In First");
     } else {
       dispatch(openModal());
       return

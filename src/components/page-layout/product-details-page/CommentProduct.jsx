@@ -20,7 +20,7 @@ const CommentProduct = ({ id, user_id }) => {
     if (!session?.data?.user) {
       target.reset();
       router.push("/auth/login");
-      toast.error("LogIn First");
+      toast.error("Sign In First");
       return;
     }
 

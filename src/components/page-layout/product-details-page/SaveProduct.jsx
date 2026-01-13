@@ -12,7 +12,7 @@ const SaveProduct = ({ id, isSaved, title }) => {
 
   const handleSave = async () => {
     if (!session?.data?.user) {
-      return toast.error("LogIn First");
+      return toast.error("Sign In First");
     }
     if (isSaved) {
       return toast.error("Product Already Saved");

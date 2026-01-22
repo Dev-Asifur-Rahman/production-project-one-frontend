@@ -122,7 +122,7 @@ const page = async ({ params }) => {
       <section className="mx-auto w-[96%]">
         <CommentProduct id={product?._id}></CommentProduct>
       </section>
-      <IntentScoreCalculator></IntentScoreCalculator>
+      <IntentScoreCalculator product={product} user_id={user_id}></IntentScoreCalculator>
     </section>
   );
 };

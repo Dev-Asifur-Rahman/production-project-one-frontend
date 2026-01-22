@@ -1,14 +1,34 @@
 "use client";
 import { useEffect, useState } from "react";
 
-const IntentScoreCalculator = () => {
+const IntentScoreCalculator = ({product,user_id}) => {
   const [scrollTrigger, setScrollTrigger] = useState(false);
+  const [leaveTrigger, setLeaveTrigger] = useState(false);
+
+  const intentScoreCalculatorFunction = async (session) => {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/calculate_intent_score`,
+      {
+        method: "POST",
+        headers : {
+            'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify({
+            session : session,
+            product_id : product?._id,
+            dealer_id : product?.dealer_id,
+            user_id : user_id
+        })
+      }
+    );
+    const data = await res.json();
+    console.log(data);
+  };
+
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/calculate_intent_score`,{
-        method : 'POST'
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    if (!leaveTrigger) {
+      intentScoreCalculatorFunction("entered");
+    }
 
     const handleScroll = () => {
       const scrollRatio =
@@ -16,7 +36,7 @@ const IntentScoreCalculator = () => {
         document.documentElement.scrollHeight;
 
       if (scrollRatio >= 0.9 && !scrollTrigger) {
-        console.log("User reached 90% scroll");
+        intentScoreCalculatorFunction("scrolled");
         setScrollTrigger(true);
         window.removeEventListener("scroll", handleScroll);
       }
@@ -25,7 +45,10 @@ const IntentScoreCalculator = () => {
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      console.log("User left product page");
+      if (!leaveTrigger) {
+        intentScoreCalculatorFunction("leave");
+        setLeaveTrigger(true);
+      }
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);

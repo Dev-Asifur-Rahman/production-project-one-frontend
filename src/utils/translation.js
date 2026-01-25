@@ -188,6 +188,9 @@ const translation = {
         searchbar_placeholder: "Search by name,company",
         pick_a_date: "Pick a Date",
       },
+      revenue : {
+        heading : 'Revenue Sheet'
+      }
     },
     verifyResetCode: {},
     resetPage: {},
@@ -421,6 +424,9 @@ const translation = {
         searchbar_placeholder: "নাম বা কোম্পানি দ্বারা খুঁজুন",
         pick_a_date: "তারিখ নির্বাচন করুন",
       },
+      revenue : {
+        heading : 'রেভিনিউ শিট'
+      }
     },
     verifyResetCode: {},
     resetPage: {},

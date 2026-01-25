@@ -17,12 +17,14 @@ const IntentScoreCalculator = ({product,user_id}) => {
             session : session,
             product_id : product?._id,
             dealer_id : product?.dealer_id,
-            user_id : user_id
+            user_id : user_id,
+            category : product?.category,
+            subcategory : product?.subcategory,
+            company : product?.company
         })
       }
     );
     const data = await res.json();
-    console.log(data);
   };
 
   useEffect(() => {

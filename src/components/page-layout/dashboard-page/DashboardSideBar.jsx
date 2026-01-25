@@ -10,6 +10,7 @@ import Leaderboard from './Leaderboard';
 import RisingStars from "./RisingStars";
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import translation from "@/utils/translation";
+import Revenue from "./Revenue";
 
 const DashboardSideBar = () => {
   const [tab, setTab] = useState("item1");
@@ -43,7 +44,8 @@ const DashboardSideBar = () => {
           {tab === "item5" && <AllBanners></AllBanners>}
           {tab === "item6" && <ClickedInfo></ClickedInfo>}
           {tab === "item7" && <RisingStars></RisingStars>}
-          {tab === "item8" && <Leaderboard></Leaderboard> }
+          {tab === "item8" && <Leaderboard></Leaderboard>}
+          {tab === "item9" && <Revenue></Revenue>}
         </div>
       </div>
 
@@ -73,6 +75,9 @@ const DashboardSideBar = () => {
           </li>
           <li>
             <a onClick={() => handleClick("item8")}>{translation[lan].dashboard.leaderboard.heading}</a>
+          </li>
+          <li>
+            <a onClick={() => handleClick("item9")}>{translation[lan].dashboard.revenue.heading}</a>
           </li>
         </ul>
       </div>

@@ -88,6 +88,8 @@ const page = async ({ params }) => {
               title={product?.title}
               product_link={product?.product_link}
               company={product?.company}
+              product={product}
+              user_id={user_id}
             ></RedirectButton>
             <SaveProduct
               id={product?._id}

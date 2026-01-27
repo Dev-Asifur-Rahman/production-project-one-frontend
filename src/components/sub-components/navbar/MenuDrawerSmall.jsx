@@ -4,6 +4,7 @@ import React, { useState } from "react";
 const MenuDrawerSmall = () => {
   const [open, setOpen] = useState(false);
 
+  const toggleDrawer = () => setOpen((prev) => !prev);
   const closeDrawer = () => setOpen(false);
 
   return (
@@ -12,15 +13,17 @@ const MenuDrawerSmall = () => {
         type="checkbox"
         className="drawer-toggle"
         checked={open}
-        onChange={() => setOpen(!open)}
+        onChange={toggleDrawer}
       />
 
-      <div className="drawer-content aspect-square ">
+      <div className="drawer-content aspect-square">
         <label className="btn btn-circle swap swap-rotate">
-          {/* this hidden checkbox controls the state */}
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            checked={open}
+            onChange={toggleDrawer}
+          />
 
-          {/* hamburger icon */}
           <svg
             className="swap-off fill-current"
             xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +34,6 @@ const MenuDrawerSmall = () => {
             <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
           </svg>
 
-          {/* close icon */}
           <svg
             className="swap-on fill-current"
             xmlns="http://www.w3.org/2000/svg"
@@ -44,8 +46,12 @@ const MenuDrawerSmall = () => {
         </label>
       </div>
 
+      {/* Drawer side */}
       <div className="drawer-side">
-        <div className="drawer-overlay" onClick={closeDrawer}></div>
+        <label
+          className="drawer-overlay"
+          onClick={closeDrawer}
+        ></label>
 
         <ul className="menu bg-base-100 min-h-full w-80 p-4">
           <li>

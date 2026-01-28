@@ -17,7 +17,7 @@ const MenuDrawerSmall = () => {
       />
 
       <div className="drawer-content aspect-square">
-        <label className="btn btn-circle swap swap-rotate">
+        <label className="btn btn-circle swap swap-rotate bg-transparent border-none">
           <input
             type="checkbox"
             checked={open}
@@ -25,7 +25,7 @@ const MenuDrawerSmall = () => {
           />
 
           <svg
-            className="swap-off fill-current"
+            className="swap-off fill-white"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -35,7 +35,7 @@ const MenuDrawerSmall = () => {
           </svg>
 
           <svg
-            className="swap-on fill-current"
+            className="swap-on fill-white"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"

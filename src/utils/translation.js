@@ -58,6 +58,15 @@ const translation = {
     navbar: {
       logo: ["Saved Items", "Post Deal", "Sign In", "Sign Out"],
       searchBar: "Search Products",
+      menuDrawerSmall: {
+        headings: {
+          post_deal: "Post Deal",
+          saved_items: "Saved Items",
+          language: "Language",
+          sign_in: "Sign In",
+          sign_out: "Sign Out",
+        },
+      },
     },
     footer: {
       followUs: {
@@ -188,9 +197,9 @@ const translation = {
         searchbar_placeholder: "Search by name,company",
         pick_a_date: "Pick a Date",
       },
-      revenue : {
-        heading : 'Revenue Sheet'
-      }
+      revenue: {
+        heading: "Revenue Sheet",
+      },
     },
     verifyResetCode: {},
     resetPage: {},
@@ -293,6 +302,15 @@ const translation = {
     navbar: {
       logo: ["সংরক্ষিত আইটেম", "পোস্ট ডিল", "সাইন ইন", "সাইন আউট"],
       searchBar: "পণ্য অনুসন্ধান করুন",
+      menuDrawerSmall: {
+        headings: {
+          post_deal: "ডিল পোস্ট",
+          saved_items: "সংরক্ষিত আইটেম",
+          language: "ভাষা",
+          sign_in: "সাইন ইন",
+          sign_out: "সাইন আউট",
+        },
+      },
     },
     footer: {
       followUs: {
@@ -424,9 +442,9 @@ const translation = {
         searchbar_placeholder: "নাম বা কোম্পানি দ্বারা খুঁজুন",
         pick_a_date: "তারিখ নির্বাচন করুন",
       },
-      revenue : {
-        heading : 'রেভিনিউ শিট'
-      }
+      revenue: {
+        heading: "রেভিনিউ শিট",
+      },
     },
     verifyResetCode: {},
     resetPage: {},

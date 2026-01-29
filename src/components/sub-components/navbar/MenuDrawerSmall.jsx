@@ -18,11 +18,7 @@ const MenuDrawerSmall = () => {
 
       <div className="drawer-content aspect-square">
         <label className="btn btn-circle swap swap-rotate bg-transparent border-none">
-          <input
-            type="checkbox"
-            checked={open}
-            onChange={toggleDrawer}
-          />
+          <input type="checkbox" checked={open} onChange={toggleDrawer} />
 
           <svg
             className="swap-off fill-white"
@@ -48,17 +44,43 @@ const MenuDrawerSmall = () => {
 
       {/* Drawer side */}
       <div className="drawer-side">
-        <label
-          className="drawer-overlay"
-          onClick={closeDrawer}
-        ></label>
+        <label className="drawer-overlay" onClick={closeDrawer}></label>
 
         <ul className="menu bg-base-100 min-h-full w-80 p-4">
           <li>
-            <a onClick={closeDrawer}>Sidebar Item 1</a>
+            <a onClick={closeDrawer}>Post Deal</a>
           </li>
           <li>
-            <a onClick={closeDrawer}>Sidebar Item 2</a>
+            <a onClick={closeDrawer}>Saved Items</a>
+          </li>
+          <li>
+            <details>
+              <summary>Category</summary>
+              <ul>
+                <li>
+                  <a>Submenu 1</a>
+                </li>
+                <li>
+                  <a>Submenu 2</a>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary>Language</summary>
+              <ul>
+                <li>
+                  <a>English (active)</a>
+                </li>
+                <li>
+                  <a>বাংলা (active)</a>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <a>SignIn</a>
           </li>
         </ul>
       </div>

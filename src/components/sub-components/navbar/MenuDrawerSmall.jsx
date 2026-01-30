@@ -3,10 +3,13 @@ import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import translation from "@/utils/translation";
 import { useSession } from "next-auth/react";
 import React, { useContext, useState } from "react";
+import { useRouter } from "next/navigation";
+
 
 const MenuDrawerSmall = () => {
   const [open, setOpen] = useState(false);
   const session = useSession();
+  const router = useRouter()
 
   const toggleDrawer = () => setOpen((prev) => !prev);
   const closeDrawer = () => setOpen(false);
@@ -28,6 +31,17 @@ const MenuDrawerSmall = () => {
     closeDrawer();
     router.refresh();
   };
+  
+
+  const handleLogin = async() => {
+      if (session.status === "unauthenticated") {
+        router.push("/auth/login");
+      } else {
+        await signOut({ redirect: false });
+        router.push('/')
+      }
+    };
+  
   return (
     <div className="drawer drawer-end">
       <input
@@ -112,7 +126,7 @@ const MenuDrawerSmall = () => {
               </ul>
             </details>
           </li>
-          <li>
+          <li onClick={handleLogin}>
             <a>
               {
                 (session.status = "unauthenticated"

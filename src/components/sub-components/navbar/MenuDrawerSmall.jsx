@@ -5,11 +5,10 @@ import { useSession } from "next-auth/react";
 import React, { useContext, useState } from "react";
 import { useRouter } from "next/navigation";
 
-
 const MenuDrawerSmall = () => {
   const [open, setOpen] = useState(false);
   const session = useSession();
-  const router = useRouter()
+  const router = useRouter();
 
   const toggleDrawer = () => setOpen((prev) => !prev);
   const closeDrawer = () => setOpen(false);
@@ -31,17 +30,23 @@ const MenuDrawerSmall = () => {
     closeDrawer();
     router.refresh();
   };
-  
 
-  const handleLogin = async() => {
-      if (session.status === "unauthenticated") {
-        router.push("/auth/login");
-      } else {
-        await signOut({ redirect: false });
-        router.push('/')
-      }
-    };
-  
+  const handleLogin = async () => {
+    if (session.status === "unauthenticated") {
+      closeDrawer();
+      router.push("/auth/login");
+    } else {
+      await signOut({ redirect: false });
+      closeDrawer();
+      router.push("/");
+    }
+  };
+
+  const handleSavedItems = () => {
+    closeDrawer();
+    router.push("/saved_products");
+  };
+
   return (
     <div className="drawer drawer-end">
       <input
@@ -87,11 +92,13 @@ const MenuDrawerSmall = () => {
               {translation[lan].navbar.menuDrawerSmall.headings.post_deal}
             </a>
           </li>
-          <li>
-            <a onClick={closeDrawer}>
-              {translation[lan].navbar.menuDrawerSmall.headings.saved_items}
-            </a>
-          </li>
+          {session?.data?.user && (
+            <li>
+              <a onClick={handleSavedItems}>
+                {translation[lan].navbar.menuDrawerSmall.headings.saved_items}
+              </a>
+            </li>
+          )}
           <li>
             <details>
               <summary>

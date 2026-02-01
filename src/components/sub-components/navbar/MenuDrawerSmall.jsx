@@ -2,10 +2,12 @@
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import translation from "@/utils/translation";
 import { useSession } from "next-auth/react";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import getCategory from "@/actions/category/getCategory";
 
 const MenuDrawerSmall = () => {
+  const [categories, setCategories] = useState([]);
   const [open, setOpen] = useState(false);
   const session = useSession();
   const router = useRouter();
@@ -14,6 +16,14 @@ const MenuDrawerSmall = () => {
   const closeDrawer = () => setOpen(false);
 
   const { lan, setLan } = useContext(LanguageContext);
+
+  useEffect(() => {
+    const fetchCategory = async () => {
+      const data = await getCategory();
+      setCategories(data);
+    };
+    fetchCategory();
+  }, []);
 
   const handleLanguage = async (language) => {
     setLan(language);
@@ -45,6 +55,11 @@ const MenuDrawerSmall = () => {
   const handleSavedItems = () => {
     closeDrawer();
     router.push("/saved_products");
+  };
+
+  const handleCategoryNavigate = (category) => {
+    closeDrawer()
+    router.push(`/products/${encodeURIComponent(category)}`);
   };
 
   return (
@@ -105,12 +120,15 @@ const MenuDrawerSmall = () => {
                 {translation[lan].navbar.menuDrawerSmall.headings.categories}
               </summary>
               <ul>
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
+                {categories?.map((category, index) => {
+                  return (
+                    <li key={index}>
+                      <a onClick={() => handleCategoryNavigate(category?.name)}>
+                        {lan === "bn" ? category?.bn : category?.name}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </details>
           </li>

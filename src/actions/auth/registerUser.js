@@ -12,7 +12,6 @@ const registerUser = async (user_data) => {
   const cookieStore = await cookies();
   const visitor = cookieStore.get("visitor");
   const id = JSON.parse(visitor.value)?.user_id;
-  console.log(id);
 
   const filter = {
     [method === "email" ? "email" : "phone"]:

@@ -23,7 +23,7 @@ const Category = () => {
   const handleCategoryNavigate = (category) => {
     router.push(`/products/${encodeURIComponent(category)}`);
   };
-  const handleSubCategoryWithCategory = (e) => {};
+  // const handleSubCategoryWithCategory = (e) => {};
 
   return (
     (pathname === "/" || pathname.startsWith("/products")) && (

@@ -10,6 +10,7 @@ const ProductsSection = ({ get_products }) => {
   useEffect(() => {
     setProducts(get_products);
   }, [get_products]);
+
   const handleSortByName = (e) => {
     const value = e.target.value;
 
@@ -76,7 +77,7 @@ const ProductsSection = ({ get_products }) => {
           </option>
         </select>
       </div>
-      <div className=" grid lg:grid-cols-4 md:grid-cols-3 smd:grid-cols-2 grid-cols-1 place-items-center">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 smd:grid-cols-2 grid-cols-1 place-items-center">
         {products?.map((product, index) => {
           return <ProductCard product={product} key={index}></ProductCard>;
         })}

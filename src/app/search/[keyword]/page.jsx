@@ -17,7 +17,7 @@ const page = async ({ params }) => {
           </div>
         }
       >
-        <SearchResult products={data}></SearchResult>
+        <SearchResult productData={data}></SearchResult>
       </Suspense>
     </div>
   );

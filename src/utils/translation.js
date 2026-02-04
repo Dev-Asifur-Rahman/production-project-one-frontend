@@ -62,7 +62,7 @@ const translation = {
         headings: {
           post_deal: "Post Deal",
           saved_items: "Saved Items",
-          categories : 'Categories',
+          categories: "Categories",
           language: "Language",
           sign_in: "Sign In",
           sign_out: "Sign Out",
@@ -203,7 +203,13 @@ const translation = {
       },
     },
     verifyResetCode: {},
-    resetPage: {},
+    resetPage: {
+      email: {
+        label: "Write Your Email",
+        placeholder: "Type Here",
+      },
+      button: "Send OTP",
+    },
     resetPassword: {},
 
     authenticationPage: {
@@ -307,7 +313,7 @@ const translation = {
         headings: {
           post_deal: "ডিল পোস্ট",
           saved_items: "সংরক্ষিত আইটেম",
-          categories : 'ক্যাটাগরিস',
+          categories: "ক্যাটাগরিস",
           language: "ভাষা",
           sign_in: "সাইন ইন",
           sign_out: "সাইন আউট",
@@ -449,7 +455,13 @@ const translation = {
       },
     },
     verifyResetCode: {},
-    resetPage: {},
+    resetPage: {
+      email: {
+        label: "ইমেইল টাইপ করুন",
+        placeholder: "এখানে লিখুন",
+      },
+      button: "ওটিপি পাঠান",
+    },
     resetPassword: {},
     authenticationPage: {
       login: {

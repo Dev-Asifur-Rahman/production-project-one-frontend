@@ -1,13 +1,15 @@
 "use client";
 
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import toast from "react-hot-toast";
+import { translation } from '@/utils/translation';
 
 const ResetForm = () => {
   const [disable, setDisable] = useState(false);
-
   const router = useRouter();
+  const {lan} = useContext(LanguageContext)
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
@@ -39,7 +41,7 @@ const ResetForm = () => {
         onSubmit={handleResetPassword}
         className="flex flex-col justify-center items-center min-h-screen gap-3 w-full"
       >
-        <label className="fieldset-legend">Write Your Email</label>
+        <label className="fieldset-legend">{translation[lan].resetPage.email.label}</label>
         <input
           name="email"
           type="email"

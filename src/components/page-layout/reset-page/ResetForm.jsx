@@ -4,12 +4,12 @@ import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { translation } from '@/utils/translation';
+import { translation } from "@/utils/translation";
 
 const ResetForm = () => {
   const [disable, setDisable] = useState(false);
   const router = useRouter();
-  const {lan} = useContext(LanguageContext)
+  const { lan } = useContext(LanguageContext);
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
@@ -20,12 +20,15 @@ const ResetForm = () => {
     if (!email) {
       return toast.error("Enter a valid Email");
     }
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/verify_email/${email}`, {
-      method: "POST",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/verify_email/${email}`,
+      {
+        method: "POST",
+      },
+    );
     const result = await res.json();
     if (result.success === false) {
-      setDisable(false)
+      setDisable(false);
       return toast.error(result.message);
     } else {
       if (result.accepted.length > 0) {
@@ -41,12 +44,14 @@ const ResetForm = () => {
         onSubmit={handleResetPassword}
         className="flex flex-col justify-center items-center min-h-screen gap-3 w-full"
       >
-        <label className="fieldset-legend">{translation[lan].resetPage.email.label}</label>
+        <label className="fieldset-legend">
+          {translation[lan].resetPage.email.label}
+        </label>
         <input
           name="email"
           type="email"
           className="input"
-          placeholder="Type here"
+          placeholder={translation[lan].resetPage.email.placeholder}
         />
         <button
           disabled={disable}

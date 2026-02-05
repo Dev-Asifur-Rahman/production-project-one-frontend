@@ -19,9 +19,11 @@ const NavBar = () => {
   const router = useRouter();
 
   const searchProduct = (e) => {
-    if (e.key === "Enter")
-      router.push(`/search/${encodeURIComponent(e.target.value)}`);
-    else return;
+    if (e.key === "Enter") {
+      const value = e.target.value.trim();
+      if (!value) return;
+      router.push(`/search/${encodeURIComponent(value)}`);
+    }
   };
 
   if (

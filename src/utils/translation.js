@@ -372,17 +372,17 @@ const translation = {
     },
     productPage: {
       sortByName: {
-        placeholder: "নাম অনুযায়ী সাজান",
+        placeholder: "নাম অনুযায়ী দেখুন",
         options: {
-          sort_by_name: "নাম অনুযায়ী সাজান",
-          ascending_order: "ঊর্ধ্বক্রম",
-          descending_order: "অধোগমন",
+          sort_by_name: "নাম অনুযায়ী দেখুন",
+          ascending_order: "ঊর্ধ্বক্রমে",
+          descending_order: "অর্ধক্রমে",
         },
       },
       sortByPrice: {
-        placeholder: "মূল্য অনুযায়ী সাজান",
+        placeholder: "মূল্য অনুযায়ী দেখুন",
         options: {
-          sort_by_price: "মূল্য অনুযায়ী সাজান",
+          sort_by_price: "মূল্য অনুযায়ী দেখুন",
           low_to_high: "কম থেকে বেশি",
           high_to_low: "বেশি থেকে কম",
         },

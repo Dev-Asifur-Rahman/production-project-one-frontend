@@ -62,6 +62,7 @@ const translation = {
         headings: {
           post_deal: "Post Deal",
           saved_items: "Saved Items",
+          categories : 'Categories',
           language: "Language",
           sign_in: "Sign In",
           sign_out: "Sign Out",
@@ -306,6 +307,7 @@ const translation = {
         headings: {
           post_deal: "ডিল পোস্ট",
           saved_items: "সংরক্ষিত আইটেম",
+          categories : 'ক্যাটাগরিস',
           language: "ভাষা",
           sign_in: "সাইন ইন",
           sign_out: "সাইন আউট",

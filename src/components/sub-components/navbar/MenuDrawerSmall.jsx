@@ -1,12 +1,33 @@
 "use client";
-import React, { useState } from "react";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
+import { useSession } from "next-auth/react";
+import React, { useContext, useState } from "react";
 
 const MenuDrawerSmall = () => {
   const [open, setOpen] = useState(false);
+  const session = useSession();
 
   const toggleDrawer = () => setOpen((prev) => !prev);
   const closeDrawer = () => setOpen(false);
 
+  const { lan, setLan } = useContext(LanguageContext);
+
+  const handleLanguage = async (language) => {
+    setLan(language);
+    document.documentElement.setAttribute("data-lang", language);
+    localStorage.setItem("lang", language);
+    const response = await fetch("/api/cookies/language", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ lang: language }),
+    });
+    const lang = await response.json();
+    closeDrawer();
+    router.refresh();
+  };
   return (
     <div className="drawer drawer-end">
       <input
@@ -48,14 +69,20 @@ const MenuDrawerSmall = () => {
 
         <ul className="menu bg-base-100 min-h-full w-80 p-4">
           <li>
-            <a onClick={closeDrawer}>Post Deal</a>
+            <a onClick={closeDrawer}>
+              {translation[lan].navbar.menuDrawerSmall.headings.post_deal}
+            </a>
           </li>
           <li>
-            <a onClick={closeDrawer}>Saved Items</a>
+            <a onClick={closeDrawer}>
+              {translation[lan].navbar.menuDrawerSmall.headings.saved_items}
+            </a>
           </li>
           <li>
             <details>
-              <summary>Category</summary>
+              <summary>
+                {translation[lan].navbar.menuDrawerSmall.headings.categories}
+              </summary>
               <ul>
                 <li>
                   <a>Submenu 1</a>
@@ -68,19 +95,31 @@ const MenuDrawerSmall = () => {
           </li>
           <li>
             <details>
-              <summary>Language</summary>
+              <summary>
+                {translation[lan].navbar.menuDrawerSmall.headings.language}
+              </summary>
               <ul>
                 <li>
-                  <a>English (active)</a>
+                  <a onClick={() => handleLanguage("en")}>
+                    English {lan === "en" && `(active)`}
+                  </a>
                 </li>
                 <li>
-                  <a>বাংলা (active)</a>
+                  <a onClick={() => handleLanguage("bn")}>
+                    বাংলা {lan === "bn" && `(active)`}
+                  </a>
                 </li>
               </ul>
             </details>
           </li>
           <li>
-            <a>SignIn</a>
+            <a>
+              {
+                (session.status = "unauthenticated"
+                  ? translation[lan].navbar.menuDrawerSmall.headings.sign_out
+                  : translation[lan].navbar.menuDrawerSmall.headings.sign_in)
+              }
+            </a>
           </li>
         </ul>
       </div>

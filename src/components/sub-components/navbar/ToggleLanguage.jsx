@@ -32,7 +32,7 @@ const ToggleLanguage = () => {
     router.refresh()
   };
   return (
-    <div className="flex items-center gap-1 text-white">
+    <div className="hidden lg:flex items-center gap-1 text-white">
       <p>EN</p>
       <input
         id="lang-toggle"

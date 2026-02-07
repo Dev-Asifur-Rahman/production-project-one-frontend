@@ -15,7 +15,7 @@ import translation from "@/utils/translation";
 
 const NavBar = () => {
   const pathname = usePathname();
-  const {lan} = useContext(LanguageContext)
+  const { lan } = useContext(LanguageContext);
 
   if (
     pathname.startsWith("/dashboard") ||
@@ -32,7 +32,6 @@ const NavBar = () => {
           {/* logo section */}
           <BrandName></BrandName>
           <ToggleLanguage></ToggleLanguage>
-          
 
           {/* search bar  */}
           <div className=" inline-flex relative w-3/6 h-8 mmd:h-9 md:h-10">
@@ -52,16 +51,8 @@ const NavBar = () => {
             id="navbar-icon-div"
             className="hidden mmd:inline-flex lg:flex mmd:justify-evenly mmd:gap-2 md:gap-0 items-center mmd:w-1/5"
           >
-            {/* <div className=" bg-[] hover:bg-[#9B1264]">
-            <PiBellSimpleRingingThin />
-            <p>Deal Alerts</p>
-          </div> */}
             <SavedItems></SavedItems>
             <PostDeal></PostDeal>
-            {/* <div className=" bg-[#F4B40B] hover:bg-[#614805]">
-            <BsPhone />
-            <p>Go Mobile</p>
-          </div> */}
             <Sign></Sign>
           </div>
 

@@ -5,12 +5,16 @@ import { useSession } from "next-auth/react";
 import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import getCategory from "@/actions/category/getCategory";
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { openModal } from "@/redux/features/modalSlice";
 
 const MenuDrawerSmall = () => {
   const [categories, setCategories] = useState([]);
   const [open, setOpen] = useState(false);
   const session = useSession();
   const router = useRouter();
+  const dispatch = useDispatch()
 
   const toggleDrawer = () => setOpen((prev) => !prev);
   const closeDrawer = () => setOpen(false);
@@ -62,6 +66,16 @@ const MenuDrawerSmall = () => {
     router.push(`/products/${encodeURIComponent(category)}`);
   };
 
+  const handleModalOpen = () => {
+    if (session.status === "unauthenticated" || session.status === "loading") {
+      return toast.error("Sign In First");
+    } else {
+      closeDrawer()
+      dispatch(openModal());
+      return
+    }
+  };
+
   return (
     <div className="drawer drawer-end">
       <input
@@ -103,7 +117,7 @@ const MenuDrawerSmall = () => {
 
         <ul className="menu bg-base-100 min-h-full w-80 p-4">
           <li>
-            <a onClick={closeDrawer}>
+            <a onClick={handleModalOpen}>
               {translation[lan].navbar.menuDrawerSmall.headings.post_deal}
             </a>
           </li>

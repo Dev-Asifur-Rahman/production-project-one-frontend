@@ -57,7 +57,7 @@ const ResetForm = () => {
           disabled={disable}
           className="btn bg-green-500 text-white rounded-md btn-sm w-fit px-2"
         >
-          Send OTP
+          {translation[lan].resetPage.button}
         </button>
       </form>
     </>

@@ -1,12 +1,14 @@
 "use client";
 
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 
 const ResetPasswordForm = () => {
   const [disable, setDisable] = useState(false);
   const router = useRouter()
+  const {lan} = useContext(LanguageContext)
 
   const handleResetPassword = async (e) => {
     e.preventDefault();

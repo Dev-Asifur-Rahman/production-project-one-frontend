@@ -210,7 +210,20 @@ const translation = {
       },
       button: "Send OTP",
     },
-    resetPassword: {},
+    resetPassword: {
+      email: {
+        label: "Write Your Email",
+        placeholder: "Type Here",
+      },
+      password: {
+        label: "Password",
+        placeholder: "Type Here",
+      },
+      confirmPassword: {
+        label: "Confirm Password",
+        placeholder: "Type Here",
+      },
+    },
 
     authenticationPage: {
       login: {
@@ -462,7 +475,20 @@ const translation = {
       },
       button: "ওটিপি পাঠান",
     },
-    resetPassword: {},
+    resetPassword: {
+      email: {
+        label: "Write Your Email",
+        placeholder: "Type Here",
+      },
+      password: {
+        label: "",
+        placeholder: "",
+      },
+      confirmPassword: {
+        label: "",
+        placeholder: "",
+      },
+    },
     authenticationPage: {
       login: {
         heading: "লগইন করুন",

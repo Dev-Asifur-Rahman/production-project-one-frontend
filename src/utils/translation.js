@@ -477,16 +477,16 @@ const translation = {
     },
     resetPassword: {
       email: {
-        label: "Write Your Email",
-        placeholder: "Type Here",
+        label: "ইমেইল টাইপ করুন",
+        placeholder: "এখানে লিখুন",
       },
       password: {
-        label: "",
-        placeholder: "",
+        label: "পাসওয়ার্ড",
+        placeholder: "এখানে লিখুন",
       },
       confirmPassword: {
-        label: "",
-        placeholder: "",
+        label: "কনফার্ম পাসওয়ার্ড",
+        placeholder: "এখানে লিখুন",
       },
     },
     authenticationPage: {

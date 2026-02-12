@@ -1,6 +1,7 @@
 "use client";
 
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
@@ -41,27 +42,27 @@ const ResetPasswordForm = () => {
       onSubmit={handleResetPassword}
       className="flex flex-col justify-center items-center min-h-screen gap-3 w-full"
     >
-      <label className="fieldset-legend">Enter Your Email</label>
+      <label className="fieldset-legend">{translation[lan].resetPassword.email.label}</label>
       <input
         name="email"
         type="email"
         className="input"
-        placeholder="Type here"
+        placeholder={translation[lan].resetPassword.email.placeholder}
       />
-      <label className="fieldset-legend">Password</label>
+      <label className="fieldset-legend">{translation[lan].resetPassword.password.label}</label>
       <input
         name="password"
         type="password"
         className="input"
-        placeholder="Type here"
+        placeholder={translation[lan].resetPassword.password.placeholder}
         required
       />
-      <label className="fieldset-legend">Confirm Password</label>
+      <label className="fieldset-legend">{translation[lan].resetPassword.confirmPassword.label}</label>
       <input
         name="confirm_password"
         type="password"
         className="input"
-        placeholder="Type here"
+        placeholder={translation[lan].resetPassword.confirmPassword.placeholder}
         required
       />
       <button

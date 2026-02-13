@@ -202,7 +202,17 @@ const translation = {
         heading: "Revenue Sheet",
       },
     },
-    verifyResetCode: {},
+    verifyResetCode: {
+      email: {
+        label: "",
+        placeholder: "",
+      },
+      otp: {
+        label : "",
+        placeholder : ""
+      },
+      button: "",
+    },
     resetPage: {
       email: {
         label: "Write Your Email",

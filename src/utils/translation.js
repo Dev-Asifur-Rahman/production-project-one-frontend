@@ -480,11 +480,11 @@ const translation = {
     verifyResetCode: {
       email: {
         label: "ইমেইল টাইপ করুন",
-        placeholder: "Type Here",
+        placeholder: "এখানে লিখুন",
       },
       otp: {
         label : "ওটিপি টাইপ করুন",
-        placeholder : "Type Here"
+        placeholder : "এখানে লিখুন"
       },
       button: "ওটিপি যাচাই করুন",
     },

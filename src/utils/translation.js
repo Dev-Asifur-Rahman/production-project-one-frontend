@@ -204,7 +204,7 @@ const translation = {
     },
     verifyResetCode: {
       email: {
-        label: "",
+        label: "Enter Your Email",
         placeholder: "",
       },
       otp: {

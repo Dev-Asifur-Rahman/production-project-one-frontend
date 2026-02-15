@@ -208,7 +208,7 @@ const translation = {
         placeholder: "",
       },
       otp: {
-        label : "",
+        label : "Enter your OTP",
         placeholder : ""
       },
       button: "",

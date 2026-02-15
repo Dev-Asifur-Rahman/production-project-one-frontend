@@ -6,12 +6,12 @@ import { useContext, useEffect, useState } from "react";
 
 const HomeLeaderBoard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
-  const {lan} = useContext(LanguageContext)
+  const { lan } = useContext(LanguageContext);
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/leaderboard`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/leaderboard`,
       );
       const data = await res.json();
       setLeaderboard(data);
@@ -39,19 +39,23 @@ const HomeLeaderBoard = () => {
           {translation[lan].homeLeftComponent.heading.leaderboard}
         </li>
 
-        {leaderboard?.map((user, index) => {
+        {leaderboard?.slice(0, 5).map((user, index) => {
           return (
             <li key={index} className="list-row">
-              <div className={`text-4xl ${setRankColor(index + 1)} font-medium opacity-30 tabular-nums`}>
+              <div
+                className={`text-4xl ${setRankColor(index + 1)} font-medium opacity-30 tabular-nums`}
+              >
                 {index + 1}
               </div>
               <div className="list-col-grow">
                 <div>{user?.name}</div>
                 <div className="text-xs uppercase font-semibold opacity-60">
-                  {user?.user_id || 'not registered'}
+                  {user?.user_id || "not registered"}
                 </div>
               </div>
-              <p className="text-xs uppercase font-semibold opacity-60">{user?.points} Pts</p>
+              <p className="text-xs uppercase font-semibold opacity-60">
+                {user?.points} Pts
+              </p>
             </li>
           );
         })}

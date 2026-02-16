@@ -211,7 +211,7 @@ const translation = {
         label : "Enter your OTP",
         placeholder : ""
       },
-      button: "",
+      button: "Verify OTP",
     },
     resetPage: {
       email: {

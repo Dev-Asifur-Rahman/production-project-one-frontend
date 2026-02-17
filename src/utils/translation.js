@@ -205,11 +205,11 @@ const translation = {
     verifyResetCode: {
       email: {
         label: "Enter Your Email",
-        placeholder: "",
+        placeholder: "Type Here",
       },
       otp: {
         label : "Enter your OTP",
-        placeholder : ""
+        placeholder : "Type Here"
       },
       button: "Verify OTP",
     },

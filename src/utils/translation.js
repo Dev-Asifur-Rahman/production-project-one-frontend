@@ -483,7 +483,7 @@ const translation = {
         placeholder: "Type Here",
       },
       otp: {
-        label : "Enter your OTP",
+        label : "ওটিপি টাইপ করুন",
         placeholder : "Type Here"
       },
       button: "Verify OTP",

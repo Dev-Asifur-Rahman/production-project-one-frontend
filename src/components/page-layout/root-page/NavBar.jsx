@@ -26,6 +26,10 @@ const NavBar = () => {
     }
   };
 
+  const handleSuggestion = async(e) =>{
+    const value = e.target.value
+  }
+
   if (
     pathname.startsWith("/dashboard") ||
     pathname.startsWith("/auth") ||
@@ -46,6 +50,7 @@ const NavBar = () => {
           <div className=" inline-flex relative w-3/6 h-8 mmd:h-9 md:h-10">
             <input
               onKeyDown={searchProduct}
+              onChange={handleSuggestion}
               type="text"
               placeholder={translation[lan].navbar.searchBar}
               className="input w-full h-full rounded-2xl smd:rounded-4xl bg-transparent border-white text-white focus:outline-none focus:ring-0 lg:pl-6 mmd:pl-3 md:pl-4 pl-2"

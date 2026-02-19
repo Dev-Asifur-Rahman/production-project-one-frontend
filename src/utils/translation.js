@@ -486,7 +486,7 @@ const translation = {
         label : "ওটিপি টাইপ করুন",
         placeholder : "Type Here"
       },
-      button: "Verify OTP",
+      button: "ওটিপি যাচাই করুন",
     },
     resetPage: {
       email: {

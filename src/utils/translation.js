@@ -477,7 +477,17 @@ const translation = {
         heading: "রেভিনিউ শিট",
       },
     },
-    verifyResetCode: {},
+    verifyResetCode: {
+      email: {
+        label: "ইমেইল টাইপ করুন",
+        placeholder: "Type Here",
+      },
+      otp: {
+        label : "Enter your OTP",
+        placeholder : "Type Here"
+      },
+      button: "Verify OTP",
+    },
     resetPage: {
       email: {
         label: "ইমেইল টাইপ করুন",

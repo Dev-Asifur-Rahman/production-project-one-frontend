@@ -27,7 +27,11 @@ const NavBar = () => {
   };
 
   const handleSuggestion = async(e) =>{
-    const value = e.target.value
+    const value = e.target.value.trim()
+    if(!value) return
+    else{
+      alert(value)
+    }
   }
 
   if (

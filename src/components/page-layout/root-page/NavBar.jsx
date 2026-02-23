@@ -9,7 +9,7 @@ import Sign from "@/components/sub-components/navbar/Sign";
 import MenuDrawerSmall from "@/components/sub-components/navbar/MenuDrawerSmall";
 import SavedItems from "@/components/sub-components/navbar/SavedItems";
 import ToggleLanguage from "@/components/sub-components/navbar/ToggleLanguage";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import translation from "@/utils/translation";
 
@@ -19,6 +19,7 @@ const NavBar = () => {
   const router = useRouter();
 
   const [suggestions, setSuggestions] = useState([]);
+  const debounceRef = useRef(null);
 
   const searchProduct = (e) => {
     if (e.key === "Enter") {
@@ -30,15 +31,24 @@ const NavBar = () => {
 
   const handleSuggestion = async (e) => {
     const value = e.target.value.trim();
-    if (!value) {
-      setSuggestions([]);
-      return;
+
+    if (debounceRef.current) {
+      clearTimeout(debounceRef.current);
     }
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/search_by_keyword/${encodeURIComponent(value)}`,
-    );
-    const result = await res.json();
-    setSuggestions(result);
+
+    debounceRef.current = setTimeout(async () => {
+      if (!value) {
+        setSuggestions([]);
+        return;
+      }
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/search_by_keyword/${encodeURIComponent(value)}`,
+      );
+
+      const result = await res.json();
+      setSuggestions(result);
+    }, 300);
   };
 
   if (

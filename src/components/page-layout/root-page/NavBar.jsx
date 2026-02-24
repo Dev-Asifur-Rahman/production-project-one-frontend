@@ -80,6 +80,25 @@ const NavBar = () => {
               id="navbar-search-icon"
               className="absolute cursor-pointer text-white smd:w-6 w-4  smd:h-6 h-4 top-1/2 right-[4%] mmd:right-[2%] -translate-y-1/2"
             />
+            <ul className="absolute z-[200] mt-1 top-full menu bg-base-200 rounded-box w-full">
+              <li className="w-full">
+                <a className="block truncate w-full">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi odio, quae facilis velit voluptatum in numquam quo obcaecati ad nemo ex autem magni nulla quidem, iusto totam perspiciatis itaque enim?</a>
+              </li>
+              <li>
+                <a>Item 2</a>
+              </li>
+              <li>
+                <a>Item 3</a>
+              </li>
+            </ul>
+            {/* <ul className="absolute top-full w-full z-[200] menu bg-base-200 rounded-box border">
+              <li className="w-full p-1.5">
+                <a>Hi</a>
+              </li>
+              <li className="w-full p-1.5">
+                <a>Hello</a>
+              </li>
+            </ul> */}
           </div>
 
           {/* options */}

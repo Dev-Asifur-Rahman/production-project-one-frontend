@@ -1,10 +1,10 @@
 "use client";
 
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { translation } from "@/utils/translation";
 
 const ResetForm = () => {
   const [disable, setDisable] = useState(false);

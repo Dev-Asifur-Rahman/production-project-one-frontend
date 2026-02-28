@@ -1,31 +1,37 @@
 "use client";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import translation from "@/utils/translation";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 
 const VerifyCodeForm = () => {
   const [disable, setDisable] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
+  const { lan } = useContext(LanguageContext);
+
   const handleConfirmCode = async (e) => {
     e.preventDefault();
     const target = e.target;
     const email = target.email.value;
     const code = target.otp.value;
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/verify_reset_code`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/verify_reset_code`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, code }),
       },
-      body: JSON.stringify({ email, code }),
-    });
+    );
 
-    const result = await res.json()
-    if(result.success === false){
-      return toast.error(result.message)
-    }
-    else{
-      toast.success('OTP Verified')
-      router.push('/reset_new_password')
+    const result = await res.json();
+    if (result.success === false) {
+      return toast.error(result.message);
+    } else {
+      toast.success("OTP Verified");
+      router.push("/reset_new_password");
     }
   };
   return (
@@ -33,7 +39,7 @@ const VerifyCodeForm = () => {
       onSubmit={handleConfirmCode}
       className="flex flex-col justify-center items-center min-h-screen gap-3 w-full"
     >
-      <label className="fieldset-legend">Enter Your Email</label>
+      <label className="fieldset-legend">{translation[lan]}</label>
       <input
         name="email"
         type="email"

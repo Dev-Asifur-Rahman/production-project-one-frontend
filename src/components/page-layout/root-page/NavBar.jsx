@@ -4,7 +4,7 @@ import { BsSearch } from "react-icons/bs";
 // import { BsPhone } from "react-icons/bs";
 import BrandName from "@/components/global-layout-components/BrandName";
 import PostDeal from "@/components/sub-components/navbar/PostDeal";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Sign from "@/components/sub-components/navbar/Sign";
 import MenuDrawerSmall from "@/components/sub-components/navbar/MenuDrawerSmall";
 import SavedItems from "@/components/sub-components/navbar/SavedItems";
@@ -16,6 +16,13 @@ import translation from "@/utils/translation";
 const NavBar = () => {
   const pathname = usePathname();
   const { lan } = useContext(LanguageContext);
+  const router = useRouter();
+
+  const searchProduct = (e) => {
+    if (e.key === "Enter")
+      router.push(`/search/${encodeURIComponent(e.target.value)}`);
+    else return;
+  };
 
   if (
     pathname.startsWith("/dashboard") ||
@@ -36,6 +43,7 @@ const NavBar = () => {
           {/* search bar  */}
           <div className=" inline-flex relative w-3/6 h-8 mmd:h-9 md:h-10">
             <input
+              onKeyDown={searchProduct}
               type="text"
               placeholder={translation[lan].navbar.searchBar}
               className="input w-full h-full rounded-2xl smd:rounded-4xl bg-transparent border-white text-white focus:outline-none focus:ring-0 lg:pl-6 mmd:pl-3 md:pl-4 pl-2"

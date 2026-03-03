@@ -1,5 +1,5 @@
 import ProductsSection from "@/components/page-layout/product-page/ProductsSection";
-import { decode } from "next-auth/jwt";
+
 
 const page = async ({ params, searchParams }) => {
   const { category } = await params;

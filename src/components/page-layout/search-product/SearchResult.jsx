@@ -8,9 +8,9 @@ const SearchResult = ({ productData }) => {
     setProducts(productData);
   }, [productData]);
   return (
-    <section>
+    <section className="lg:w-4/5 mx-auto my-5">
       <div className="w-full flex justify-between items-center my-4">
-        <div className="grid lg:grid-cols-4 md:grid-cols-3 smd:grid-cols-2 grid-cols-1 place-items-center">
+        <div className="w-full grid lg:grid-cols-4 md:grid-cols-3 smd:grid-cols-2 grid-cols-1 place-content-center">
           {products?.map((product, index) => {
             return <ProductCard product={product} key={index}></ProductCard>;
           })}

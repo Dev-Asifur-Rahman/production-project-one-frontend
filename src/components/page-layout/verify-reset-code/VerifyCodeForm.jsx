@@ -39,12 +39,12 @@ const VerifyCodeForm = () => {
       onSubmit={handleConfirmCode}
       className="flex flex-col justify-center items-center min-h-screen gap-3 w-full"
     >
-      <label className="fieldset-legend">{translation[lan]}</label>
+      <label className="fieldset-legend">{translation[lan].verifyResetCode.email.label}</label>
       <input
         name="email"
         type="email"
         className="input"
-        placeholder="Type here"
+        placeholder={translation[lan].verifyResetCode.email.placeholder}
         required
       />
       <label className="fieldset-legend">Enter Your OTP</label>

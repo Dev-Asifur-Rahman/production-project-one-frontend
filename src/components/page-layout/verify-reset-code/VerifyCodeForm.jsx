@@ -47,12 +47,12 @@ const VerifyCodeForm = () => {
         placeholder={translation[lan].verifyResetCode.email.placeholder}
         required
       />
-      <label className="fieldset-legend">Enter Your OTP</label>
+      <label className="fieldset-legend">{translation[lan].verifyResetCode.otp.label}</label>
       <input
         name="otp"
         type="text"
         className="input"
-        placeholder="Type here"
+        placeholder={translation[lan].verifyResetCode.otp.placeholder}
         required
       />
       <button

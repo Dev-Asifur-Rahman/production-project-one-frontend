@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { GoTrash } from "react-icons/go";
+import translation from "@/utils/translation";
 
 const ArchiveProducts = () => {
   const [archiveProducts, setArchiveProducts] = useState([]);

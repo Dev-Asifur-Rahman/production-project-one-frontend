@@ -12,13 +12,12 @@ import { EffectCreative, Navigation, Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
 
 const OfferAndDiscountSlider = () => {
-  const [bannerSpeed, setBannerSpeed] = useState({});
   const [banners, setBanners] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      const [bannerRes, speedRes] = await Promise.all([
+      const [bannerRes] = await Promise.all([
         fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/banners`),
         fetch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/get_swiper_speed/6944135c03cea8c48c6d3abd`
@@ -26,10 +25,9 @@ const OfferAndDiscountSlider = () => {
       ]);
 
       const bannerData = await bannerRes.json();
-      const speedData = await speedRes.json();
+      
 
       setBanners(bannerData);
-      setBannerSpeed(speedData);
       setLoading(false);
     };
 
@@ -55,7 +53,7 @@ const OfferAndDiscountSlider = () => {
         }}
         navigation={true}
         autoplay={{
-          delay: bannerSpeed?.time || 4000,
+          delay: 4000,
           disableOnInteraction: false,
         }}
         speed={1000}

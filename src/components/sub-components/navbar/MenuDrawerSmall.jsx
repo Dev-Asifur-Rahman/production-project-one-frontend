@@ -1,7 +1,7 @@
 "use client";
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import translation from "@/utils/translation";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import getCategory from "@/actions/category/getCategory";
@@ -46,7 +46,7 @@ const MenuDrawerSmall = () => {
   };
 
   const handleLogin = async () => {
-    if (session.status === "unauthenticated") {
+    if (!session.data) {
       closeDrawer();
       router.push("/auth/login");
     } else {
@@ -168,9 +168,9 @@ const MenuDrawerSmall = () => {
           <li onClick={handleLogin}>
             <a>
               {
-                (session.status = "unauthenticated"
-                  ? translation[lan].navbar.menuDrawerSmall.headings.sign_out
-                  : translation[lan].navbar.menuDrawerSmall.headings.sign_in)
+                (!session.data
+                  ? translation[lan].navbar.menuDrawerSmall.headings.sign_in
+                  :  translation[lan].navbar.menuDrawerSmall.headings.sign_out)
               }
             </a>
           </li>

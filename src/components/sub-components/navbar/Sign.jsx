@@ -7,12 +7,12 @@ import React, { useContext } from "react";
 import { HiUserCircle } from "react-icons/hi2";
 
 const Sign = () => {
-  const { status } = useSession();
+  const { data } = useSession();
   const router = useRouter();
   const { lan } = useContext(LanguageContext);
 
   const handleLogin = async () => {
-    if (status === "unauthenticated") {
+    if (!data) {
       router.push("/auth/login");
     } else {
       await signOut({ redirect: false });
@@ -27,7 +27,7 @@ const Sign = () => {
     >
       <HiUserCircle />
       <p className="text-[#1A1A1A]">
-        {status === "unauthenticated"
+        {!data
           ? translation[lan]?.navbar?.logo?.[2]
           : translation[lan]?.navbar?.logo?.[3]}
       </p>

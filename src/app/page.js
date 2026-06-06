@@ -49,7 +49,7 @@ export default async function Home() {
           ></HomeRightComponents> */}
         </section>
       </div>
-      <TopCategories></TopCategories>
+      {/* <TopCategories></TopCategories> */}
       <HomeLeftComponents
         Heading={translation[lang].homeLeftComponent.heading.fashion}
         componentName='fashion'

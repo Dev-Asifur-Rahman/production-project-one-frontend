@@ -1,29 +1,22 @@
 "use client";
 
-import getCategory from "@/actions/category/getCategory";
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
-import translation from "@/utils/translation";
+import { category_list } from "@/data/categories";
+
 import { usePathname, useRouter } from "next/navigation";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 
 const Category = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const [categories, setCategories] = useState([]);
   const { lan } = useContext(LanguageContext);
 
-  useEffect(() => {
-    const fetchCategory = async () => {
-      const data = await getCategory();
-      setCategories(data);
-    };
-    fetchCategory();
-  }, []);
 
   const handleCategoryNavigate = (category) => {
     router.push(`/products/${encodeURIComponent(category)}`);
   };
-  // const handleSubCategoryWithCategory = (e) => {};
+  
+  console.log(category_list)
 
   return (
     (pathname === "/" || pathname.startsWith("/products")) && (
@@ -32,28 +25,28 @@ const Category = () => {
           id="trending-component"
           className="w-full px-2 lg:flex lg:justify-center lg:items-center gap-6 relative hidden"
         >
-          {categories?.map((category, index) => {
+          {category_list?.map((cat, index) => {
             return (
               <div
-                onClick={() => handleCategoryNavigate(category?.name)}
+                onClick={() => handleCategoryNavigate(cat?.category?.name)}
                 key={index}
                 className="dropdown dropdown-hover  dropdown-center"
               >
                 <div tabIndex={0} role="button" className=" m-1 ">
-                  {lan === "bn" ? category?.bn : category?.name}
+                  {lan === "bn" ? cat?.category?.bn : cat?.category?.name}
                 </div>
                 <ul
                   tabIndex="-1"
                   className="dropdown-content menu  rounded-box z-100 w-fit p-1 shadow-sm bg-white border-t-2"
                 >
-                  {category?.subcategories?.map((subcategory, index) => {
+                  {cat?.subcategories?.map((subcategory, index) => {
                     return (
                       <li
                         onClick={(e) => {
                           e.stopPropagation();
                           router.push(
                             `/products/${encodeURIComponent(
-                              category?.name
+                              cat?.name
                             )}?subcategory=${encodeURIComponent(
                               subcategory?.name
                             )}`,

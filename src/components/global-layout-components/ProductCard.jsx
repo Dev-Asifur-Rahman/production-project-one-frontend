@@ -2,7 +2,6 @@
 
 import { MdLabelImportant, MdOutlineInsertComment } from "react-icons/md";
 
-import { IoMdShare } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import CornerRibbon from "./CornerRibbon";
 import { useContext } from "react";
@@ -15,6 +14,7 @@ const ProductCard = ({ product }) => {
   const { lan } = useContext(LanguageContext);
 
   const handleRoute = async (product) => {
+    console.log("hitted")
     // make product object like {product : category}
     fetch("/api/cookies/visitor", {
       method: "POST",

@@ -12,8 +12,7 @@ import { EffectCreative, Navigation, Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
 
 const OfferAndDiscountSlider = () => {
-  const [banners, setBanners] = useState([]);
-  const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     const fetchData = async () => {

@@ -12,31 +12,23 @@ import { EffectCreative, Navigation, Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
 
 const OfferAndDiscountSlider = () => {
-  
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const [bannerRes] = await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/banners`),
-        fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/get_swiper_speed/6944135c03cea8c48c6d3abd`
-        ),
-      ]);
-
-      const bannerData = await bannerRes.json();
-      
-
-      setBanners(bannerData);
-      setLoading(false);
-    };
-
-    fetchData();
-  }, []);
-  return loading ? (
-    <div className="w-full aspect-[1/0.35] flex justify-center items-center">
-      <span className="loading loading-dots loading-md"></span>
-    </div>
-  ) : (
+  const banners = [
+    {
+      banner_link: "https://i.ibb.co.com/FbTk9h7F/PR-Image-scaled.jpg",
+    },
+    {
+      banner_link:
+        "https://i.ibb.co.com/tt74TWn/D-ae-clp-main-banner-20-08-2025-SM.webp",
+    },
+    {
+      banner_link:
+        "https://i.ibb.co.com/xSYpm6w3/ucbbank2026-src-https-eggyolk-chaldal.png",
+    },
+    {
+      banner_link: "https://i.ibb.co.com/BVGp0LCx/iphone-17-1000x700-1-2.png",
+    },
+  ];
+  return (
     <section className="w-full aspect-[1/0.35]">
       <Swiper
         grabCursor={true}

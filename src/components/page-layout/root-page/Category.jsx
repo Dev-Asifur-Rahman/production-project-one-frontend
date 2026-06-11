@@ -31,7 +31,7 @@ const Category = () => {
                 key={index}
                 className="dropdown dropdown-hover  dropdown-center"
               >
-                <div tabIndex={0} role="button" className=" m-1 ">
+                <div tabIndex={0} role="button" className=" m-1 hover:text-dealbondhu">
                   {lan === "bn" ? cat?.category?.bn : cat?.category?.name}
                 </div>
                 <ul

@@ -68,10 +68,6 @@ const ProductCard = ({ product }) => {
           alt="Bag"
           className="w-full aspect-square object-contain mix-blend-multiply"
         />
-
-        <div className="absolute top-2 left-2 badge badge-xs rounded-sm bg-dealbondhu text-white badge-accent font-medium uppercase">
-          {product?.company || "Unknown"}
-        </div>
       </div>
 
       {/* product details  */}

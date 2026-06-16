@@ -68,7 +68,7 @@ const HomeComponents = ({ componentName = "Enter Name", Heading = "Enter Heading
             className="mySwiper relative"
           >
             {products.map((product, index) => (
-              <SwiperSlide key={index} className="smd:max-w-[280px] mb-10">
+              <SwiperSlide key={index} className="smd:max-w-[260px] mb-10">
                 <ProductCard product={product} />
               </SwiperSlide>
             ))}

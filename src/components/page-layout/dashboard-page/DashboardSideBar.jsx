@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import PendingProducts from "./PendingProducts";
 import ArchiveProducts from "./ArchiveProducts";
 import CategoryPage from "./CategoryPage";
-import AllBanners from "./AllBanners";
+
 import AllProducts from "./AllProducts";
 import ClickedInfo from "./ClickedInfo";
 import Leaderboard from './Leaderboard';
@@ -41,7 +41,6 @@ const DashboardSideBar = () => {
           {tab === "item2" && <AllProducts></AllProducts>}
           {tab === "item3" && <PendingProducts></PendingProducts>}
           {tab === "item4" && <ArchiveProducts></ArchiveProducts>}
-          {tab === "item5" && <AllBanners></AllBanners>}
           {tab === "item6" && <ClickedInfo></ClickedInfo>}
           {tab === "item7" && <RisingStars></RisingStars>}
           {tab === "item8" && <Leaderboard></Leaderboard>}
@@ -64,9 +63,7 @@ const DashboardSideBar = () => {
           <li>
             <a onClick={() => handleClick("item4")}>{translation[lan].dashboard.archiveProducts.heading}</a>
           </li>
-          <li>
-            <a onClick={() => handleClick("item5")}>{translation[lan].dashboard.banners.heading}</a>
-          </li>
+          
           <li>
             <a onClick={() => handleClick("item6")}>{translation[lan].dashboard.clickedInfo.heading}</a>
           </li>

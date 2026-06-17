@@ -6,8 +6,9 @@ import { cookies } from "next/headers";
 
 const registerUser = async (user_data) => {
   const { name, method, password } = user_data;
-
-  const user_collection = await mongoDb(collections.users);
+  console.log(user_data)
+  const user_collection = await mongoDb(collections.users) || []
+  console.log(user_collection)
 
   const cookieStore = await cookies();
   const visitor = cookieStore.get("visitor");
@@ -38,7 +39,8 @@ const registerUser = async (user_data) => {
     title: "New Contributor",
     created_at: new Date(),
   };
-
+   
+  
   const result = await user_collection.insertOne(user);
   if (result.acknowledged === true)
     return { success: true, insertedId: result.insertedId.toString() };

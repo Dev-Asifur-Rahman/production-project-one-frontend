@@ -15,8 +15,7 @@ const Category = () => {
   const handleCategoryNavigate = (category) => {
     router.push(`/products/${encodeURIComponent(category)}`);
   };
-  
-  console.log(category_list)
+
 
   return (
     (pathname === "/" || pathname.startsWith("/products")) && (

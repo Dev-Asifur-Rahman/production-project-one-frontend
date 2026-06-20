@@ -53,7 +53,7 @@ const OfferAndDiscountSlider = () => {
               <img
                 src={banner?.banner_link}
                 alt=""
-                className="w-full h-full object-cover"
+                className="w-full aspect-[1/0.5]"
               />
             </SwiperSlide>
           );

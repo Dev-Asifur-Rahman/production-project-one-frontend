@@ -1,27 +1,59 @@
+"use client";
+
+import { useRef } from "react";
+
 export default function ToggleLanguageIcon() {
+  const angle = useRef(0);
+  const arrowsRef = useRef(null);
+
+  const handleClick = () => {
+    angle.current += 180;
+    arrowsRef.current.style.transform = `rotate(${angle.current}deg)`;
+  };
+
   return (
-    <svg
-      width="109"
-      height="121"
-      viewBox="0 0 109 121"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {/* Background Circle */}
-      <circle cx="54.5" cy="60.5" r="50" fill="#006A4E" />
+    <section onClick={handleClick} className="border cursor-pointer relative">
+      <svg
+        
+        width="48"
+        height="48"
+        viewBox="0 0 119 123"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="overflow-visible "
+      >
+        <g
+          ref={arrowsRef}
+          style={{
+            transformOrigin: "59.5px 61.5px",
+            transition: "transform 0.5s ease",
+          }}
+        >
+          <path
+            d="M3.15995 84.0036L4.76837e-07 95.8364L11.8328 98.9964L14.9927 87.1636L3.15995 84.0036ZM59.4694 121.5V123C82.235 123 102.11 110.63 112.741 92.2511L111.443 91.5L110.144 90.7489C100.027 108.239 81.1208 120 59.4694 120V121.5ZM7.49637 91.5L6.19796 92.2511C16.8293 110.63 36.7039 123 59.4694 123V121.5V120C37.8181 120 18.912 108.239 8.79478 90.7489L7.49637 91.5Z"
+            fill="#FFFDFD"
+          />
 
-      {/* Rotating Arrows */}
-      <g id="arrows">
-        <path
-          d="M1.05332 88.0012L0 91.9455L3.94426 92.9988L4.99758 89.0545L1.05332 88.0012ZM54.4719 120.5V121C76.866 121 96.4177 108.833 106.878 90.7504L106.445 90.5L106.012 90.2496C95.7235 108.036 76.4946 120 54.4719 120V120.5ZM2.49879 90.5L2.06599 90.7504C12.526 108.833 32.0777 121 54.4719 121V120.5V120C32.4491 120 13.2202 108.036 2.93159 90.2496L2.49879 90.5Z"
-          fill="black"
-        />
+          <path
+            d="M115.779 38.9964L118.939 27.1636L107.106 24.0036L103.946 35.8364L115.779 38.9964ZM111.443 31.5L112.741 30.7489C102.11 12.3704 82.235 0 59.4694 0V1.5V3C81.1208 3 100.027 14.7615 110.144 32.2511L111.443 31.5ZM59.4694 1.5V0C36.7039 0 16.8293 12.3704 6.19796 30.7489L7.49637 31.5L8.79478 32.2511C18.912 14.7615 37.8181 3 59.4694 3V1.5Z"
+            fill="#FFFDFD"
+          />
 
-        <path
-          d="M107.89 32.9988L108.944 29.0545L104.999 28.0012L103.946 31.9455L107.89 32.9988ZM106.445 30.5L106.878 30.2496C96.4177 12.1675 76.866 0 54.4719 0V0.5V1C76.4946 1 95.7235 12.9645 106.012 30.7504L106.445 30.5ZM54.4719 0.5V0C32.0777 0 12.526 12.1675 2.06599 30.2496L2.49879 30.5L2.93159 30.7504C13.2202 12.9645 32.4491 1 54.4719 1V0.5Z"
-          fill="black"
-        />
-      </g>
-    </svg>
+          <circle
+            cx="59.4964"
+            cy="61.5"
+            r="48.5"
+            stroke="#FFFDFD"
+            strokeWidth="3"
+          />
+        </g>
+      </svg>
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+      "
+      >
+        EN
+      </div>
+    </section>
   );
 }

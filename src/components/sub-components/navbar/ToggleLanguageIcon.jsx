@@ -1,26 +1,72 @@
 "use client";
 
-import { useRef } from "react";
+import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import { useRouter } from "next/navigation";
+import { useContext, useEffect, useRef } from "react";
 
 export default function ToggleLanguageIcon() {
+  const { lan, setLan } = useContext(LanguageContext);
+  const router = useRouter();
+
   const angle = useRef(0);
   const arrowsRef = useRef(null);
 
-  const handleClick = () => {
+  useEffect(() => {
+    const savedLang = localStorage.getItem("lang") || "en";
+
+    setLan(savedLang);
+    document.documentElement.setAttribute("data-lang", savedLang);
+
+    // Refresh হলে icon যেন সঠিক অবস্থায় থাকে
+    angle.current = savedLang === "bn" ? 180 : 0;
+
+    if (arrowsRef.current) {
+      arrowsRef.current.style.transform = `rotate(${angle.current}deg)`;
+    }
+  }, [setLan]);
+
+  const handleToggle = async () => {
+    // Arrow Rotate
     angle.current += 180;
-    arrowsRef.current.style.transform = `rotate(${angle.current}deg)`;
+
+    if (arrowsRef.current) {
+      arrowsRef.current.style.transform = `rotate(${angle.current}deg)`;
+    }
+
+    // Language Toggle
+    const newLang = lan === "en" ? "bn" : "en";
+
+    setLan(newLang);
+
+    document.documentElement.setAttribute("data-lang", newLang);
+
+    localStorage.setItem("lang", newLang);
+
+    await fetch("/api/cookies/language", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        lang: newLang,
+      }),
+    });
+
+    router.refresh();
   };
 
   return (
-    <section onClick={handleClick} className="border cursor-pointer relative">
+    <section
+      onClick={handleToggle}
+      className="cursor-pointer relative hidden lg:flex items-center justify-center"
+    >
       <svg
-        
         width="48"
         height="48"
         viewBox="0 0 119 123"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="overflow-visible "
+        className="overflow-visible"
       >
         <g
           ref={arrowsRef}
@@ -48,11 +94,22 @@ export default function ToggleLanguageIcon() {
           />
         </g>
       </svg>
+
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-      "
+        className="
+          absolute
+          top-1/2
+          left-1/2
+          -translate-x-1/2
+          -translate-y-1/2
+          text-white
+          text-sm
+          font-semibold
+          pointer-events-none
+          select-none
+        "
       >
-        EN
+        {lan === "en" ? "EN" : "বাং"}
       </div>
     </section>
   );

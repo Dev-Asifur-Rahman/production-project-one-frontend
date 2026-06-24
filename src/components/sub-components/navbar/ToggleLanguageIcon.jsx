@@ -17,7 +17,6 @@ export default function ToggleLanguageIcon() {
     setLan(savedLang);
     document.documentElement.setAttribute("data-lang", savedLang);
 
-    // Refresh হলে icon যেন সঠিক অবস্থায় থাকে
     angle.current = savedLang === "bn" ? 180 : 0;
 
     if (arrowsRef.current) {
@@ -89,7 +88,8 @@ export default function ToggleLanguageIcon() {
             cx="59.4964"
             cy="61.5"
             r="48.5"
-            stroke="#FFFDFD"
+            fill="#FFFFFF"
+            // stroke="#FFFDFD"
             strokeWidth="3"
           />
         </g>
@@ -102,7 +102,7 @@ export default function ToggleLanguageIcon() {
           left-1/2
           -translate-x-1/2
           -translate-y-1/2
-          text-white
+          text-[#006A4E]
           text-sm
           font-semibold
           pointer-events-none

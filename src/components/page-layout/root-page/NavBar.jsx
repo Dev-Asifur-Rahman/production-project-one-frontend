@@ -80,7 +80,7 @@ const NavBar = () => {
               onChange={handleSuggestion}
               type="text"
               placeholder={translation[lan].navbar.searchBar}
-              className="input w-full h-full rounded-2xl smd:rounded-4xl bg-transparent border-white text-white focus:outline-none focus:ring-0 lg:pl-6 mmd:pl-3 md:pl-4 pl-2"
+              className="input w-full h-full rounded-lg border-white/40 text-white bg-white/10 focus:outline-none focus:ring-0 lg:pl-6 mmd:pl-3 md:pl-4 pl-2"
             />
             <BsSearch
               id="navbar-search-icon"

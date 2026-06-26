@@ -2,13 +2,13 @@
 
 import { openModal } from "@/redux/features/modalSlice";
 import { useDispatch } from "react-redux";
-import { GoPlus } from "react-icons/go";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import translation from "@/utils/translation";
 import { useContext } from "react";
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
+import { FaPlus } from "react-icons/fa";
 
 const PostDeal = () => {
   const dispatch = useDispatch();
@@ -26,8 +26,8 @@ const PostDeal = () => {
   };
   return (
     <>
-      <div className=" bg-[#F42A41]" onClick={handleNavigate}>
-        <GoPlus />
+      <div className="" onClick={handleNavigate}>
+        <FaPlus />
         <p className="">{translation[lan].navbar.logo[1]}</p>
       </div>
     </>

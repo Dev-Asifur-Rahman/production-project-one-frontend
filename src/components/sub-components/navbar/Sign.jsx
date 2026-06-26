@@ -4,7 +4,8 @@ import translation from "@/utils/translation";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useContext } from "react";
-import { HiUserCircle } from "react-icons/hi2";
+import { FaUserCircle } from "react-icons/fa";
+import { PiSignInBold } from "react-icons/pi";
 
 const Sign = () => {
   const { data } = useSession();
@@ -23,9 +24,10 @@ const Sign = () => {
   return (
     <div
       onClick={handleLogin}
-      className="flex items-center gap-2 bg-[#F42A41] cursor-pointer px-3 py-2 rounded"
+      className="flex items-center gap-2 cursor-pointer px-3 py-2 rounded"
     >
-      <HiUserCircle />
+      {data ? <FaUserCircle /> : <PiSignInBold />}
+
       <p className="text-[#1A1A1A]">
         {!data
           ? translation[lan]?.navbar?.logo?.[2]

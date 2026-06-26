@@ -4,7 +4,7 @@ import translation from "@/utils/translation";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useContext } from "react";
-import { CiSaveDown2 } from "react-icons/ci";
+import { FaRegHeart } from "react-icons/fa";
 
 const SavedItems = () => {
   const router = useRouter();
@@ -16,8 +16,8 @@ const SavedItems = () => {
   };
   return (
     session?.data?.user && (
-      <div onClick={handleRoute} className=" bg-[#F42A41]  ">
-        <CiSaveDown2 />
+      <div onClick={handleRoute} className="">
+        <FaRegHeart />
         <p className="">{translation[lan].navbar.logo[0]}</p>
       </div>
     )

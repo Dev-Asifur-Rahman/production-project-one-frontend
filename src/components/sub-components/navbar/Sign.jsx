@@ -27,12 +27,6 @@ const Sign = () => {
       className="flex items-center gap-2 cursor-pointer px-3 py-2 rounded"
     >
       {data ? <FaUserCircle /> : <PiSignInBold />}
-
-      <p className="text-[#1A1A1A]">
-        {!data
-          ? translation[lan]?.navbar?.logo?.[2]
-          : translation[lan]?.navbar?.logo?.[3]}
-      </p>
     </div>
   );
 };

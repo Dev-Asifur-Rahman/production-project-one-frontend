@@ -72,7 +72,7 @@ const NavBar = () => {
           {/* logo section */}
           <BrandName></BrandName>
           
-          <ToggleLanguageIcon></ToggleLanguageIcon>
+          
           {/* search bar  */}
           <div className=" inline-flex relative w-3/6 h-8 mmd:h-9 md:h-10">
             <input
@@ -116,6 +116,7 @@ const NavBar = () => {
           </div>
 
           {/* options */}
+          <ToggleLanguageIcon></ToggleLanguageIcon>
           <div
             id="navbar-icon-div"
             className="hidden mmd:inline-flex lg:flex mmd:justify-evenly mmd:gap-2 md:gap-0 items-center mmd:w-1/5"

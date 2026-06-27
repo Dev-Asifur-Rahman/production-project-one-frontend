@@ -1,10 +1,9 @@
 "use client";
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
-import translation from "@/utils/translation";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useContext } from "react";
-import { FaRegHeart } from "react-icons/fa";
+import { TiHeartFullOutline } from "react-icons/ti";
 
 const SavedItems = () => {
   const router = useRouter();
@@ -17,8 +16,7 @@ const SavedItems = () => {
   return (
     session?.data?.user && (
       <div onClick={handleRoute} className="">
-        <FaRegHeart />
-        <p className="">{translation[lan].navbar.logo[0]}</p>
+        <TiHeartFullOutline />
       </div>
     )
   );

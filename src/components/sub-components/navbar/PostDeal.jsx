@@ -28,7 +28,6 @@ const PostDeal = () => {
     <>
       <div className="" onClick={handleNavigate}>
         <FaPlus />
-        <p className="">{translation[lan].navbar.logo[1]}</p>
       </div>
     </>
   );

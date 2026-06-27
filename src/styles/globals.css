@@ -33,13 +33,18 @@
   --font-primary: var(--font-montserrat);
 }
 
-@utility scrollbar-hidden {
-  @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
 }
 
 body {
   font-family: var(--font-primary), sans-serif;
   margin: 0 auto;
+  -ms-overflow-style: none;
 }
 
 #navbar-search-icon {
@@ -49,21 +54,12 @@ body {
 #navbar-icon-div div {
   width: 45px;
   aspect-ratio: 1/1;
+  border: 1px solid white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-}
-
-#navbar-icon-div div p {
-  color: white;
-  font-size: 12px;
-  white-space: nowrap;
-  position: absolute;
-  top: 105%;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 #navbar-icon-div div:hover {

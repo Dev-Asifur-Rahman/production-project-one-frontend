@@ -65,7 +65,6 @@ body {
 #navbar-icon-div div:hover {
   cursor: pointer;
   color: #1a1a1a;
-  box-shadow: 0 0 1rem var(--main-color);
 }
 
 /* #navbar-icon-div div:hover p {

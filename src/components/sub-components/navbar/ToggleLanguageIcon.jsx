@@ -57,7 +57,7 @@ export default function ToggleLanguageIcon() {
   return (
     <section
       onClick={handleToggle}
-      className="cursor-pointer relative hidden lg:flex items-center justify-center"
+      className="cursor-pointer relative hidden md:inline-flex"
     >
       <svg
         width="48"

@@ -71,10 +71,11 @@ const NavBar = () => {
         <section className="w-full px-3 md:py-4 py-2  bg-[#006A4E]">
           <div className="flex justify-between items-center">
             {/* logo section */}
+
             <BrandName></BrandName>
 
             {/* search bar  */}
-            <div className="md:inline-flex relative hidden md:h-10">
+            <div className="md:inline-flex relative hidden md:h-10 md:w-2/4">
               <input
                 onKeyDown={searchProduct}
                 onChange={handleSuggestion}
@@ -107,18 +108,18 @@ const NavBar = () => {
             </div>
 
             {/* options */}
-            {/* <ToggleLanguageIcon></ToggleLanguageIcon> */}
-            {/* <div
-            id="navbar-icon-div"
-            className="hidden mmd:inline-flex lg:flex mmd:justify-evenly mmd:gap-2 md:gap-0 items-center mmd:w-1/5"
-          >
-            <SavedItems></SavedItems>
-            <PostDeal></PostDeal>
-            <Sign></Sign>
-          </div> */}
+
+            <div className="hidden md:inline-flex justify-end items-center gap-2 ">
+              <ToggleLanguageIcon></ToggleLanguageIcon>
+              <div id="navbar-icon-div" className="flex items-center gap-2">
+                <SavedItems></SavedItems>
+                <PostDeal></PostDeal>
+                <Sign></Sign>
+              </div>
+            </div>
 
             {/* menu for small screen  */}
-            <div className="md:hidden w-1/5 flex justify-center items-center">
+            <div className="md:hidden w-1/5 flex justify-end items-center">
               <div className="">
                 <MenuDrawerSmall></MenuDrawerSmall>
               </div>

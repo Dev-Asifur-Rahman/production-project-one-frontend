@@ -26,7 +26,7 @@ const PostDeal = () => {
   };
   return (
     <>
-      <div className="" onClick={handleNavigate}>
+      <div className="tooltip before:bg-[#006A4E] before:border before:text-white" onClick={handleNavigate} data-tip={lan === 'en' ? 'Post Deal' : 'ডিল পোস্ট'}>
         <FaPlus />
       </div>
     </>

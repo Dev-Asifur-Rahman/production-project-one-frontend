@@ -24,7 +24,16 @@ const Sign = () => {
   return (
     <div
       onClick={handleLogin}
-      className="flex items-center gap-2 cursor-pointer px-3 py-2 rounded"
+      className="tooltip tooltip-left before:bg-[#006A4E] before:border before:text-white flex items-center gap-2 cursor-pointer px-3 py-2 rounded"
+      data-tip={
+        data
+          ? lan === "en"
+            ? "Sign Out"
+            : "সাইন আউট"
+          : lan === "en"
+            ? "Sign In"
+            : "সাইন ইন"
+      }
     >
       {data ? <FaUserCircle /> : <PiSignInBold />}
     </div>

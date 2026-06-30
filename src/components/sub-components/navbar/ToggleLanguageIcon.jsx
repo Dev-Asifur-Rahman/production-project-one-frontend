@@ -57,7 +57,7 @@ export default function ToggleLanguageIcon() {
   return (
     <section
       onClick={handleToggle}
-      className="cursor-pointer relative hidden md:inline-flex"
+      className="tooltip before:bg-[#006A4E] before:border before:text-white cursor-pointer relative hidden md:inline-flex" data-tip={lan === 'en' ? 'Language' : 'ভাষা'}
     >
       <svg
         width="48"

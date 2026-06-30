@@ -15,7 +15,7 @@ const SavedItems = () => {
   };
   return (
     session?.data?.user && (
-      <div onClick={handleRoute} className="">
+      <div onClick={handleRoute} className="tooltip before:bg-[#006A4E] before:border before:text-white" data-tip={lan === 'en' ? "Saved Items" : " সংরক্ষিত আইটেম"}>
         <TiHeartFullOutline />
       </div>
     )
@@ -23,3 +23,4 @@ const SavedItems = () => {
 };
 
 export default SavedItems;
+

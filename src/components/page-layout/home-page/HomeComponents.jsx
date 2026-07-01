@@ -74,13 +74,13 @@ const HomeComponents = ({ componentName = "Enter Name", Heading = "Enter Heading
             ))}
             <button
               ref={prevRef}
-              className="absolute left-6 top-1/2 -translate-y-1/2 z-10 bg-black rounded-full shadow p-2 hover:scale-110 transition"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black rounded-full shadow p-2 hover:scale-110 transition"
             >
               <img src="/images/left-arrow.png" alt="Previous" className="w-6 aspect-square" />
             </button>
             <button
               ref={nextRef}
-              className="absolute right-6 top-1/2 -translate-y-1/2 z-10 bg-black rounded-full shadow p-2 hover:scale-110 transition"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black rounded-full shadow p-2 hover:scale-110 transition"
             >
               <img src="/images/right-arrow.png" alt="Next" className="w-6 aspect-square" />
             </button>

@@ -1,10 +1,20 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+
+  --color-base-100: #FAF9F6;
+}
 
 :root {
   --font-primary: var(--font-montserrat);
   --main-color: #F42A41;
   --foreground: rgb(255, 0, 106);
+
+  
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -13,9 +23,13 @@
   --font-primary: var(--font-shiliguri);
 }
 
-[data-theme="dark"] { 
-  --foreground : 
-}
+/* [data-theme="light"] { 
+  --background : #12D32A;
+} */
+
+/* [data-theme="dark"] { 
+  
+} */
 
 @theme {
   /* sm uses ending point  */
@@ -27,6 +41,7 @@
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
   --color-dealbondhu : #006A4E;
+
   
 }
 

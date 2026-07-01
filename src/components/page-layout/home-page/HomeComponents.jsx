@@ -7,7 +7,7 @@ import ProductCard from "@/components/global-layout-components/ProductCard";
 import { useEffect, useRef, useState } from "react";
 import AllProductLink from "@/components/sub-components/home-left-components/AllProductLink";
 
-const HomeLeftComponents = ({ componentName = "Enter Name", Heading = "Enter Heading" ,lang='enter lang'}) => {
+const HomeComponents = ({ componentName = "Enter Name", Heading = "Enter Heading" ,lang='enter lang'}) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [products, setProducts] = useState([]);
@@ -40,7 +40,7 @@ const HomeLeftComponents = ({ componentName = "Enter Name", Heading = "Enter Hea
   }, [componentName]);
 
   return (
-    <section className={`w-full ${componentName !== "just-for-you" ? "mt-2" : ""} relative`}>
+    <section className={`border w-full ${componentName !== "just-for-you" ? "mt-2" : ""} relative`}>
       {loading ? (
         <div className="flex flex-col justify-center items-center w-full h-[400px]">
           <AllProductLink Heading={Heading} categoryName={componentName} />
@@ -51,7 +51,6 @@ const HomeLeftComponents = ({ componentName = "Enter Name", Heading = "Enter Hea
           <AllProductLink Heading={Heading} categoryName={componentName} />
           <Swiper
             freeMode
-            spaceBetween={10}
             watchSlidesProgress
             navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
             onBeforeInit={(swiper) => {
@@ -92,4 +91,4 @@ const HomeLeftComponents = ({ componentName = "Enter Name", Heading = "Enter Hea
   );
 };
 
-export default HomeLeftComponents;
+export default HomeComponents;

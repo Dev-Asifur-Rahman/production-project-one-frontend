@@ -7,7 +7,7 @@ const AllProductLink = ({ categoryName = "", Heading = "" }) => {
   return (
     <div
       onClick={() => router.push(`/products/${categoryName}`)}
-      className="text-lg w-fit hover:underline cursor-pointer font-semibold pl-3 smd:text-xl smd:font-bold mmd:text-2xl"
+      className="text-lg w-fit hover:underline cursor-pointer font-semibold smd:text-xl smd:font-bold mmd:text-2xl text-dealbondhu"
     >
       {Heading}
     </div>

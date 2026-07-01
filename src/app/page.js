@@ -1,5 +1,5 @@
 
-import HomeLeftComponents from "@/components/page-layout/home-page/HomeLeftComponents";
+import HomeComponents from "@/components/page-layout/home-page/HomeComponents";
 import HomeRightComponents from "@/components/page-layout/home-page/HomeRightComponents";
 import TopCategories from "@/components/page-layout/home-page/TopCategories";
 
@@ -17,47 +17,48 @@ export default async function Home() {
   return (
     <>
       <OfferAndDiscountSlider></OfferAndDiscountSlider>
-      <div className="w-full lg:mt-15 md:mt-12 smd:mt-10 mt-8 flex lg:flex-row md:flex-row smd:flex-col-reverse flex-col-reverse gap-4">
+      <div className="w-full lg:mt-15 md:mt-12 smd:mt-10 mt-8 ">
         {/* two section will be flex in large screen md and small devices flex row reverse  */}
-        <section className="lg:w-[70%] md:w-[65%]">
-          <HomeLeftComponents
+          <HomeComponents
             componentName="just-for-you"
             Heading={translation[lang].homeLeftComponent.heading.just_for_you}
-          ></HomeLeftComponents>
+          ></HomeComponents>
 
-          <HomeLeftComponents
+          <HomeComponents
             componentName="trending-stores"
             Heading={translation[lang].homeLeftComponent.heading.trending_store}
-          ></HomeLeftComponents>
-        </section>
-        <section className="lg:w-[30%] md:w-[35%] w-full">
+          ></HomeComponents>
+
+          <HomeComponents Heading={translation[lang].homeRightComponent.heading.popular_deals} componentName={"popular-deals"} ></HomeComponents>
+
+        {/* <section className="lg:w-[30%] md:w-[35%] w-full">
           <HomeRightComponents
             componentName={"popular-deals"}
             Heading={translation[lang].homeRightComponent.heading.popular_deals}
             HeadingIcon={<PiFireFill />}
           ></HomeRightComponents>
 
-          {/* <HomeRightComponents
+          <HomeRightComponents
             componentName={"trending-categories"}
             Heading="Trending Categories"
             HeadingIcon={<IoTrendingUp />}
-          ></HomeRightComponents> */}
-          {/* <HomeRightComponents
+          ></HomeRightComponents>
+          <HomeRightComponents
             componentName={"trending-deals"}
             Heading="Trending Deals"
             HeadingIcon={<IoTrendingUp />}
-          ></HomeRightComponents> */}
-        </section>
+          ></HomeRightComponents>
+        </section> */}
       </div>
       {/* <TopCategories></TopCategories> */}
-      <HomeLeftComponents
+      <HomeComponents
         Heading={translation[lang].homeLeftComponent.heading.fashion}
         componentName='fashion'
-      ></HomeLeftComponents>
-      <HomeLeftComponents
+      ></HomeComponents>
+      <HomeComponents
         Heading={translation[lang].homeLeftComponent.heading.electronics}
         componentName='electronics'
-      ></HomeLeftComponents>
+      ></HomeComponents>
       <HomeLeaderBoard></HomeLeaderBoard>
       <HomeRisingStars></HomeRisingStars>
     </>

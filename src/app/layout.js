@@ -1,4 +1,4 @@
-import { Montserrat, Hind_Siliguri } from "next/font/google";
+import { Montserrat, Hind_Siliguri, Inter } from "next/font/google";
 import "@/styles/globals.css";
 import NavBar from "@/components/page-layout/root-page/NavBar";
 import Footer from "@/components/page-layout/root-page/Footer";
@@ -29,6 +29,7 @@ const shiliguri = Hind_Siliguri({
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
+
 
 export default function RootLayout({ children }) {
   return (

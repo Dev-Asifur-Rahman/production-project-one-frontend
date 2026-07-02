@@ -41,7 +41,7 @@
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
   --color-dealbondhu : #006A4E;
-
+ --font-montserrat :  var(--font-montserrat);
   
 }
 

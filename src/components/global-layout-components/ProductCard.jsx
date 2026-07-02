@@ -56,7 +56,7 @@ const ProductCard = ({ product }) => {
       <div className="w-full rounded-md shadow-md bg-white dark:bg-inherit my-2 dark:border-2 p-2">
         <div className="badge badge-sm badge-soft badge-success  rounded-sm capitalize">{product?.category}</div>
         {/* product name  */}
-        <p className="mt-1 line-clamp-1 text-base font-semibold">
+        <p className="mt-1 line-clamp-1 text-xs font-semibold font-sans">
           {product?.title ? product.title : "Unknown"}
         </p>
         {/* price  */}

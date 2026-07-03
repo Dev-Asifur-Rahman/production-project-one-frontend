@@ -48,7 +48,7 @@ const ProductCard = ({ product }) => {
           className="w-full aspect-square object-contain mix-blend-multiply"
         />
 
-        <div className="absolute top-2 left-2 badge badge-xs rounded-sm badge-soft badge-primary font-medium">
+        <div className="absolute top-2 left-2 badge badge-xs rounded-sm bg-dealbondhu text-white badge-accent font-medium">
           For You
         </div>
       </div>
@@ -56,7 +56,7 @@ const ProductCard = ({ product }) => {
       <div className="w-full rounded-md shadow-md bg-white dark:bg-inherit my-2 dark:border-2 p-2">
         <div className="badge badge-sm badge-soft badge-success  rounded-sm capitalize">{product?.category}</div>
         {/* product name  */}
-        <p className="mt-1 line-clamp-1 text-xs font-semibold font-sans">
+        <p className="mt-1 line-clamp-1 text-sm font-semibold font-sans">
           {product?.title ? product.title : "Unknown"}
         </p>
         {/* price  */}

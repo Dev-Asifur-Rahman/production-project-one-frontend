@@ -30,7 +30,6 @@ const shiliguri = Hind_Siliguri({
   display: "swap",
 });
 
-
 export default function RootLayout({ children }) {
   return (
     <html

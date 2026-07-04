@@ -12,7 +12,6 @@ import { FcLike } from "react-icons/fc";
 const ProductCard = ({ product }) => {
   const router = useRouter();
   const { lan } = useContext(LanguageContext);
-  console.log(product)
 
   const handleRoute = async (product) => {
     console.log("hitted");

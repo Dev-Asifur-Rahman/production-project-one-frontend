@@ -87,7 +87,7 @@ const ProductCard = ({ product }) => {
 
             <IoHeartCircle className="w-5 h-5 text-red-600" />
             <span className="text-sm font-shiliguri">
-              {product?.likes || "Be First"}
+              {product?.likes ? `${product?.likes} Likes` : "Be First"}
             </span>
           </div>
           {/* comment  */}

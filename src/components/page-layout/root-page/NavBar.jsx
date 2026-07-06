@@ -109,9 +109,9 @@ const NavBar = () => {
 
             {/* options */}
 
-            <div className="hidden md:inline-flex justify-end items-center gap-2 ">
+            <div className="hidden md:inline-flex justify-end items-center gap-4 ">
               <ToggleLanguageIcon></ToggleLanguageIcon>
-              <div id="navbar-icon-div" className="flex items-center gap-2">
+              <div id="navbar-icon-div" className="flex items-center gap-4">
                 <SavedItems></SavedItems>
                 <PostDeal></PostDeal>
                 <Sign></Sign>

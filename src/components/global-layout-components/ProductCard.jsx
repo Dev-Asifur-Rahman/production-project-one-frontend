@@ -48,7 +48,6 @@ const ProductCard = ({ product }) => {
 
   return (
     <div
-      onClick={() => handleRoute(product)}
       className="relative overflow-hidden w-full max-w-[200px] rounded-lg  my-2 cursor-pointer transition-transform duration-300 hover:scale-105"
     >
       {/* ribbon component  */}
@@ -141,7 +140,7 @@ const ProductCard = ({ product }) => {
       </div>
 
       {/* details button  */}
-      <button className="btn btn-sm w-full  bg-dealbondhu text-white shadow-2xl">
+      <button  onClick={() => handleRoute(product)} className="btn btn-sm w-full  bg-dealbondhu text-white shadow-2xl">
         {lan === "en" ? "Details" : translation[lan].common.see_details}
       </button>
     </div>

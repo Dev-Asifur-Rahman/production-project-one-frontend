@@ -9,27 +9,24 @@ import "swiper/css/navigation";
 
 // Import required modules
 import { EffectCreative, Navigation, Autoplay } from "swiper/modules";
-import { useEffect, useState } from "react";
 
 const OfferAndDiscountSlider = () => {
   const banners = [
     {
-      banner_link: "https://i.ibb.co.com/FbTk9h7F/PR-Image-scaled.jpg",
+      banner_link: "https://i.ibb.co.com/PGznnZzj/banner-one.png",
     },
     {
-      banner_link:
-        "https://i.ibb.co.com/tt74TWn/D-ae-clp-main-banner-20-08-2025-SM.webp",
+      banner_link: "https://i.ibb.co.com/qMCqWyxz/banner-two.png",
     },
     {
-      banner_link:
-        "https://i.ibb.co.com/xSYpm6w3/ucbbank2026-src-https-eggyolk-chaldal.png",
+      banner_link: "https://i.ibb.co.com/4RHbYGX4/banner-three.png",
     },
     {
-      banner_link: "https://i.ibb.co.com/BVGp0LCx/iphone-17-1000x700-1-2.png",
+      banner_link: "https://i.ibb.co.com/fY9GmFZ4/banner-four.png",
     },
   ];
   return (
-    <section className="w-full aspect-[1/0.35]">
+    <section className="w-full">
       <Swiper
         grabCursor={true}
         effect={"creative"}
@@ -42,7 +39,6 @@ const OfferAndDiscountSlider = () => {
             translate: ["100%", 0, 0],
           },
         }}
-        navigation={true}
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,

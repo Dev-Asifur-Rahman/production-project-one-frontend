@@ -12,6 +12,7 @@ import ToggleLanguage from "@/components/sub-components/navbar/ToggleLanguage";
 import { useContext, useRef, useState } from "react";
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import translation from "@/utils/translation";
+import ToggleLanguageIcon from "@/components/sub-components/navbar/ToggleLanguageIcon";
 
 const NavBar = () => {
   const pathname = usePathname();
@@ -71,8 +72,8 @@ const NavBar = () => {
         <section className="w-full px-3 smd:py-6 py-4 lg:py-7 flex justify-between bg-[#006A4E] items-center">
           {/* logo section */}
           <BrandName></BrandName>
-          <ToggleLanguage></ToggleLanguage>
-
+          {/* <ToggleLanguage></ToggleLanguage> */}
+          <ToggleLanguageIcon></ToggleLanguageIcon>
           {/* search bar  */}
           <div className=" inline-flex relative w-3/6 h-8 mmd:h-9 md:h-10">
             <input

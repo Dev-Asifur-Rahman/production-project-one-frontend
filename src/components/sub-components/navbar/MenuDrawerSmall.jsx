@@ -77,7 +77,7 @@ const MenuDrawerSmall = () => {
   };
 
   return (
-    <div className="drawer drawer-end">
+    <div className="drawer drawer-end border">
       <input
         type="checkbox"
         className="drawer-toggle"

@@ -8,6 +8,7 @@ import translation from "@/utils/translation";
 import { IoHeartCircle } from "react-icons/io5";
 import { SiGooglemessages } from "react-icons/si";
 
+// reaction formatter 
 const formatCount = (count = 0) => {
   if (count < 1000) return count.toString();
 
@@ -31,7 +32,6 @@ const ProductCard = ({ product }) => {
   const { lan } = useContext(LanguageContext);
 
   const handleRoute = async (product) => {
-    console.log("hitted");
     // make product object like {product : category}
     fetch("/api/cookies/visitor", {
       method: "POST",
@@ -42,6 +42,7 @@ const ProductCard = ({ product }) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         router.push(`/product/${product?._id}`);
       });
   };

@@ -9,7 +9,7 @@ const BrandName = () => {
         onClick={() => router.push("/")}
         src="/logo/deal-bondhu-logo.svg"
         alt=""
-        className=" w-full h-full border"
+        className=" w-full h-full"
       />
     </div>
   );

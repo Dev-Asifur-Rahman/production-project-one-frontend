@@ -68,22 +68,73 @@ const NavBar = () => {
   } else {
     return (
       <>
-        <section className="w-full px-3 py-4 flex justify-between bg-[#006A4E] items-center">
-          {/* logo section */}
-          {/* <BrandName></BrandName> */}
+        <section className="w-full px-3 md:py-4 py-2  bg-[#006A4E]">
+          <div className="flex justify-between items-center">
+            {/* logo section */}
+            <BrandName></BrandName>
 
-          {/* search bar  */}
-          {/* <div className=" inline-flex relative w-3/6 h-8 mmd:h-9 md:h-10">
+            {/* search bar  */}
+            <div className="md:inline-flex relative hidden md:h-10">
+              <input
+                onKeyDown={searchProduct}
+                onChange={handleSuggestion}
+                type="text"
+                placeholder={translation[lan].navbar.searchBar}
+                className="input w-full h-full rounded-lg border-white/40 text-white bg-white/10 focus:outline-none focus:ring-0 lg:pl-6 mmd:pl-3 md:pl-4 pl-2"
+              />
+              <BsSearch
+                id="navbar-search-icon"
+                className="absolute cursor-pointer text-white smd:w-6 w-4  smd:h-6 h-4 top-1/2 right-[4%] mmd:right-[2%] -translate-y-1/2"
+              />
+              {suggestions.length !== 0 && (
+                <ul className="absolute z-[200] mt-1 top-full menu bg-base-200 rounded-box w-full">
+                  {suggestions.map((suggestion, index) => {
+                    return (
+                      <li key={index} className="w-full">
+                        <a
+                          onClick={() =>
+                            handleNavigateSuggestedProduct(suggestion?._id)
+                          }
+                          className="block truncate w-full"
+                        >
+                          {suggestion.title}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </div>
+
+            {/* options */}
+            {/* <ToggleLanguageIcon></ToggleLanguageIcon> */}
+            {/* <div
+            id="navbar-icon-div"
+            className="hidden mmd:inline-flex lg:flex mmd:justify-evenly mmd:gap-2 md:gap-0 items-center mmd:w-1/5"
+          >
+            <SavedItems></SavedItems>
+            <PostDeal></PostDeal>
+            <Sign></Sign>
+          </div> */}
+
+            {/* menu for small screen  */}
+            <div className="md:hidden w-1/5 flex justify-center items-center">
+              <div className="">
+                <MenuDrawerSmall></MenuDrawerSmall>
+              </div>
+            </div>
+          </div>
+          <div className=" relative h-10 mt-1 md:hidden">
             <input
               onKeyDown={searchProduct}
               onChange={handleSuggestion}
               type="text"
               placeholder={translation[lan].navbar.searchBar}
-              className="input w-full h-full rounded-lg border-white/40 text-white bg-white/10 focus:outline-none focus:ring-0 lg:pl-6 mmd:pl-3 md:pl-4 pl-2"
+              className="input w-full h-full rounded-md focus:outline-none focus:ring-0 lg:pl-6 mmd:pl-3 md:pl-4 pl-2 border-none"
             />
             <BsSearch
               id="navbar-search-icon"
-              className="absolute cursor-pointer text-white smd:w-6 w-4  smd:h-6 h-4 top-1/2 right-[4%] mmd:right-[2%] -translate-y-1/2"
+              className="absolute cursor-pointer w-6  h-6 top-1/2 right-[4%] mmd:right-[2%] -translate-y-1/2"
             />
             {suggestions.length !== 0 && (
               <ul className="absolute z-[200] mt-1 top-full menu bg-base-200 rounded-box w-full">
@@ -103,24 +154,6 @@ const NavBar = () => {
                 })}
               </ul>
             )}
-          </div> */}
-
-          {/* options */}
-          {/* <ToggleLanguageIcon></ToggleLanguageIcon> */}
-          {/* <div
-            id="navbar-icon-div"
-            className="hidden mmd:inline-flex lg:flex mmd:justify-evenly mmd:gap-2 md:gap-0 items-center mmd:w-1/5"
-          >
-            <SavedItems></SavedItems>
-            <PostDeal></PostDeal>
-            <Sign></Sign>
-          </div> */}
-
-          {/* menu for small screen  */}
-          <div className="md:hidden w-1 /4">
-            <div className="flex justify-center items-center border">
-              <MenuDrawerSmall></MenuDrawerSmall>
-            </div>
           </div>
         </section>
       </>

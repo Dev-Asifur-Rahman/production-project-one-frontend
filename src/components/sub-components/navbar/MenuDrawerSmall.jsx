@@ -77,7 +77,7 @@ const MenuDrawerSmall = () => {
   };
 
   return (
-    <div className="drawer drawer-end border">
+    <div className="drawer drawer-end">
       <input
         type="checkbox"
         className="drawer-toggle"
@@ -85,8 +85,8 @@ const MenuDrawerSmall = () => {
         onChange={toggleDrawer}
       />
 
-      <div className="drawer-content aspect-square">
-        <label className="btn btn-circle swap swap-rotate bg-transparent border-none">
+      <div className="drawer-content ">
+        <label className="btn btn-circle swap swap-rotate bg-transparent border-none shadow-none">
           <input type="checkbox" checked={open} onChange={toggleDrawer} />
 
           <svg

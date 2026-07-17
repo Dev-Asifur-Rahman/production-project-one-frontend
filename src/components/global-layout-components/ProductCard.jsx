@@ -53,21 +53,35 @@ const ProductCard = ({ product }) => {
       </div>
 
       <div className="w-full rounded-md shadow-md bg-white dark:bg-inherit my-2 dark:border-2 p-2">
-        <div className="badge badge-sm badge-soft badge-success  rounded-sm capitalize">{product?.category}</div>
+        <div className="badge badge-sm badge-soft badge-success  rounded-sm capitalize">
+          {product?.category}
+        </div>
         {/* product name  */}
         <p className="mt-1 line-clamp-1 text-sm font-semibold font-sans">
           {product?.title ? product.title : "Unknown"}
         </p>
         {/* price  */}
-        <div className="flex items-center gap-3 mt-2 font-medium">
+        <div className=" border">
           {/* <GiPriceTag /> */}
           {/* <img className="w-4 aspect-square bg-white" src="/logo/taka-logo.png" alt="" /> */}
-          <p className="text-[12px]">
-            ৳{" "}
-            {product?.offer_price
-              ? product?.offer_price + ` ${translation[lan].common.taka}`
-              : ""}
-          </p>
+          <div className="border flex items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 260 260"
+              className="w-[18px] aspect-square"
+            >
+              <path d="M66.2 22c-8.4 2.2-22.8 9.4-24.3 12.1-.8 1.5 0 3.6 3.7 9.9 5 8.7 5 8.7 11.7 5.3C62 46.9 69 46.6 73 48.7c5.1 2.6 7.2 7.7 7.8 18.9l.5 9.4H70.9c-5.7 0-11 .4-11.7.8-.9.7-1.2 4.4-1 15.3l.3 14.4 11.3.3 11.2.3v51.2c0 56.1.3 59.2 5.8 67.2 4.7 6.8 15.8 11.5 31.5 13.4 14.4 1.7 34.3-2.4 49.2-10.2 10.7-5.6 24.5-19.2 29.7-29.2 7.5-14.6 10.4-30.4 7.9-42.8-2.8-13.4-12.5-26.4-23.5-31.6-19.3-9-42.5-2.6-51.4 14.3-2.4 4.5-2.7 6.2-2.7 15.1 0 8.4.4 10.7 2.2 14.1 9.9 18.5 38.1 19.1 47.6 1 1.4-2.8 2.1-6 2.1-10.3.1-7.1 1.4-7 4.2.2 2.4 6.5 1.6 16.5-2 23.8-3.3 6.9-12.2 16.8-18.1 20.3-10.6 6.2-28.6 9.8-37.1 7.5-2.3-.6-5.3-2.3-6.8-3.7l-2.6-2.7V108h113.1l-.3-15.3-.3-15.2-56.2-.3L117 77v-9.3c-.1-24.8-7.5-40.4-21.7-45.7-7-2.6-19.1-2.6-29.1 0" />
+            </svg>{" "}
+            <div className={`${lan === 'en' ? 'font-sans' : 'font-shiliguri'} font-bold leading-tight text-lg border`}>
+              {product?.offer_price
+                ? product?.offer_price + ` `
+                : ""}
+            </div>
+            {/* ${translation[lan].common.taka} */}
+          </div>
+          {/* taka svg */}
+
           {/* discount  */}
           <span className="line-through text-[12px] font-semibold text-red-600">
             {product?.regular_price

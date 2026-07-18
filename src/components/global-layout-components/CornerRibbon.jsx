@@ -6,7 +6,7 @@ const CornerRibbon = ({discount}) => {
   const {lan} = useContext(LanguageContext)
 
   const ribbonText = {
-    backgroundColor: "#a00",
+    // backgroundColor: "#a00",
     width: "80%",
     boxShadow: "0 0 10px #888",
     border: "1px solid #faa",
@@ -23,7 +23,7 @@ const CornerRibbon = ({discount}) => {
     textShadow: "0 0 5px #444",
   };
 
-  return <p style={ribbonText} className="text-sm">{discount}% {translation[lan].common.off}!</p>;
+  return <p style={ribbonText} className="text-sm bg-dealbondhu">{discount}% {translation[lan].common.off}!</p>;
 };
 
 export default CornerRibbon;

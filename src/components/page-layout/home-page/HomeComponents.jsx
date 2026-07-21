@@ -41,7 +41,6 @@ const HomeComponents = ({ componentName = "Enter Name", Heading = "Enter Heading
     };
     fetchProducts();
   }, [componentName]);
- console.log(products)
   return (
     <section className={`border w-full ${componentName !== "just-for-you" ? "mt-2" : ""} relative`}>
       {loading ? (

@@ -16,7 +16,6 @@ export async function GET(req) {
     },
   );
   
-  // console.log(result)
   const result = await response.json();
 
   return NextResponse.json(result);

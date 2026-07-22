@@ -8,6 +8,8 @@ import { useContext } from "react";
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import translation from "@/utils/translation";
 import { FcLike } from "react-icons/fc";
+import { IoHeartCircle } from "react-icons/io5";
+import { SiGooglemessages } from "react-icons/si";
 
 const ProductCard = ({ product }) => {
   const router = useRouter();
@@ -34,7 +36,11 @@ const ProductCard = ({ product }) => {
       className="relative overflow-hidden w-full max-w-[200px] rounded-lg  my-2 cursor-pointer transition-transform duration-300 hover:scale-105"
     >
       {/* ribbon component  */}
-      <CornerRibbon discount={product?.offer_percent}></CornerRibbon>
+      <CornerRibbon
+        company={product?.company || "Unknown"}
+        discount={product?.offer_percent}
+      ></CornerRibbon>
+
       {/* product image  */}
       <div className="w-full relative bg-[#F0F0F0] mt-1 rounded-md  overflow-hidden flex justify-center items-center">
         <img
@@ -47,29 +53,55 @@ const ProductCard = ({ product }) => {
           className="w-full aspect-square object-contain mix-blend-multiply"
         />
 
-        <div className="absolute top-2 left-2 badge badge-xs rounded-sm bg-dealbondhu text-white badge-accent font-medium">
-          For You
+        <div className="absolute top-2 left-2 badge badge-xs rounded-sm bg-dealbondhu text-white badge-accent font-medium uppercase">
+          {product?.company || "Unknown"}
         </div>
       </div>
 
+      {/* product details  */}
       <div
         style={{
-          boxShadow:
-            "0 0 3px rgba(0, 0, 0, 0.2)",
+          boxShadow: "0 0 3px rgba(0, 0, 0, 0.2)",
         }}
         className="w-full rounded-md bg-white dark:bg-inherit my-2 dark:border-2 p-2"
       >
+        {/* product category  */}
         <div className="badge badge-sm badge-soft badge-success  rounded-sm capitalize">
           {product?.category}
         </div>
+
         {/* product name  */}
-        <p className="mt-1 line-clamp-1 text-sm font-semibold font-sans">
+        <p
+          title={product?.title}
+          className="mt-1 line-clamp-1 text-sm font-semibold font-sans"
+        >
           {product?.title ? product.title : "Unknown"}
         </p>
+
+        {/* reactions  */}
+        <div className="flex justify-start items-center mt-1">
+          {/* like  */}
+          <div className="flex items-center gap-1 w-1/2">
+            {/* import { IoHeartCircleOutline } from "react-icons/io5";
+<IoHeartCircleOutline /> */}
+
+            <IoHeartCircle className="w-5 h-5 text-red-600" />
+            <span className="text-sm font-shiliguri">
+              {product?.likes || "Be First"}
+            </span>
+          </div>
+          {/* comment  */}
+          <div className="flex items-center gap-1">
+            <SiGooglemessages className="w-5 h-5 p-[1.5px] text-dealbondhu" />
+            <span className="text-sm font-shiliguri">
+              {product?.comments || "Be First"}
+            </span>
+          </div>
+        </div>
+
         {/* price  */}
-        <div className="">
-          {/* <GiPriceTag /> */}
-          <div className=" flex items-end gap-2 font-sans font-bold ">
+        <div className="mt-3">
+          <div className=" flex items-center gap-2 font-sans font-bold">
             <div className="flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -84,43 +116,19 @@ const ProductCard = ({ product }) => {
               </div>
               {/* ${translation[lan].common.taka} */}
             </div>
-            <div className="text-sm h-fit w-fit line-through opacity-50 font-shiliguri">
+            <div className="text-sm h-fit w-fit line-through opacity-50 font-sans">
               {product?.regular_price}
             </div>
           </div>
 
           {/* discount  */}
           <span className=" text-[12px] font-semibold text-red-600"></span>
-          {/* brand name  */}
-          <div className="flex items-center gap-3">
-            <MdLabelImportant />{" "}
-            <span className="font-medium text-xs">
-              {product?.company ? product?.company : ""}
-            </span>
-          </div>
-
-          {/* like and comments  */}
-          <div className="flex items-center gap-3 mt-2">
-            {/* like  */}
-            <div className="flex items-center gap-1">
-              {/* import { IoHeartCircleOutline } from "react-icons/io5";
-<IoHeartCircleOutline /> */}
-
-{/* import { IoHeartCircle } from "react-icons/io5";
-<IoHeartCircle /> */}
-              <FcLike />
-              <span className="text-sm">{product?.likes || 0}</span>
-            </div>
-            {/* comment  */}
-            <div className="flex items-center gap-1">
-              <MdOutlineInsertComment />
-              <span className="text-sm">{product?.comments || 0}</span>
-            </div>
-          </div>
         </div>
       </div>
+
+      {/* details button  */}
       <button className="btn btn-sm w-full  bg-dealbondhu text-white shadow-2xl">
-        DETAILS
+        {lan === "en" ? "Details" : translation[lan].common.see_details}
       </button>
     </div>
   );

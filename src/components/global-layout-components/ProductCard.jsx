@@ -1,15 +1,30 @@
 "use client";
 
-import { MdLabelImportant, MdOutlineInsertComment } from "react-icons/md";
-
 import { useRouter } from "next/navigation";
 import CornerRibbon from "./CornerRibbon";
 import { useContext } from "react";
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import translation from "@/utils/translation";
-import { FcLike } from "react-icons/fc";
 import { IoHeartCircle } from "react-icons/io5";
 import { SiGooglemessages } from "react-icons/si";
+
+const formatCount = (count = 0) => {
+  if (count < 1000) return count.toString();
+
+  const units = [
+    { value: 1000000000, suffix: "B" },
+    { value: 1000000, suffix: "M" },
+    { value: 1000, suffix: "K" },
+  ];
+
+  for (const unit of units) {
+    if (count >= unit.value) {
+      return (count / unit.value).toFixed(1).replace(/\.0$/, "") + unit.suffix;
+    }
+  }
+
+  return count.toString();
+};
 
 const ProductCard = ({ product }) => {
   const router = useRouter();
@@ -30,6 +45,7 @@ const ProductCard = ({ product }) => {
         router.push(`/product/${product?._id}`);
       });
   };
+
   return (
     <div
       onClick={() => handleRoute(product)}
@@ -87,7 +103,9 @@ const ProductCard = ({ product }) => {
 
             <IoHeartCircle className="w-5 h-5 text-red-600" />
             <span className="text-sm font-shiliguri">
-              {product?.likes ? `${product?.likes} Likes` : "Be First"}
+              {product?.likes
+                ? `${formatCount(product?.likes)} Likes`
+                : "Be First"}
             </span>
           </div>
           {/* comment  */}

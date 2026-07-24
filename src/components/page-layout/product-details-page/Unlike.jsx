@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
 import { FcDislike } from "react-icons/fc";
+import { IoHeartCircleOutline } from "react-icons/io5";
 import { RiDislikeLine } from "react-icons/ri";
 
 const Unlike = ({ unliked, id, count }) => {
@@ -29,7 +30,7 @@ const Unlike = ({ unliked, id, count }) => {
   };
   return (
     <p onClick={handleUnlike} className="flex gap-1 items-center cursor-pointer">
-      {unliked ? <FcDislike /> : <RiDislikeLine />} {count}
+      {unliked ? <FcDislike /> : <IoHeartCircleOutline />} {count}
     </p>
   );
 };

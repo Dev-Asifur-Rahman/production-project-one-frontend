@@ -106,9 +106,6 @@ body {
   cursor: pointer;
 }
 
-#trending-component div:hover {
-  color: #F42A41;
-}
 
 #trending-component div:hover li a {
   color: black;
@@ -116,7 +113,7 @@ body {
 }
 
 #trending-component div:hover li a:hover {
-  color: #F42A41;
+  color: var(--color-dealbondhu);
   font-weight: 500;
 }
 

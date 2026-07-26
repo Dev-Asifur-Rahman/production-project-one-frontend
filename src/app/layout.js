@@ -10,7 +10,7 @@ import ToastProvider from "@/providers/ToastProvider";
 import HeadingMarquee from "@/components/page-layout/root-page/HeadingMarquee";
 import NextAuthSessionProvider from "@/providers/NextAuthSessionProvider";
 import Category from "@/components/page-layout/root-page/Category";
-import ToggleTheme from "@/components/sub-components/navbar/ToggleTheme";
+// import ToggleTheme from "@/components/sub-components/navbar/ToggleTheme";
 import GlobalLanguageProvider from "@/context/GlobalLanguageProvider";
 export const metadata = {
   title: "DealBondhu",
@@ -50,7 +50,7 @@ export default function RootLayout({ children }) {
                 <DealModal></DealModal>
               </ReduxStoreProvider>
               <ToastProvider></ToastProvider>
-              <ToggleTheme></ToggleTheme>
+              {/* <ToggleTheme></ToggleTheme> */}
             </ClientWrapper>
           </GlobalLanguageProvider>
         </NextAuthSessionProvider>

@@ -15,7 +15,8 @@ export async function GET(req) {
       body: JSON.stringify({ user_id }),
     },
   );
-
+  
+  // console.log(result)
   const result = await response.json();
 
   return NextResponse.json(result);
@@ -44,7 +45,6 @@ export async function POST(req) {
       body: JSON.stringify(clicked_product),
     },
   );
-
   const result = await response.json();
 
   return NextResponse.json(result);

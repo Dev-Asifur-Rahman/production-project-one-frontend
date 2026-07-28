@@ -26,9 +26,12 @@ const HomeComponents = ({ componentName = "Enter Name", Heading = "Enter Heading
           res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get_products/fashion?subcategory=undefined`);
         } else if (componentName === "electronics") {
           res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get_products/electronics?subcategory=undefined`);
+        } else if(componentName === 'popular_deals') {
+          res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/popular_deals`)
         }
         const data = await res.json();
         setProducts(data);
+        
       } catch (err) {
         console.error(err);
         setProducts([]);
@@ -38,7 +41,7 @@ const HomeComponents = ({ componentName = "Enter Name", Heading = "Enter Heading
     };
     fetchProducts();
   }, [componentName]);
-
+ console.log(products)
   return (
     <section className={`border w-full ${componentName !== "just-for-you" ? "mt-2" : ""} relative`}>
       {loading ? (

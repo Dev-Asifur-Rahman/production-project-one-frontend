@@ -29,7 +29,7 @@ export default async function Home() {
             Heading={translation[lang].homeLeftComponent.heading.trending_store}
           ></HomeComponents>
 
-          <HomeComponents Heading={translation[lang].homeRightComponent.heading.popular_deals} componentName={"popular-deals"} ></HomeComponents>
+          <HomeComponents Heading={translation[lang].homeRightComponent.heading.popular_deals} componentName={"popular_deals"} ></HomeComponents>
 
         {/* <section className="lg:w-[30%] md:w-[35%] w-full">
           <HomeRightComponents

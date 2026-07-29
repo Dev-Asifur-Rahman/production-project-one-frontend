@@ -32,8 +32,8 @@ const Liked = ({ liked, id, count, category, subcategory, user_id }) => {
     }
   };
   return (
-    <p onClick={handleLike} className="flex gap-1 items-center cursor-pointer">
-      {liked ? <IoHeartCircle /> : <IoHeartCircleOutline />} {count}
+    <p onClick={handleLike} className="flex items-center cursor-pointer text-red-600 font-sans">
+      {liked ? <IoHeartCircle  className="w-5 h-5"/> : <IoHeartCircleOutline  className="w-10 h-8"/>} {count}
     </p>
   );
 };

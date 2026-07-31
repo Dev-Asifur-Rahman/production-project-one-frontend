@@ -42,7 +42,7 @@ const HomeComponents = ({ componentName = "Enter Name", Heading = "Enter Heading
     fetchProducts();
   }, [componentName]);
   return (
-    <section className={`border w-full ${componentName !== "just-for-you" ? "mt-2" : ""} relative`}>
+    <section className={`w-full ${componentName !== "just-for-you" ? "mt-2" : ""} relative`}>
       {loading ? (
         <div className="flex flex-col justify-center items-center w-full h-[400px]">
           <AllProductLink Heading={Heading} categoryName={componentName} />

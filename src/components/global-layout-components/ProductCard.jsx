@@ -8,7 +8,7 @@ import translation from "@/utils/translation";
 import { IoHeartCircle } from "react-icons/io5";
 import { SiGooglemessages } from "react-icons/si";
 
-// reaction formatter 
+// reaction formatter
 const formatCount = (count = 0) => {
   if (count < 1000) return count.toString();
 
@@ -42,15 +42,13 @@ const ProductCard = ({ product }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         router.push(`/product/${product?._id}`);
       });
   };
 
   return (
-    <div
-      className="relative overflow-hidden w-full max-w-[200px] rounded-lg  my-2 cursor-pointer transition-transform duration-300 hover:scale-105"
-    >
+    <div className="relative overflow-hidden w-full max-w-[200px] rounded-lg  my-2 cursor-pointer transition-transform duration-300 hover:scale-105">
       {/* ribbon component  */}
       <CornerRibbon
         company={product?.company || "Unknown"}
@@ -94,9 +92,6 @@ const ProductCard = ({ product }) => {
         <div className="flex justify-start items-center mt-1">
           {/* like  */}
           <div className="flex items-center gap-1 w-1/2">
-            {/* import { IoHeartCircleOutline } from "react-icons/io5";
-<IoHeartCircleOutline /> */}
-
             <IoHeartCircle className="w-5 h-5 text-red-600" />
             <span className="text-sm font-shiliguri">
               {product?.likes
@@ -141,7 +136,10 @@ const ProductCard = ({ product }) => {
       </div>
 
       {/* details button  */}
-      <button  onClick={() => handleRoute(product)} className="btn btn-sm w-full  bg-dealbondhu text-white shadow-2xl">
+      <button
+        onClick={() => handleRoute(product)}
+        className="btn btn-sm w-full  bg-dealbondhu text-white shadow-2xl"
+      >
         {lan === "en" ? "Details" : translation[lan].common.see_details}
       </button>
     </div>

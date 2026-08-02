@@ -2,8 +2,9 @@
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
+import { IoHeartCircle, IoHeartCircleOutline } from "react-icons/io5";
 
-const Liked = ({ liked, id, count,category,subcategory,user_id }) => {
+const Liked = ({ liked, id, count, category, subcategory, user_id }) => {
   const router = useRouter();
   const handleLike = () => {
     if (liked) {
@@ -13,8 +14,8 @@ const Liked = ({ liked, id, count,category,subcategory,user_id }) => {
         id,
         category,
         subcategory,
-        dealer_id : user_id
-      }
+        dealer_id: user_id,
+      };
       fetch("/api/cookies/like_product", {
         method: "POST",
         headers: {
@@ -32,7 +33,7 @@ const Liked = ({ liked, id, count,category,subcategory,user_id }) => {
   };
   return (
     <p onClick={handleLike} className="flex gap-1 items-center cursor-pointer">
-      {liked ? <FcLike /> : <FcLikePlaceholder />} {count}
+      {liked ? <IoHeartCircle /> : <IoHeartCircleOutline />} {count}
     </p>
   );
 };

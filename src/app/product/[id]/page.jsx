@@ -43,7 +43,7 @@ const page = async ({ params }) => {
           />
         </div>
         <div className="w-full smd:w-3/5 p-2 md:p-4  ">
-          <p className="text-sm md:text-lg lg:text-2xl font-medium">
+          <p className="text-sm md:text-lg lg:text-2xl font-medium ">
             {product?.title}
           </p>
           <div className="w-fit px-3 mt-2 text-white font-medium rounded-lg bg-[linear-gradient(21deg,rgba(255,54,67,1)_20%,rgba(209,65,82,1)_56%,rgba(219,127,136,1)_84%,rgba(232,209,209,1)_100%)]">

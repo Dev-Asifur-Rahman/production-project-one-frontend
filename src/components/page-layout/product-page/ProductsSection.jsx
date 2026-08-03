@@ -45,7 +45,7 @@ const ProductsSection = ({ get_products }) => {
 
   return (
     <section>
-      <div className="w-full flex justify-between items-center my-4">
+      <div className="w-4/5 md:w-full mx-auto flex flex-col md:flex-row  md:justify-between items-center my-4 gap-3 md:gap-0 ">
         <select
           onChange={handleSortByName}
           defaultValue={translation[lan].productPage.sortByName.placeholder}

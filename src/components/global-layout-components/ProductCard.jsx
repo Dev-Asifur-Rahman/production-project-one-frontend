@@ -42,7 +42,6 @@ const ProductCard = ({ product }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         router.push(`/product/${product?._id}`);
       });
   };

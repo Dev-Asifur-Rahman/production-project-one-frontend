@@ -4,6 +4,24 @@ import toast from "react-hot-toast";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 import { IoHeartCircle, IoHeartCircleOutline } from "react-icons/io5";
 
+const formatCount = (count = 0) => {
+  if (count < 1000) return count.toString();
+
+  const units = [
+    { value: 1000000000, suffix: "B" },
+    { value: 1000000, suffix: "M" },
+    { value: 1000, suffix: "K" },
+  ];
+
+  for (const unit of units) {
+    if (count >= unit.value) {
+      return (count / unit.value).toFixed(1).replace(/\.0$/, "") + unit.suffix;
+    }
+  }
+
+  return count.toString();
+};
+
 const Liked = ({ liked, id, count, category, subcategory, user_id }) => {
   const router = useRouter();
   const handleLike = () => {
@@ -32,8 +50,8 @@ const Liked = ({ liked, id, count, category, subcategory, user_id }) => {
     }
   };
   return (
-    <p onClick={handleLike} className="flex items-center cursor-pointer text-red-600 font-sans">
-      {liked ? <IoHeartCircle  className="w-5 h-5"/> : <IoHeartCircleOutline  className="w-10 h-8"/>} {count}
+    <p onClick={handleLike} className="flex items-center cursor-pointer font-sans">
+      {liked ? <IoHeartCircle  className="w-10 h-8 text-red-600"/> : <IoHeartCircleOutline  className="w-10 h-8 text-red-600"/>} {count? formatCount(count) : 'Be First'}
     </p>
   );
 };

@@ -9,16 +9,35 @@ import SaveProduct from "@/components/page-layout/product-details-page/SaveProdu
 import { IoIosSend } from "react-icons/io";
 import translation from "@/utils/translation";
 import IntentScoreCalculator from "@/components/page-layout/product-details-page/IntentScoreCalculator";
+import { SiGooglemessages } from "react-icons/si";
+
+const formatCount = (count = 0) => {
+  if (count < 1000) return count.toString();
+
+  const units = [
+    { value: 1000000000, suffix: "B" },
+    { value: 1000000, suffix: "M" },
+    { value: 1000, suffix: "K" },
+  ];
+
+  for (const unit of units) {
+    if (count >= unit.value) {
+      return (count / unit.value).toFixed(1).replace(/\.0$/, "") + unit.suffix;
+    }
+  }
+
+  return count.toString();
+};
 
 const page = async ({ params }) => {
   const { id } = await params;
   const cookieStore = await cookies();
 
   const visitor = cookieStore.get("visitor");
-  const get_lang = cookieStore.get("lang")
+  const get_lang = cookieStore.get("lang");
 
   const user_id = JSON.parse(visitor.value)?.user_id;
-  const lang = JSON.parse(get_lang.value)?.lang
+  const lang = JSON.parse(get_lang.value)?.lang;
 
   const res = await fetch(
     `${process.env.NEXT_BACKEND_URL}
@@ -27,7 +46,7 @@ const page = async ({ params }) => {
       headers: {
         "x-visitor-id": user_id,
       },
-    }
+    },
   );
 
   const product = await res.json();
@@ -43,13 +62,19 @@ const page = async ({ params }) => {
           />
         </div>
         <div className="w-full smd:w-3/5 p-2 md:p-4  ">
-          <p className="text-sm md:text-lg lg:text-2xl font-medium ">
-            {product?.title}
+          <p className="text-sm md:text-lg lg:text-2xl font-medium">
+            <span
+              className={`${lang === "en" ? "font-sans" : "font-shiliguri"}`}
+            >
+              {product?.title}
+            </span>
           </p>
           <div className="w-fit px-3 mt-2 text-white font-medium rounded-lg bg-[linear-gradient(21deg,rgba(255,54,67,1)_20%,rgba(209,65,82,1)_56%,rgba(219,127,136,1)_84%,rgba(232,209,209,1)_100%)]">
             {product?.offer_percent}% {translation[lang].common.off}
           </div>
-          <p className="mb-2 md:my-4 font-semibold md:text-xl lg:text-3xl">
+          <p
+            className={`mb-2 md:my-4 font-semibold md:text-xl lg:text-3xl ${lang === "en" ? "font-sans" : "font-shiliguri"}`}
+          >
             {product?.offer_price} {translation[lang].common.taka}{" "}
             <span className="text-[#777777] line-through lg:text-xl md:text-sm">
               {product?.regular_price} {translation[lang].common.taka}
@@ -73,12 +98,15 @@ const page = async ({ params }) => {
               count={product?.unlike_count}
             ></Unlike>
             <p className="flex gap-1 items-center cursor-pointer">
-              <MdOutlineComment />
-              {product?.comment_count}
+              <SiGooglemessages className="w-7 h-7 text-dealbondhu" />
+              {product?.comment_count ? formatCount(product?.comment_count) : 'Be First'}
             </p>
             <p className="flex gap-1 items-center cursor-pointer">
               <GiClick />
-              {product?.click_count}
+
+              {product?.click_count
+                ? formatCount(product?.click_count)
+                : "Be First"}
             </p>
           </div>
 
@@ -98,7 +126,6 @@ const page = async ({ params }) => {
             ></SaveProduct>
             <div className="p-3 rounded-full border w-fit hover:bg-gray-400 hover:text-white">
               <IoIosSend />
-              
             </div>
           </div>
         </div>
@@ -111,7 +138,9 @@ const page = async ({ params }) => {
             type="radio"
             name="my_tabs_2"
             className="tab"
-            aria-label={translation[lang].productDetailsPage.common.product_details}
+            aria-label={
+              translation[lang].productDetailsPage.common.product_details
+            }
             defaultChecked
           />
           <div
@@ -124,7 +153,10 @@ const page = async ({ params }) => {
       <section className="mx-auto w-[96%]">
         <CommentProduct id={product?._id}></CommentProduct>
       </section>
-      <IntentScoreCalculator product={product} user_id={user_id}></IntentScoreCalculator>
+      <IntentScoreCalculator
+        product={product}
+        user_id={user_id}
+      ></IntentScoreCalculator>
     </section>
   );
 };

@@ -8,6 +8,7 @@ import getCategory from "@/actions/category/getCategory";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { openModal } from "@/redux/features/modalSlice";
+import { category_list } from "@/data/categories";
 
 const MenuDrawerSmall = () => {
   const [categories, setCategories] = useState([]);
@@ -134,11 +135,11 @@ const MenuDrawerSmall = () => {
                 {translation[lan].navbar.menuDrawerSmall.headings.categories}
               </summary>
               <ul>
-                {categories?.map((category, index) => {
+                {category_list?.map((category, index) => {
                   return (
                     <li key={index}>
-                      <a onClick={() => handleCategoryNavigate(category?.name)}>
-                        {lan === "bn" ? category?.bn : category?.name}
+                      <a onClick={() => handleCategoryNavigate(category?.category?.name)}>
+                        {lan === "bn" ? category?.category?.bn : category?.category.name}
                       </a>
                     </li>
                   );

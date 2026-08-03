@@ -16,7 +16,7 @@ const page = async ({ params, searchParams }) => {
   return (
     <div className="w-full lg:w-4/5 mx-auto">
       <div className="my-5">
-        <p className="font-bold text-3xl text-center">{deCodedCategory}</p>
+        <p className="font-bold text-3xl text-center border bg-dealbondhu py-2 text-white">{deCodedCategory}</p>
         <p className="font-medium text-xl text-center">
           {deCodedSubCategory === "undefined" ? "" : deCodedSubCategory}
         </p>

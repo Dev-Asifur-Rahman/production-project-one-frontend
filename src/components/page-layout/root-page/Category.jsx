@@ -45,7 +45,7 @@ const Category = () => {
                           e.stopPropagation();
                           router.push(
                             `/products/${encodeURIComponent(
-                              cat?.name
+                              cat?.category?.name
                             )}?subcategory=${encodeURIComponent(
                               subcategory?.name
                             )}`,

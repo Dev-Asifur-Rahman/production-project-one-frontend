@@ -137,7 +137,7 @@ const ProductCard = ({ product }) => {
       {/* details button  */}
       <button
         onClick={() => handleRoute(product)}
-        className="btn btn-sm w-full  bg-dealbondhu text-white shadow-2xl"
+        className={`btn btn-sm w-full text-white bg-dealbondhu uppercase shadow-2xl ${lan === 'en' ? 'font-sans' : 'font-shiliguri'}`}
       >
         {lan === "en" ? "Details" : translation[lan].common.see_details}
       </button>

@@ -54,7 +54,7 @@ const Category = () => {
                         }}
                         key={index}
                       >
-                        <a className="text-nowrap">
+                        <a className={`text-nowrap ${lan === 'en' ? 'font-sans' : 'font-shiliguri'}`}>
                           {lan === "bn"
                             ? subcategory?.bn
                             : subcategory?.en}

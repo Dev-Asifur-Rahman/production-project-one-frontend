@@ -21,7 +21,7 @@ const HomeLeaderBoard = () => {
 
   const setRankColor = (rank) => {
     if (rank === 1) {
-      return "text-yellow-400";
+      return "text-gold";
     }
     if (rank === 2) {
       return "text-gray-400";
@@ -33,34 +33,32 @@ const HomeLeaderBoard = () => {
     }
   };
   return (
-    <div className="my-10 lg:max-w-5/6 mx-auto">
-      <ul className="list bg-base-100 rounded-box shadow-md">
-        <li className="p-4 pb-2 text-2xl opacity-60 tracking-wide">
-          {translation[lan].homeLeftComponent.heading.leaderboard}
-        </li>
+    <ul className="list bg-base-100 rounded-box shadow-md">
+      <li className="p-4 pb-2 text-base mmd:text-2xl opacity-60 tracking-wide">
+        {translation[lan].homeLeftComponent.heading.leaderboard}
+      </li>
 
-        {leaderboard?.slice(0, 5).map((user, index) => {
-          return (
-            <li key={index} className="list-row">
-              <div
-                className={`text-4xl ${setRankColor(index + 1)} font-medium opacity-30 tabular-nums`}
-              >
-                {index + 1}
+      {leaderboard?.slice(0, 5).map((user, index) => {
+        return (
+          <li key={index} className="list-row">
+            <div
+              className={`text-4xl ${setRankColor(index + 1)} font-medium tabular-nums`}
+            >
+              {index + 1}
+            </div>
+            <div className="list-col-grow">
+              <div>{user?.name}</div>
+              <div title={user?.user_id} className="text-xs uppercase font-semibold opacity-60 line-clamp-1">
+                {user?.user_id || "not registered"}
               </div>
-              <div className="list-col-grow">
-                <div>{user?.name}</div>
-                <div className="text-xs uppercase font-semibold opacity-60">
-                  {user?.user_id || "not registered"}
-                </div>
-              </div>
-              <p className="text-xs uppercase font-semibold opacity-60">
-                {user?.points} Pts
-              </p>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+            </div>
+            <p className="text-xs uppercase font-semibold opacity-60">
+              {user?.points} Pts
+            </p>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 

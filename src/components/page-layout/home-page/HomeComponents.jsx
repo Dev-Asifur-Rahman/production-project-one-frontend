@@ -7,7 +7,11 @@ import ProductCard from "@/components/global-layout-components/ProductCard";
 import { useEffect, useRef, useState } from "react";
 import AllProductLink from "@/components/sub-components/home-left-components/AllProductLink";
 
-const HomeComponents = ({ componentName = "Enter Name", Heading = "Enter Heading" ,lang='enter lang'}) => {
+const HomeComponents = ({
+  componentName = "Enter Name",
+  Heading = "Enter Heading",
+  lang = "enter lang",
+}) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [products, setProducts] = useState([]);
@@ -21,17 +25,24 @@ const HomeComponents = ({ componentName = "Enter Name", Heading = "Enter Heading
         if (componentName === "just-for-you") {
           res = await fetch("/api/cookies/visitor");
         } else if (componentName === "trending-stores") {
-          res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/trending_stores`);
+          res = await fetch(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/trending_stores`,
+          );
         } else if (componentName === "fashion") {
-          res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get_products/fashion?subcategory=undefined`);
+          res = await fetch(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/get_products/fashion?subcategory=undefined`,
+          );
         } else if (componentName === "electronics") {
-          res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get_products/electronics?subcategory=undefined`);
-        } else if(componentName === 'popular_deals') {
-          res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/popular_deals`)
+          res = await fetch(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/get_products/electronics?subcategory=undefined`,
+          );
+        } else if (componentName === "popular_deals") {
+          res = await fetch(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/popular_deals`,
+          );
         }
         const data = await res.json();
         setProducts(data);
-        
       } catch (err) {
         console.error(err);
         setProducts([]);
@@ -42,7 +53,9 @@ const HomeComponents = ({ componentName = "Enter Name", Heading = "Enter Heading
     fetchProducts();
   }, [componentName]);
   return (
-    <section className={`w-full ${componentName !== "just-for-you" ? "mt-2" : ""} relative`}>
+    <section
+      className={`w-full ${componentName !== "just-for-you" ? "mt-2" : ""} relative`}
+    >
       {loading ? (
         <div className="flex flex-col justify-center items-center w-full h-[400px]">
           <AllProductLink Heading={Heading} categoryName={componentName} />
@@ -50,7 +63,11 @@ const HomeComponents = ({ componentName = "Enter Name", Heading = "Enter Heading
         </div>
       ) : (
         <>
-          <AllProductLink Heading={Heading} categoryName={componentName} />
+          <AllProductLink
+            length={products?.length}
+            Heading={Heading}
+            categoryName={componentName}
+          />
           <Swiper
             freeMode
             watchSlidesProgress
@@ -78,13 +95,21 @@ const HomeComponents = ({ componentName = "Enter Name", Heading = "Enter Heading
               ref={prevRef}
               className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black rounded-full shadow p-2 hover:scale-110 transition"
             >
-              <img src="/images/left-arrow.png" alt="Previous" className="w-6 aspect-square" />
+              <img
+                src="/images/left-arrow.png"
+                alt="Previous"
+                className="w-6 aspect-square"
+              />
             </button>
             <button
               ref={nextRef}
               className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black rounded-full shadow p-2 hover:scale-110 transition"
             >
-              <img src="/images/right-arrow.png" alt="Next" className="w-6 aspect-square" />
+              <img
+                src="/images/right-arrow.png"
+                alt="Next"
+                className="w-6 aspect-square"
+              />
             </button>
           </Swiper>
         </>

@@ -54,6 +54,9 @@ export default function RootLayout({ children }) {
             </ClientWrapper>
           </GlobalLanguageProvider>
         </NextAuthSessionProvider>
+        <p className="w-full text-center bg-dealbondhu text-sm text-white p-1">
+          Copyright - 2026. DealBondhu. All Rights Reserved.
+        </p>
       </body>
     </html>
   );

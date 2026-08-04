@@ -15,7 +15,7 @@ const SavedItems = () => {
   };
   return (
     session?.data?.user && (
-      <div onClick={handleRoute} className="tooltip before:bg-[#006A4E] before:border before:text-white" data-tip={lan === 'en' ? "Saved Items" : " সংরক্ষিত আইটেম"}>
+      <div onClick={handleRoute} className="tooltip before:bg-dealbondhu before:border before:text-white" data-tip={lan === 'en' ? "Saved Items" : " সংরক্ষিত আইটেম"}>
         <TiHeartFullOutline />
       </div>
     )

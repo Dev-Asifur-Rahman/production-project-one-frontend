@@ -57,7 +57,7 @@ export default function ToggleLanguageIcon() {
   return (
     <section
       onClick={handleToggle}
-      className="tooltip before:bg-[#006A4E] before:border before:text-white cursor-pointer relative hidden md:inline-flex" data-tip={lan === 'en' ? 'Language' : 'ভাষা'}
+      className="tooltip before:bg-dealbondhu before:border before:text-white cursor-pointer relative hidden md:inline-flex" data-tip={lan === 'en' ? 'Language' : 'ভাষা'}
     >
       <svg
         width="48"
@@ -102,7 +102,7 @@ export default function ToggleLanguageIcon() {
           left-1/2
           -translate-x-1/2
           -translate-y-1/2
-          text-[#006A4E]
+          text-dealbondhu
           text-sm
           font-semibold
           pointer-events-none

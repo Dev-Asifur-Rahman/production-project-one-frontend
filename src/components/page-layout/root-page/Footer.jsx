@@ -52,7 +52,6 @@ const Footer = () => {
         </section>
 
         {/*brand name and copyright container  */}
-      
       </section>
     );
   }

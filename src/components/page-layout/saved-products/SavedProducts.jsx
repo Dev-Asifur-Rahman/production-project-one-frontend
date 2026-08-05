@@ -79,7 +79,7 @@ const SavedProducts = ({ products }) => {
                     <div className="flex items-center gap-3    smd:text-sm">
                       <p
                         onClick={() => handleRoute(product?._id)}
-                        className="link link-hover text-blue-400"
+                        className={`link link-hover text-blue-400 ${lan === 'en'? 'font-sans' : 'font-shiliguri'}`}
                       >
                         {translation[lan].common.see_details}
                       </p>

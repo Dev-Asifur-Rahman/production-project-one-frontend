@@ -38,7 +38,7 @@ const SavedProducts = ({ products }) => {
     router.push(`/product/${id}`);
   };
   return (
-    <section>
+    <section className={`${lan === 'en' ? 'font-sans' : 'font-shiliguri'}`}>
       {products?.length === 0 ? (
         <p className="text-2xl font-semibold text-center">No Product Saved</p>
       ) : (
@@ -85,7 +85,7 @@ const SavedProducts = ({ products }) => {
                       </p>
                       <p
                         onClick={() => handleDeleteSavedProduct(product?._id)}
-                        className="link link-hover text-red-400"
+                        className={`link link-hover text-red-400`}
                       >
                         {translation[lan].common.delete}
                       </p>

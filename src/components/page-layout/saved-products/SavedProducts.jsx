@@ -49,7 +49,7 @@ const SavedProducts = ({ products }) => {
           >
             {translation[lan].savedItems.heading}
           </p>
-          <section className="w-full md:w-4/5 mx-auto px-3 my-5 flex flex-col gap-2">
+          <section className="w-full md:w-4/5 mx-auto px-3 my-5 flex flex-col gap-2 border border-dealbondhu">
             {products?.map((product, index) => {
               return (
                 <div className="p-1 flex" key={index}>

@@ -112,7 +112,7 @@ const translation = {
         top_categories: "Top Categories",
         fashion: "Fashion",
         electronics: "Electronics",
-        leaderboard: "All Time Leaderboard",
+        leaderboard: "Leaderboard",
         rising_stars: "Rising Stars in This Month",
       },
     },

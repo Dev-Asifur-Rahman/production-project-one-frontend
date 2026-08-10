@@ -63,8 +63,9 @@ export default async function Home() {
       ></HomeComponents>
 
       {/* leaderboard section  */}
-      <section className="my-10 w-5/6 mx-auto px-2 lg:px-0 py-6 flex flex-col lg:flex-row gap-5 lg:gap-0 lg:justify-around bg-[#F2F4F1]">
+      <section className="my-10 w-5/6 mx-auto px-2 lg:px-0 py-6 flex flex-col lg:flex-row gap-5 lg:gap-0 lg:justify-around">
         <HomeLeaderBoard></HomeLeaderBoard>
+        <div className="divider divider-horizontal"></div>
         <HomeRisingStars></HomeRisingStars>
       </section>
     </>

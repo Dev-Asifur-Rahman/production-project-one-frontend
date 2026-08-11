@@ -4,6 +4,8 @@ import DashboardSearchBar from "@/components/sub-components/dashboard/DashboardS
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import translation from "@/utils/translation";
 import React, { useContext, useEffect, useState } from "react";
+import { FaRegCircleDown } from "react-icons/fa6";
+import { LiaDownloadSolid } from "react-icons/lia";
 import * as XLSX from "xlsx";
 
 const ClickedInfo = () => {
@@ -66,12 +68,15 @@ const ClickedInfo = () => {
         <p className="text-center">No Results Found</p>
       ) : (
         <section className="w-full">
-          <p
+          <div className="w-fit flex items-center gap-0.5 bg-dealbondhu p-2 rounded-sm">
+            <LiaDownloadSolid  className="w-4 h-4 text-white"/>
+<p
             onClick={exportToExcel}
-            className="text-lg my-4 text-[#006A4E] hover:underline cursor-pointer"
+            className=" hover:underline text-sm cursor-pointer text-white"
           >
             {translation[lan].dashboard.clickedInfo.export_this_sheet}
-          </p>
+          </p></div>
+          
           <div className="overflow-x-auto">
             <table className="table table-zebra">
               <thead>

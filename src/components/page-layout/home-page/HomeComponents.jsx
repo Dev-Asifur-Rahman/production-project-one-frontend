@@ -6,6 +6,7 @@ import { FreeMode, Navigation } from "swiper/modules";
 import ProductCard from "@/components/global-layout-components/ProductCard";
 import { useEffect, useRef, useState } from "react";
 import AllProductLink from "@/components/sub-components/home-left-components/AllProductLink";
+import { RiArrowLeftDoubleLine, RiArrowRightDoubleLine } from "react-icons/ri";
 
 const HomeComponents = ({
   componentName = "Enter Name",
@@ -93,23 +94,15 @@ const HomeComponents = ({
             ))}
             <button
               ref={prevRef}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black rounded-full shadow p-2 hover:scale-110 transition"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-dealbondhu/15 rounded-full shadow p-2 hover:scale-110 transition"
             >
-              <img
-                src="/images/left-arrow.png"
-                alt="Previous"
-                className="w-6 aspect-square"
-              />
+              <RiArrowLeftDoubleLine className="w-8 h-8 text-dealbondhu" />
             </button>
             <button
               ref={nextRef}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black rounded-full shadow p-2 hover:scale-110 transition"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-dealbondhu/15 rounded-full shadow p-2 hover:scale-110 transition"
             >
-              <img
-                src="/images/right-arrow.png"
-                alt="Next"
-                className="w-6 aspect-square"
-              />
+              <RiArrowRightDoubleLine className="w-8 h-8 text-dealbondhu" />
             </button>
           </Swiper>
         </>

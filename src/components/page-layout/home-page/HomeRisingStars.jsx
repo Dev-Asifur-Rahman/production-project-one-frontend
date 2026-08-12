@@ -33,14 +33,14 @@ const HomeRisingStars = () => {
     }
   };
   return (
-    <ul className="list bg-base-100 rounded-box shadow-md">
-      <li className="p-4 pb-2 text-base mmd:text-2xl opacity-60 tracking-wide">
+    <ul className="list">
+      <li className={`p-4 pb-2 text-base mmd:text-2xl opacity-60 tracking-wide bg-base-100 rounded-box shadow-md uppercase ${lan === 'en' ? 'font-sans' : 'font-shiliguri'}`}>
         {translation[lan].homeLeftComponent.heading.rising_stars}
       </li>
 
       {risingStars?.slice(0, 5).map((user, index) => {
         return (
-          <li key={index} className="list-row">
+          <li key={index} className="list-row  rounded-box shadow-md bg-base-100 mt-2">
             <div
               className={`text-4xl ${setRankColor(index + 1)} font-medium  tabular-nums`}
             >

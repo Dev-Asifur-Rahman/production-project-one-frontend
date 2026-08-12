@@ -52,7 +52,7 @@ const HomeLeaderBoard = () => {
                 {user?.user_id || "not registered"}
               </div>
             </div>
-            <p className={`text-xs uppercase font-semibold ${lan === 'en' ? 'font-sans' : 'font-shiliguri'}`}>
+            <p className={`text-xs uppercase opacity-60 font-semibold ${lan === 'en' ? 'font-sans' : 'font-shiliguri'}`}>
               {user?.points} Pts
             </p>
           </li>

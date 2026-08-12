@@ -26,7 +26,7 @@ const OfferAndDiscountSlider = () => {
     },
   ];
   return (
-    <section className="w-full">
+    <section className="w-[95%] mx-auto mt-2 lg:mt-0">
       <Swiper
         grabCursor={true}
         effect={"creative"}
@@ -53,7 +53,7 @@ const OfferAndDiscountSlider = () => {
               <img
                 src={banner?.banner_link}
                 alt=""
-                className="w-full aspect-[1/0.5]"
+                className="w-full aspect-[1/0.5] rounded-2xl"
               />
             </SwiperSlide>
           );

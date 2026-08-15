@@ -66,8 +66,13 @@ body {
   -ms-overflow-style: none;
 }
 
-#my_modal_5{
-  
+
+#deal-modal-box {
+  scrollbar-width: none;
+}
+
+#deal-modal-box::-webkit-scrollbar {
+  display: none;
 }
 
 #navbar-search-icon {

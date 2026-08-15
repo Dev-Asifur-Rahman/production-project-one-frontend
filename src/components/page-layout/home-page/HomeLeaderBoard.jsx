@@ -34,7 +34,7 @@ const HomeLeaderBoard = () => {
   };
   return (
     <ul className="list  ">
-      <li className={`p-4 pb-2 text-base mmd:text-2xl opacity-60 tracking-wide bg-base-100 rounded-box shadow-md uppercase ${lan === 'en' ? 'font-sans' : 'font-shiliguri'}`}>
+      <li className={` p-4 pb-2 text-base mmd:text-2xl opacity-60 tracking-wide bg-base-100 rounded-box shadow-md uppercase ${lan === 'en' ? 'font-sans' : 'font-shiliguri'}`}>
         {translation[lan].homeLeftComponent.heading.leaderboard}
       </li>
 

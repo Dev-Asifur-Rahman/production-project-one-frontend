@@ -34,25 +34,39 @@ const HomeRisingStars = () => {
   };
   return (
     <ul className="list">
-      <li className={`p-4 pb-2 text-base mmd:text-2xl opacity-60 tracking-wide bg-base-100 rounded-box shadow-md uppercase ${lan === 'en' ? 'font-sans' : 'font-shiliguri'}`}>
+      <li
+        className={`p-4 pb-2 text-base mmd:text-2xl opacity-60 tracking-wide bg-base-100 rounded-box shadow-md uppercase ${lan === "en" ? "font-sans" : "font-shiliguri"}`}
+      >
         {translation[lan].homeLeftComponent.heading.rising_stars}
       </li>
 
       {risingStars?.slice(0, 5).map((user, index) => {
         return (
-          <li key={index} className="list-row  rounded-box shadow-md bg-base-100 mt-2">
+          <li
+            key={index}
+            className="list-row  rounded-box shadow-md bg-base-100 mt-2"
+          >
             <div
               className={`text-4xl ${setRankColor(index + 1)} font-medium  tabular-nums`}
             >
               {index + 1}
             </div>
             <div className="list-col-grow ">
-              <div>{user?.name}</div>
-              <div title={user?.user_id} className="text-xs uppercase font-semibold opacity-60 line-clamp-1">
+              <div
+                className={`${lan === "en" ? "font-sans" : "font-shiliguri"}`}
+              >
+                {user?.name}
+              </div>
+              <div
+                title={user?.user_id}
+                className={`text-xs uppercase font-semibold opacity-60 line-clamp-1 font-sans ${lan === "en" ? "font-sans" : "font-shiliguri"}`}
+              >
                 {user?.user_id || "not registered"}
               </div>
             </div>
-            <p className="text-xs uppercase font-semibold opacity-60">
+            <p
+              className={`text-xs uppercase opacity-60 font-semibold ${lan === "en" ? "font-sans" : "font-shiliguri"}`}
+            >
               {user?.points} Pts
             </p>
           </li>

@@ -118,7 +118,7 @@ const DealModal = () => {
           }
         }}
       >
-        <div className="modal-box p-3">
+        <div id="deal-modal-box" className="modal-box p-3">
           <form
             id="deal_form"
             onSubmit={submitDealForm}

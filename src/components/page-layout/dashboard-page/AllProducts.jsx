@@ -49,10 +49,10 @@ const AllProducts = () => {
         <div className="overflow-x-auto">
           <table className="table table-zebra">
             <thead>
-              <tr>
-                <th>{translation[lan].common.no}</th>
-                <th>{translation[lan].common.product_name}</th>
-                <th>{translation[lan].common.company}</th>
+              <tr className="text-center">
+                <th className="">{translation[lan].common.no}</th>
+                <th className="w-60">{translation[lan].common.product_name}</th>
+                <th className="">{translation[lan].common.company}</th>
                 <th>{translation[lan].common.category}</th>
                 <th>{translation[lan].common.subcategory}</th>
                 <th>{translation[lan].common.modify}</th>
@@ -62,10 +62,10 @@ const AllProducts = () => {
             <tbody>
               {products?.map((product, index) => {
                 return (
-                  <tr key={index}>
-                    <th>{index + 1}</th>
-                    <td>
-                      <div onClick={()=>{router.push(`/product/${product?._id}`)}} className="line-clamp-2 hover:underline hover:cursor-pointer">{product?.title}</div>
+                  <tr key={index} className="text-center">
+                    <th className="text-center">{index + 1}</th>
+                    <td title={product?.title}>
+                      <div onClick={()=>{router.push(`/product/${product?._id}`)}} className="line-clamp-1 text-start hover:underline hover:cursor-pointer">{product?.title}</div>
                     </td>
                     <td>{product?.company}</td>
                     <td>{product?.category}</td>

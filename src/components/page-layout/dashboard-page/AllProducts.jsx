@@ -68,11 +68,11 @@ const AllProducts = () => {
                       <div onClick={()=>{router.push(`/product/${product?._id}`)}} className="line-clamp-1 text-start hover:underline hover:cursor-pointer">{product?.title}</div>
                     </td>
                     <td>{product?.company}</td>
-                    <td>{product?.category}</td>
-                    <td>{product?.subcategory || "not added"}</td>
+                    <td className="text-nowrap">{product?.category}</td>
+                    <td className="text-nowrap">{product?.subcategory || "not added"}</td>
                     <td
                       onClick={() => handleNavigate(product?._id)}
-                      className="hover:underline hover:cursor-pointer"
+                      className="hover:underline hover:cursor-pointer text-nowrap"
                     >
                       {translation[lan].common.update}
                     </td>

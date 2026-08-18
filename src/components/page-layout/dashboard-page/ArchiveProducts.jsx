@@ -61,9 +61,9 @@ const ArchiveProducts = () => {
           <table className="table table-zebra">
             {/* head */}
             <thead>
-              <tr>
+              <tr className="text-center">
                 <th>{translation[lan].common.no}</th>
-                <th>{translation[lan].common.title}</th>
+                <th className="w-10">{translation[lan].common.title}</th>
                 <th>{translation[lan].common.company}</th>
                 <th>{translation[lan].common.category}</th>
                 <th>{translation[lan].common.subcategory}</th>
@@ -74,16 +74,16 @@ const ArchiveProducts = () => {
             <tbody>
               {archiveProducts?.map((product, index) => {
                 return (
-                  <tr key={index}>
+                  <tr key={index} className="text-center">
                     <th>{index + 1}</th>
-                    <td>
-                      <div className="line-clamp-2">{product?.title}</div>
+                    <td title={product?.title} className="text-start">
+                      <div className="line-clamp-1">{product?.title}</div>
                     </td>
                     <td>{product?.company}</td>
                     <td>{product?.category}</td>
                     <td>{product?.subcategory}</td>
                     <td>{getTimeLeft(product?.deleted_at)}</td>
-                    <td>
+                    <td className="">
                       <div
                         onClick={() => handleDelete(product?._id)}
                         className="flex justify-center hover:cursor-pointer"

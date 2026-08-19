@@ -13,12 +13,12 @@ const ClickedInfo = () => {
   const [search, setSearch] = useState("all");
   const [date, setDate] = useState("");
   const [limit, setLimit] = useState(15);
-  const {lan} = useContext(LanguageContext)
+  const { lan } = useContext(LanguageContext);
 
   useEffect(() => {
     const fetchClickedData = async () => {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/clicked_user_data?search=${search}&date=${date}&limit=${limit}`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/clicked_user_data?search=${search}&date=${date}&limit=${limit}`,
       );
       const result = await res.json();
       setData(result.data || []);
@@ -48,10 +48,12 @@ const ClickedInfo = () => {
   };
 
   return (
-    <div className="w-full lg:w-4/5 mx-auto mb-20">
-      <p className="font-bold text-3xl text-[#006A4E] dark:text-[#F42A41] text-center my-5">{translation[lan].dashboard.clickedInfo.heading}</p>
+    <div className="w-full mb-20">
+      <p className="font-bold text-3xl text-[#006A4E] dark:text-[#F42A41] text-center my-5">
+        {translation[lan].dashboard.clickedInfo.heading}
+      </p>
 
-      <div className="flex flex-col lg:flex-row justify-between items-center gap-4 mb-4">
+      <div className="flex flex-col lg:flex-row justify-between items-center mb-4">
         <DashboardSearchBar setSearch={setSearch} />
         <CalenderSearch setDate={setDate} />
         <input
@@ -62,31 +64,35 @@ const ClickedInfo = () => {
           placeholder="Limit"
           min={1}
         />
+        <div className="w-fit flex items-center gap-0.5 bg-dealbondhu p-2 rounded-sm">
+          <LiaDownloadSolid className="w-4 h-4 text-white" />
+          <p
+            onClick={exportToExcel}
+            className=" hover:underline text-sm cursor-pointer text-white"
+          >
+            {translation[lan].dashboard.clickedInfo.export_this_sheet}
+          </p>
+        </div>
       </div>
 
       {data.length === 0 ? (
         <p className="text-center">No Results Found</p>
       ) : (
-        <section className="w-full">
-          <div className="w-fit flex items-center gap-0.5 bg-dealbondhu p-2 rounded-sm">
-            <LiaDownloadSolid  className="w-4 h-4 text-white"/>
-<p
-            onClick={exportToExcel}
-            className=" hover:underline text-sm cursor-pointer text-white"
-          >
-            {translation[lan].dashboard.clickedInfo.export_this_sheet}
-          </p></div>
-          
+        <section className="w-full border">
           <div className="overflow-x-auto">
             <table className="table table-zebra">
               <thead>
                 <tr className="text-[#006A4E] dark:text-[#F42A41]">
                   <th className="text-center">{translation[lan].common.no}</th>
                   <th>{translation[lan].common.name}</th>
-                  <th className="text-center">{translation[lan].common.company}</th>
+                  <th className="text-center">
+                    {translation[lan].common.company}
+                  </th>
                   <th>{translation[lan].common.device}</th>
                   <th className="text-center">{translation[lan].common.ip}</th>
-                  <th className="text-center">{translation[lan].common.time}</th>
+                  <th className="text-center">
+                    {translation[lan].common.time}
+                  </th>
                   <th>{translation[lan].common.date}</th>
                   <th>{translation[lan].common.country}</th>
                   <th>{translation[lan].common.time_zone}</th>

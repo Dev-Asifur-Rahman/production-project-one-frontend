@@ -80,8 +80,8 @@ const ArchiveProducts = () => {
                       <div className="line-clamp-1">{product?.title}</div>
                     </td>
                     <td>{product?.company}</td>
-                    <td>{product?.category}</td>
-                    <td>{product?.subcategory}</td>
+                    <td className="text-nowrap">{product?.category}</td>
+                    <td className="text-nowrap">{product?.subcategory}</td>
                     <td>{getTimeLeft(product?.deleted_at)}</td>
                     <td className="">
                       <div

@@ -41,7 +41,7 @@ const DashboardSideBar = () => {
         </div>
 
         {/* Right-side content */}
-        <div className="p-4 w-full">
+        <div className="p-4 w-full bg-white dark:bg-inherit">
           {tab === "item1" && <CategoryPage></CategoryPage>}
           {tab === "item2" && <AllProducts></AllProducts>}
           {tab === "item3" && <PendingProducts></PendingProducts>}

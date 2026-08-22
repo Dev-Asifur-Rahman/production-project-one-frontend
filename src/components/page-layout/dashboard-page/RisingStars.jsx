@@ -51,7 +51,7 @@ const RisingStars = () => {
         <section className="w-full">
           <p
             onClick={exportToExcel}
-            className="text-lg my-4 text-dealbondhu hover:underline cursor-pointer"
+            className="text-lg b-4 text-dealbondhu hover:underline cursor-pointer"
           >
             {translation[lan].dashboard.clickedInfo.export_this_sheet}
           </p>

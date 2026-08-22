@@ -48,8 +48,8 @@ const ClickedInfo = () => {
   };
 
   return (
-    <div className="w-full mb-20">
-      <p className="font-bold text-3xl text-dealbondhu dark:text-[#F42A41] text-center my-5">
+    <div className="w-full mb-20 border border-none">
+      <p className="font-bold text-3xl text-dealbondhu dark:text-[#F42A41] text-center mb-5">
         {translation[lan].dashboard.clickedInfo.heading}
       </p>
 

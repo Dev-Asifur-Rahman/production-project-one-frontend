@@ -195,7 +195,7 @@ const translation = {
       clickedInfo: {
         heading: "Clicked Info",
         export_this_sheet: "Export this Sheet",
-        searchbar_placeholder: "Search by name,company",
+        searchbar_placeholder: "Search by Name, Company",
         pick_a_date: "Pick a Date",
       },
       revenue: {

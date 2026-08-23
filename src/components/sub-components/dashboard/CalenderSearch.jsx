@@ -63,7 +63,7 @@ const CalenderSearch = ({ setDate }) => {
         ref={popoverRef}
         popover
         id="cally-popover1"
-        className={`dropdown border bg-base-100 rounded-box shadow-lg absolute z-[200] bottom-0 ${
+        className={`dropdown border bg-base-100 rounded-box shadow-lg absolute z-[200] top-12 ${
           open ? "block" : "hidden"
         }`}
         style={{

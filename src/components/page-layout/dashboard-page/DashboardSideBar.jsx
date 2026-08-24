@@ -11,6 +11,13 @@ import RisingStars from "./RisingStars";
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import translation from "@/utils/translation";
 import Revenue from "./Revenue";
+import { BiSolidCategoryAlt } from "react-icons/bi";
+import { FaBoxOpen, FaCartArrowDown } from "react-icons/fa6";
+import { TbShoppingCartQuestion } from "react-icons/tb";
+import { RiInformationFill } from "react-icons/ri";
+import { AiOutlineRise } from "react-icons/ai";
+import { MdLeaderboard } from "react-icons/md";
+import { HiNewspaper } from "react-icons/hi";
 
 const DashboardSideBar = () => {
   const [tab, setTab] = useState("item1");
@@ -55,45 +62,53 @@ const DashboardSideBar = () => {
 
       <div className="drawer-side">
         <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-        <ul className="menu bg-base-200 min-h-full w-60 p-4">
+        <ul className={`menu bg-base-200 min-h-full w-60 p-4 ${lan === 'en'? 'font-sans font-semibold' : 'font-shiliguri'}`}>
           <li>
             <a onClick={() => handleClick("item1")}>
+              <BiSolidCategoryAlt className="text-base" />
               {translation[lan].dashboard.categories.heading}
             </a>
           </li>
           <li>
             <a onClick={() => handleClick("item2")}>
+              <FaBoxOpen className="text-base"/>
               {translation[lan].dashboard.products.heading}
             </a>
           </li>
           <li>
             <a onClick={() => handleClick("item3")}>
+              <TbShoppingCartQuestion className="text-base" />
               {translation[lan].dashboard.pendingProducts.heading}
             </a>
           </li>
           <li>
             <a onClick={() => handleClick("item4")}>
+              <FaCartArrowDown className="text-base" />
               {translation[lan].dashboard.archiveProducts.heading}
             </a>
           </li>
 
           <li>
             <a onClick={() => handleClick("item6")}>
+              <RiInformationFill className="text-base" />
               {translation[lan].dashboard.clickedInfo.heading}
             </a>
           </li>
           <li>
             <a onClick={() => handleClick("item7")}>
+              <AiOutlineRise className="text-base" />
               {translation[lan].dashboard.risingStars.heading}
             </a>
           </li>
           <li>
             <a onClick={() => handleClick("item8")}>
+              <MdLeaderboard className="text-base" />
               {translation[lan].dashboard.leaderboard.heading}
             </a>
           </li>
           <li>
             <a onClick={() => handleClick("item9")}>
+              <HiNewspaper className="text-base" />
               {translation[lan].dashboard.revenue.heading}
             </a>
           </li>

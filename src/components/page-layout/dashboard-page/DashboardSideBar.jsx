@@ -62,7 +62,7 @@ const DashboardSideBar = () => {
 
       <div className="drawer-side">
         <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-        <ul className={`menu bg-base-200 min-h-full w-60 p-4 ${lan === 'en'? 'font-sans font-semibold' : 'font-shiliguri'}`}>
+        <ul className={`menu bg-base-200 min-h-full w-50 p-2 ${lan === 'en'? 'font-sans font-semibold' : 'font-shiliguri'}`}>
           <li>
             <a onClick={() => handleClick("item1")}>
               <BiSolidCategoryAlt className="text-base" />

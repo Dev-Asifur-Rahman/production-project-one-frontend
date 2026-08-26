@@ -73,7 +73,7 @@ const PendingProducts = () => {
             <thead>
               <tr className="text-center">
                 <th>{translation[lan].common.no}</th>
-                <th className="w-60">{translation[lan].common.title}</th>
+                <th className="w-60 border text-start">{translation[lan].common.title}</th>
                 <th>{translation[lan].common.company}</th>
                 <th>{translation[lan].common.status}</th>
                 <th>{translation[lan].common.validity}</th>
@@ -89,7 +89,7 @@ const PendingProducts = () => {
                   <tr className="text-center" key={index}>
                     <th>{index + 1}</th>
                     <td>
-                      <div className="line-clamp-2">{product?.title} </div>
+                      <div className="line-clamp-1">{product?.title} </div>
                     </td>
                     <td>{product?.company}</td>
                     <td>{product?.status}</td>

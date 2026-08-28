@@ -14,7 +14,7 @@ const translation = {
       submit: "Submit",
       cancel: "Cancel",
       no: "No",
-      title: "Title",
+      title: "Product Name",
       regular_price: "Regular Price",
       offer_price: "Offer Price",
       offer_percent: "Offer Percent",

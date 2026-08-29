@@ -88,7 +88,7 @@ const PendingProducts = () => {
                 return (
                   <tr className="text-center" key={index}>
                     <th>{index + 1}</th>
-                    <td className="text-start">
+                    <td title={product?.title} className="text-start">
                       <div className="line-clamp-1">{product?.title} </div>
                     </td>
                     <td>{product?.company}</td>

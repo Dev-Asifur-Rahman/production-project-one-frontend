@@ -71,7 +71,7 @@ const PendingProducts = () => {
         <div className="overflow-x-auto">
           <table className="table table-zebra">
             <thead>
-              <tr>
+              <tr className="text-center">
                 <th>{translation[lan].common.no}</th>
                 <th className="w-60">{translation[lan].common.title}</th>
                 <th>{translation[lan].common.company}</th>
@@ -86,7 +86,7 @@ const PendingProducts = () => {
             <tbody>
               {pendingProducts?.map((product, index) => {
                 return (
-                  <tr key={index}>
+                  <tr className="text-center" key={index}>
                     <th>{index + 1}</th>
                     <td>
                       <div className="line-clamp-2">{product?.title} </div>

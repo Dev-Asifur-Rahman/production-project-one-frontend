@@ -51,7 +51,7 @@ const AllProducts = () => {
             <thead>
               <tr className="text-center">
                 <th className="">{translation[lan].common.no}</th>
-                <th className="w-60">{translation[lan].common.product_name}</th>
+                <th className="w-60 text-start">{translation[lan].common.product_name}</th>
                 <th className="">{translation[lan].common.company}</th>
                 <th>{translation[lan].common.category}</th>
                 <th>{translation[lan].common.subcategory}</th>

@@ -51,14 +51,14 @@ const RisingStars = () => {
         <section className="w-full">
           <p
             onClick={exportToExcel}
-            className="text-lg my-4 text-[#006A4E] hover:underline cursor-pointer"
+            className="text-lg my-4 text-dealbondhu hover:underline cursor-pointer"
           >
             {translation[lan].dashboard.clickedInfo.export_this_sheet}
           </p>
           <div className="overflow-x-auto">
             <table className="table">
               <thead>
-                <tr className="text-[#006A4E] dark:text-[#F42A41]">
+                <tr className="text-dealbondhu dark:text-[#F42A41]">
                   <th className="text-center">{translation[lan].common.rank}</th>
                   <th>Name</th>
                   <th className="text-center">{translation[lan].common.monthly_point}</th>

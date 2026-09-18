@@ -2,7 +2,6 @@
 import { LanguageContext } from "@/context/GlobalLanguageProvider";
 import translation from "@/utils/translation";
 import { useContext } from "react";
-import { BsSearch } from "react-icons/bs";
 
 const DashboardSearchBar = ({ setSearch }) => {
   const {lan} = useContext(LanguageContext)
@@ -13,15 +12,14 @@ const DashboardSearchBar = ({ setSearch }) => {
   };
 
   return (
-    <div className="relative w-3/6 h-8 mmd:h-9 md:h-10 mx-auto mb-5">
+    <div className="w-fit h-fit">
       <input
         onChange={handleSearch}
         type="text"
         placeholder={translation[lan].dashboard.clickedInfo.searchbar_placeholder}
-        className="input w-full h-full rounded-2xl smd:rounded-4xl focus:outline-none focus:ring-0 lg:pl-6 mmd:pl-3 pl-4"
+        className="input w-60 lg:w-44 focus:outline-none focus:ring-0"
       />
 
-      <BsSearch className="absolute cursor-pointer smd:w-6 w-4 smd:h-6 h-4 top-1/2 right-[4%] mmd:right-[2%] -translate-y-1/2" />
     </div>
   );
 };

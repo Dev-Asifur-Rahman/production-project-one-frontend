@@ -49,21 +49,23 @@ const ClickedInfo = () => {
 
   return (
     <div className="w-full mb-20">
-      <p className="font-bold text-3xl text-[#006A4E] dark:text-[#F42A41] text-center my-5">
+      <p className="font-bold text-3xl text-dealbondhu dark:text-[#F42A41] text-center my-5">
         {translation[lan].dashboard.clickedInfo.heading}
       </p>
 
-      <div className="flex flex-col lg:flex-row justify-between items-center mb-4">
+      <div className=" mb-4 flex flex-col lg:flex-row gap-3 lg:gap-0 lg:justify-evenly items-center">
         <DashboardSearchBar setSearch={setSearch} />
         <CalenderSearch setDate={setDate} />
-        <input
-          type="number"
-          className="input input-bordered w-32"
-          value={limit}
-          onChange={(e) => setLimit(Number(e.target.value))}
-          placeholder="Limit"
-          min={1}
-        />
+        <div>
+          <input
+            type="number"
+            className="input input-bordered focus:outline-none focus:ring-0 w-60 lg:w-44"
+            value={limit}
+            onChange={(e) => setLimit(Number(e.target.value))}
+            placeholder="Limit"
+            min={1}
+          />
+        </div>
         <div className="w-fit flex items-center gap-0.5 bg-dealbondhu p-2 rounded-sm">
           <LiaDownloadSolid className="w-4 h-4 text-white" />
           <p
@@ -78,19 +80,19 @@ const ClickedInfo = () => {
       {data.length === 0 ? (
         <p className="text-center">No Results Found</p>
       ) : (
-        <section className="w-full border">
+        <section className="w-full ">
           <div className="overflow-x-auto">
             <table className="table table-zebra">
               <thead>
-                <tr className="text-[#006A4E] dark:text-[#F42A41]">
+                <tr className="text-dealbondhu dark:text-[#F42A41]">
                   <th className="text-center">{translation[lan].common.no}</th>
                   <th>{translation[lan].common.name}</th>
                   <th className="text-center">
                     {translation[lan].common.company}
                   </th>
                   <th>{translation[lan].common.device}</th>
-                  <th className="text-center">{translation[lan].common.ip}</th>
-                  <th className="text-center">
+                  <th className="">{translation[lan].common.ip}</th>
+                  <th className="">
                     {translation[lan].common.time}
                   </th>
                   <th>{translation[lan].common.date}</th>

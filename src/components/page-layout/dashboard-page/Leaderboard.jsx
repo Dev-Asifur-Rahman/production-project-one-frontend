@@ -39,7 +39,7 @@ const Leaderboard = () => {
         <div className="overflow-x-auto">
           <table className="table">
             <thead>
-              <tr className="text-[#006A4E] dark:text-[#F42A41]">
+              <tr className="text-dealbondhu dark:text-[#F42A41]">
                 <th className="text-center">{translation[lan].common.rank}</th>
                 <th>{translation[lan].common.name}</th>
                 <th className="text-center">{translation[lan].common.point}</th>

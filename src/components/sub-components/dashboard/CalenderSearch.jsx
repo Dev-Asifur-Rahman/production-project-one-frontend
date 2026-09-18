@@ -50,10 +50,10 @@ const CalenderSearch = ({ setDate }) => {
     : `${translation[lan].dashboard.clickedInfo.pick_a_date}`;
 
   return (
-    <div className="w-full flex justify-center p-4 relative">
+    <div className="w-fit flex justify-center relative">
       <button
         id="cally1"
-        className="input input-bordered relative z-10"
+        className="input input-bordered focus:outline-none focus:ring-0 relative z-10 w-60 lg:w-44"
         onClick={() => setOpen((prev) => !prev)}
       >
         {displayDate}
@@ -63,7 +63,7 @@ const CalenderSearch = ({ setDate }) => {
         ref={popoverRef}
         popover
         id="cally-popover1"
-        className={`dropdown bg-base-100 rounded-box shadow-lg mt-2 absolute z-[200] ${
+        className={`dropdown border bg-base-100 rounded-box shadow-lg absolute z-[200] bottom-0 ${
           open ? "block" : "hidden"
         }`}
         style={{

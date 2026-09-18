@@ -41,7 +41,7 @@ const DashboardSideBar = () => {
         </div>
 
         {/* Right-side content */}
-        <div className=" w-full bg-white dark:bg-inherit min-h-screen border">
+        <div className=" w-full bg-white dark:bg-inherit min-h-screen">
           {tab === "item1" && <CategoryPage></CategoryPage>}
           {tab === "item2" && <AllProducts></AllProducts>}
           {tab === "item3" && <PendingProducts></PendingProducts>}

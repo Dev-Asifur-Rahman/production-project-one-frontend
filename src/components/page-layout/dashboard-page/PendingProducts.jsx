@@ -73,7 +73,7 @@ const PendingProducts = () => {
             <thead>
               <tr>
                 <th>{translation[lan].common.no}</th>
-                <th>{translation[lan].common.title}</th>
+                <th className="w-60">{translation[lan].common.title}</th>
                 <th>{translation[lan].common.company}</th>
                 <th>{translation[lan].common.status}</th>
                 <th>{translation[lan].common.validity}</th>

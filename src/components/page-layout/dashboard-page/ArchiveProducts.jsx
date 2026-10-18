@@ -63,7 +63,7 @@ const ArchiveProducts = () => {
             <thead>
               <tr className="text-center">
                 <th>{translation[lan].common.no}</th>
-                <th className="">{translation[lan].common.title}</th>
+                <th className="border w-60 text-start">{translation[lan].common.title}</th>
                 <th>{translation[lan].common.company}</th>
                 <th>{translation[lan].common.category}</th>
                 <th>{translation[lan].common.subcategory}</th>

@@ -86,7 +86,7 @@ const ClickedInfo = () => {
               <thead>
                 <tr className="text-dealbondhu dark:text-[#F42A41]">
                   <th className="text-center">{translation[lan].common.no}</th>
-                  <th>{translation[lan].common.name}</th>
+                  <th className=" w-48">{translation[lan].common.name}</th>
                   <th className="text-center">
                     {translation[lan].common.company}
                   </th>
@@ -105,7 +105,7 @@ const ClickedInfo = () => {
                   <tr key={item._id}>
                     <th className="text-center">{index + 1}</th>
                     <td>
-                      <div className="line-clamp-2">{item.product_name}</div>
+                      <div className="line-clamp-1">{item.product_name}</div>
                     </td>
                     <td className="text-center">{item.company}</td>
                     <td>{item.device}</td>

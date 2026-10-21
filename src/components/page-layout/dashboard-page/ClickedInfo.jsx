@@ -91,7 +91,7 @@ const ClickedInfo = () => {
                     {translation[lan].common.company}
                   </th>
                   <th>{translation[lan].common.device}</th>
-                  <th className="">{translation[lan].common.ip}</th>
+                  <th className="text-center">{translation[lan].common.ip}</th>
                   <th className="">
                     {translation[lan].common.time}
                   </th>

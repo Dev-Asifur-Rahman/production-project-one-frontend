@@ -115,7 +115,7 @@ const ClickedInfo = () => {
                         timeZone: "Asia/Dhaka",
                       })}
                     </td>
-                    <td>{new Date(item.date).toLocaleDateString()}</td>
+                    <td className="text-center">{new Date(item.date).toLocaleDateString()}</td>
                     <td>{item.geo?.country || ""}</td>
                     <td>{item.geo?.timezone || ""}</td>
                   </tr>

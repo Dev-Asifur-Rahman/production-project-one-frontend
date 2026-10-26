@@ -97,7 +97,7 @@ const ClickedInfo = () => {
                   </th>
                   <th className="text-center">{translation[lan].common.date}</th>
                   <th className="text-center">{translation[lan].common.country}</th>
-                  <th>{translation[lan].common.time_zone}</th>
+                  <th className="text-center">{translation[lan].common.time_zone}</th>
                 </tr>
               </thead>
               <tbody>

@@ -40,7 +40,9 @@ const Revenue = () => {
                   return (
                     <tr key={index}>
                       <th className="text-center">{index + 1}</th>
-                      <td>{product?.title}</td>
+                      <td>
+                        <div className="line-clamp-1">{product?.title}</div>
+                      </td>
                       <td className="text-center">{product?.company}</td>
                       <td className="text-center">{product?.total_users}</td>
                       <td className="text-center">

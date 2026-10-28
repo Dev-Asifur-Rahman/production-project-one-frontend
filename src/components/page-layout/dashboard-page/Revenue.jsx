@@ -26,7 +26,7 @@ const Revenue = () => {
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Product Name</th>
+                  <th className="w-60">Product Name</th>
                   <th>Company</th>
                   <th>People Viewed</th>
                   <th>Price</th>

@@ -52,7 +52,11 @@ const Revenue = () => {
                         {product?.revenue_estimate?.total_bdt}
                       </td>
                       <td>{product?.category}</td>
-                      <td>{product?.subcategory}</td>
+                      <td>
+                        <div className="line-clamp-1">
+                          {product?.subcategory}
+                        </div>{" "}
+                      </td>
                     </tr>
                   );
                 })}
